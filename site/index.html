@@ -4,984 +4,1040 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>EaseMyDisease — Medical help, the moment you need it</title>
-<meta name="description" content="EaseMyDisease puts emergency SOS, your encrypted health vault, an interactive 3D body map, and doctors on call into one calm app. HIPAA-compliant, end-to-end encrypted, built for the whole family.">
-<link rel="icon" type="image/png" href="assets/logo-128.png">
+<meta name="description" content="EaseMyDisease puts one-touch emergency SOS, your end-to-end encrypted health vault, an interactive body map, doctors on call and medication tracking into one calm app. HIPAA-compliant and built for the whole family.">
+<meta name="theme-color" content="#dc2626">
+<meta property="og:title" content="EaseMyDisease — Medical help, the moment you need it">
+<meta property="og:description" content="Emergency response, your health records, and doctors on call — all in one calm place.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/logos/logo-circle-light.png">
+<link rel="icon" type="image/png" href="assets/logos/logo-128.png">
+<link rel="apple-touch-icon" href="assets/logos/logo-256.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- ===================== NAV ===================== -->
-<header class="nav">
-  <div class="nav-in">
-    <a class="brand" href="#top"><img src="assets/logo-256.png" alt="EaseMyDisease logo">Ease<b>My</b>Disease</a>
-    <nav class="nav-links">
+<!-- ============================== HEADER ============================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a class="brand" href="#top"><img src="assets/logos/logo-circle-light.png" alt="EaseMyDisease logo">Ease<b>My</b>Disease</a>
+    <nav class="nav-links" aria-label="Primary">
       <a href="#sos">SOS</a>
+      <a href="#vault">Health Vault</a>
       <a href="#body">Body Map</a>
-      <a href="#vault">Vault</a>
       <a href="#doctors">Doctors</a>
       <a href="#meds">Meds</a>
       <a href="#security">Security</a>
       <a href="#screens">Every screen</a>
     </nav>
-    <div class="nav-right">
-      <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode">
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode">
         <i class="bi bi-sun-fill"></i><i class="bi bi-moon-stars-fill"></i>
       </button>
-      <a href="#download" class="btn btn-primary nav-cta"><i class="bi bi-download"></i> Get the app</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i class="bi bi-list"></i></button>
+      <a href="#download" class="btn btn-primary"><i class="bi bi-download"></i> Get the app</a>
     </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><i class="bi bi-list"></i></button>
   </div>
 </header>
 
 <!-- mobile drawer -->
-<div class="drawer" id="drawer">
+<div class="drawer" id="drawer" aria-hidden="true">
   <div class="drawer-top">
-    <a class="brand" href="#top">Ease<b>My</b>Disease</a>
-    <button class="theme-toggle" style="margin-left:auto" id="drawerClose" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
+    <a class="brand" href="#top"><img src="assets/logos/logo-circle-light.png" alt="">Ease<b>My</b>Disease</a>
+    <button class="x" id="drawerClose" aria-label="Close menu"><i class="bi bi-x-lg"></i></button>
   </div>
   <a href="#sos">SOS Emergency</a>
-  <a href="#body">3D Body Map</a>
   <a href="#vault">Health Vault</a>
-  <a href="#doctors">Consult a Doctor</a>
+  <a href="#body">Body Map</a>
+  <a href="#doctors">Doctors on call</a>
   <a href="#meds">Medications</a>
-  <a href="#security">Privacy &amp; Security</a>
+  <a href="#family">Family &amp; profile</a>
+  <a href="#security">Security</a>
   <a href="#screens">Every screen</a>
-  <a href="#download" class="btn btn-primary"><i class="bi bi-download"></i> Get the app</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#download" class="btn btn-primary btn-block"><i class="bi bi-download"></i> Get the app</a>
 </div>
 
-<a id="top"></a>
+<main id="main">
 
-<!-- ===================== HERO ===================== -->
-<section class="hero">
-  <div class="hero-in">
+<!-- ============================== HERO ============================== -->
+<section class="hero section">
+  <div class="container hero-grid">
     <div class="hero-copy reveal">
-      <span class="eyebrow">Emergency · Records · Doctors · in one place</span>
-      <h1>Medical help,<br><em>the moment you need it.</em></h1>
-      <p class="lead">EaseMyDisease brings one-touch emergency SOS, your encrypted health vault, an interactive body map, and doctors on call together in one calm, human app — for you and everyone you care for.</p>
-      <div class="store-badges">
-        <a class="store-badge" href="#download"><i class="bi bi-apple"></i><span><small>Download on the</small><b>App Store</b></span></a>
-        <a class="store-badge" href="#download"><i class="bi bi-google-play"></i><span><small>Get it on</small><b>Google Play</b></span></a>
+      <span class="eyebrow">Your calm in a crisis</span>
+      <h1 style="margin-top:14px">Medical help, <span class="grad">the moment you need it.</span></h1>
+      <p class="hero-lede">Emergency response, your health records, and doctors on call — all in one calm place. End-to-end encrypted, HIPAA-compliant, and built for your whole family.</p>
+      <div class="hero-cta">
+        <a href="#download" class="btn btn-primary"><i class="bi bi-shield-fill-check"></i> Get protected now</a>
+        <a href="#sos" class="btn btn-ghost"><i class="bi bi-play-circle"></i> See how SOS works</a>
       </div>
       <div class="hero-trust">
-        <span><i class="bi bi-lightning-charge-fill"></i> Sub-10 min SOS response</span>
-        <span><i class="bi bi-shield-fill-check"></i> HIPAA-compliant vault</span>
-        <span><i class="bi bi-lock-fill"></i> End-to-end encrypted</span>
+        <span><i class="bi bi-lightning-charge-fill"></i> Sub-10 minute SOS response</span>
+        <span><i class="bi bi-shield-lock-fill"></i> HIPAA-compliant vault</span>
+        <span><i class="bi bi-camera-video-fill"></i> Video consult in under 7 min</span>
       </div>
     </div>
 
-    <div class="hero-art reveal">
-      <div class="hero-blob"></div>
-
-      <!-- HERO PHONE: HOME DASHBOARD -->
-      <div class="phone">
+    <div class="hero-phones reveal d1">
+      <!-- PHONE 1 — Home dashboard -->
+      <div class="phone" aria-label="EaseMyDisease home dashboard">
         <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="statusbar"><span>9:41</span><span class="right"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
-          <div class="scr">
-            <div class="m-head" style="justify-content:space-between">
-              <div class="row" style="padding:0;gap:10px">
-                <div class="av purple" style="width:40px;height:40px">JP</div>
-                <div><div style="font-size:11px;color:var(--fg-muted)">Good morning,</div>
-                  <div style="font-family:var(--font-display);font-weight:800;font-size:17px">Jordan</div></div>
+          <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+          <div class="scroll has-tabs">
+            <div class="m-largehead" style="padding-top:8px">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="avatar" style="width:40px;height:40px;border-radius:13px;font-size:15px">JP</div>
+                  <div><p class="greeting" style="margin:0">Good morning,</p><h1 style="font-size:19px">Jordan 👋</h1></div>
+                </div>
+                <div class="m-iconbtn"><i class="bi bi-bell"></i></div>
               </div>
-              <div class="m-ib"><i class="bi bi-bell"></i></div>
             </div>
-            <div class="scr-body" style="overflow:hidden">
-              <!-- health card -->
-              <div class="health-card">
-                <div class="score">82<small> / 100</small></div>
-                <div class="lbl">Health score · trending up</div>
-                <div class="ring" style="--rs:6px;width:54px;height:54px;background:conic-gradient(#16a34a 82%,rgba(255,255,255,.12) 0)">
-                  <span class="rc" style="background:#16130f;color:#22c55e"><i class="bi bi-activity"></i></span>
+            <div class="rings-card">
+              <div class="head">
+                <div>
+                  <div class="score">82<small> / 100</small></div>
+                  <p class="lbl">Health score · trending up</p>
                 </div>
-                <div class="rings-row">
-                  <div class="ring-chip"><div class="rv" style="color:#f87171">76</div><div class="rk">Heart</div></div>
-                  <div class="ring-chip"><div class="rv" style="color:#fbbf24">64</div><div class="rk">Move</div></div>
-                  <div class="ring-chip"><div class="rv" style="color:#4ade80">In&nbsp;range</div><div class="rk">Glucose</div></div>
-                </div>
-                <div class="hint"><i class="bi bi-hand-index-thumb"></i> Tap to open your interactive body map</div>
+                <svg class="ring-svg" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="3.4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#16a34a" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="17.5" transform="rotate(-90 18 18)"/></svg>
               </div>
-              <!-- quick grid -->
+              <div class="rings-row">
+                <div class="ring-chip"><svg class="ring-mini" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#f87171" stroke-width="4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="23" transform="rotate(-90 18 18)"/></svg><span class="v">76</span><span class="k">Heart</span></div>
+                <div class="ring-chip"><svg class="ring-mini" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="35" transform="rotate(-90 18 18)"/></svg><span class="v">64</span><span class="k">Move</span></div>
+                <div class="ring-chip"><svg class="ring-mini" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#4ade80" stroke-width="4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="20" transform="rotate(-90 18 18)"/></svg><span class="v">112</span><span class="k">Glucose</span></div>
+              </div>
+              <p class="tapnote"><i class="bi bi-hand-index-thumb"></i> Tap to open your interactive body map</p>
+            </div>
+            <div class="m-section">
               <div class="quick-grid">
-                <div class="quick"><span class="qi tone-red"><i class="bi bi-heart-pulse-fill"></i></span><span class="ql">SOS</span></div>
-                <div class="quick"><span class="qi tone-purple"><i class="bi bi-calendar-plus-fill"></i></span><span class="ql">Book</span></div>
-                <div class="quick"><span class="qi tone-blue"><i class="bi bi-person-bounding-box"></i></span><span class="ql">Body 3D</span></div>
-                <div class="quick"><span class="qi tone-green"><i class="bi bi-capsule"></i></span><span class="ql">Meds</span></div>
+                <div class="quick"><span class="qi ico tone-red"><i class="bi bi-heart-pulse-fill"></i></span><span class="ql">SOS</span></div>
+                <div class="quick"><span class="qi ico tone-purple"><i class="bi bi-calendar-plus"></i></span><span class="ql">Book</span></div>
+                <div class="quick"><span class="qi ico tone-blue"><i class="bi bi-person-bounding-box"></i></span><span class="ql">Body 3D</span></div>
+                <div class="quick"><span class="qi ico tone-green"><i class="bi bi-capsule"></i></span><span class="ql">Meds</span></div>
               </div>
-              <div class="seclbl">Up next <a>All</a></div>
+            </div>
+            <div class="m-section">
+              <div class="m-section-head"><h2>Up next</h2><span class="link">All</span></div>
               <div class="up-card">
-                <div class="av blue" style="width:40px;height:40px">AR</div>
-                <div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13px">Dr. Amita Rao</div>
-                  <div style="font-size:11px;color:var(--fg-muted)">Cardiology follow-up</div></div>
-                <div style="text-align:right"><div style="font-family:var(--font-display);font-weight:800;font-size:13px;color:var(--accent-text)">3:00 PM</div>
-                  <div style="font-size:10px;color:var(--fg-muted)">Tue, May 25</div></div>
+                <div class="avatar blue" style="width:40px;height:40px;border-radius:13px;font-size:14px">AR</div>
+                <div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13.5px">Dr. Amita Rao</div><div style="font-size:11.5px;color:var(--fg-muted)">Cardiology follow-up</div></div>
+                <div style="text-align:right"><div style="font-family:var(--font-display);font-weight:800;color:var(--accent-text);font-size:13px">3:00 PM</div><div style="font-size:10.5px;color:var(--fg-muted)">Tue, May 25</div></div>
               </div>
             </div>
-            <!-- tab bar -->
-            <div class="tabbar">
-              <div class="tab on"><i class="bi bi-house-door-fill"></i>Home</div>
-              <div class="tab"><i class="bi bi-folder-fill"></i>Records</div>
-              <div class="tab-sos"><i class="bi bi-heart-pulse-fill"></i></div>
-              <div class="tab"><i class="bi bi-chat-dots-fill"></i>Doctors</div>
-              <div class="tab"><i class="bi bi-person-fill"></i>You</div>
+            <div class="m-section">
+              <div class="m-section-head"><h2>Today's medications</h2><span class="link">Manage</span></div>
+              <div class="rx-card">
+                <div class="pillico ico tone-purple"><i class="bi bi-capsule"></i></div>
+                <div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13.5px">Metformin · 500 mg</div><div style="font-size:11.5px;color:var(--fg-muted)">Twice daily</div></div>
+                <span class="m-status green"><i class="bi bi-check-lg"></i> Taken</span>
+              </div>
             </div>
           </div>
+          <nav class="tabbar">
+            <div class="tab active"><i class="bi bi-house-door-fill"></i>Home</div>
+            <div class="tab"><i class="bi bi-folder2"></i>Records</div>
+            <div class="tab sos"><span class="sos-dot"><i class="bi bi-heart-pulse-fill"></i></span><span>SOS</span></div>
+            <div class="tab"><i class="bi bi-chat-square-text"></i>Doctors</div>
+            <div class="tab"><i class="bi bi-person"></i>You</div>
+          </nav>
           <div class="home-indicator"></div>
         </div>
       </div>
 
-      <div class="float-card fc-1"><span class="ic tone-red"><i class="bi bi-heart-pulse-fill"></i></span><div>Help dispatched<small>ETA 6 min · EMS-04</small></div></div>
-      <div class="float-card fc-2"><span class="ic tone-blue"><i class="bi bi-shield-fill-check"></i></span><div>Vault synced<small>247 records encrypted</small></div></div>
-      <div class="float-card fc-3"><span class="ic tone-green"><i class="bi bi-clipboard-pulse-fill"></i></span><div>New lab result<small>Lipid panel · Normal</small></div></div>
+      <!-- PHONE 2 — SOS active -->
+      <div class="phone" aria-hidden="true">
+        <div class="phone-screen bleed">
+          <div class="statusbar light"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+          <div class="scroll" style="padding-top:0">
+            <div class="sos-band band-red band-glow">
+              <div class="m-header transparent" style="padding:30px 2px 6px"><div class="m-iconbtn light"><i class="bi bi-chevron-left"></i></div><div class="m-header-title light">Emergency in progress</div><div class="m-iconbtn light"><i class="bi bi-three-dots"></i></div></div>
+              <span class="dispatch"><span class="dot"></span> Dispatching</span>
+              <h2>Help is on the way</h2>
+              <div class="eta">ETA <strong>6 min 24 sec</strong> · Mercy General EMS-04</div>
+              <div class="mapbox">
+                <svg viewBox="0 0 280 120" width="100%" height="100%"><path d="M10 90 Q90 70 130 40 T270 20" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2"/><path d="M30 110 L150 70 L260 95" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="2"/><path d="M90 30 L120 75" stroke="#f87171" stroke-width="2" stroke-dasharray="5 5"/><circle cx="120" cy="78" r="7" fill="#dc2626" stroke="#fff" stroke-width="2"/><circle cx="90" cy="30" r="6" fill="#3b82f6" stroke="#fff" stroke-width="2"/></svg>
+                <div style="position:absolute;left:10px;bottom:8px;background:rgba(0,0,0,.4);color:#fff;font-size:10px;padding:3px 8px;border-radius:99px"><i class="bi bi-geo-alt-fill"></i> 415 Mission St</div>
+              </div>
+            </div>
+            <div class="m-section" style="margin-top:4px">
+              <div class="m-list">
+                <div class="m-list-row"><div class="ico tone-blue"><i class="bi bi-person-arms-up"></i></div><div class="meta"><p class="t">Dr. Marcus Rivera</p><p class="s">EMT-Paramedic · Mercy General</p></div><span class="trailing">2.4 mi</span></div>
+                <div class="m-list-row"><div class="ico tone-red"><i class="bi bi-truck"></i></div><div class="meta"><p class="t">EMS-04</p><p class="s">Ambulance dispatched · 6:42 PM</p></div><span class="trailing">6 min</span></div>
+                <div class="m-list-row"><div class="ico tone-green"><i class="bi bi-telephone-forward-fill"></i></div><div class="meta"><p class="t">Call dispatcher</p><p class="s">Direct line to your responder</p></div><i class="bi bi-chevron-right chev"></i></div>
+              </div>
+            </div>
+            <div class="m-section">
+              <div class="m-banner info"><i class="bi bi-shield-fill-check"></i><div><span class="t">Sharing automatically</span>Your live location, vitals, allergies and emergency contacts have been sent to the responder.</div></div>
+            </div>
+            <div class="m-section"><button class="m-btn secondary block"><i class="bi bi-x-circle" style="color:var(--accent)"></i> Cancel emergency</button></div>
+          </div>
+          <div class="home-indicator light"></div>
+        </div>
+      </div>
+
+      <div class="float-badge b1"><span class="dot" style="background:linear-gradient(135deg,#f87171,#dc2626)"><i class="bi bi-heart-pulse-fill"></i></span> SOS dispatched</div>
+      <div class="float-badge b2"><span class="dot" style="background:linear-gradient(135deg,#4ade80,#15803d)"><i class="bi bi-shield-fill-check"></i></span> Vault encrypted</div>
     </div>
   </div>
 </section>
 
-<!-- ===================== STAT STRIP ===================== -->
-<div class="stripe">
-  <div class="stats reveal">
-    <div class="stat"><div class="n">&lt;<em>10</em> min</div><div class="l">Average SOS dispatch to your door</div></div>
-    <div class="stat"><div class="n"><em>247</em></div><div class="l">Records in a single encrypted vault</div></div>
-    <div class="stat"><div class="n">&lt;<em>7</em> min</div><div class="l">To a doctor on a live video consult</div></div>
-    <div class="stat"><div class="n"><em>6</em></div><div class="l">Body systems scored from your data</div></div>
-  </div>
-</div>
-
-<!-- ===================== INTRO / FOUR SURFACES ===================== -->
-<section class="sec" id="features">
-  <div class="sec-head reveal">
-    <span class="eyebrow">One app, four lifelines</span>
-    <h2>Not another cold medical app.</h2>
-    <p class="lead">Most health apps feel like a filing cabinet. EaseMyDisease feels like a caregiver in your pocket — warm, fast, and ready the second something goes wrong. Here is every feature, screen by screen.</p>
-  </div>
-  <div class="pillars reveal">
-    <div class="pillar"><span class="pi tone-red"><i class="bi bi-heart-pulse-fill"></i></span><h4>Emergency SOS</h4><p>Hold one button for three seconds and trained responders, your live location, vitals and contacts are on their way.</p></div>
-    <div class="pillar"><span class="pi tone-blue"><i class="bi bi-folder-fill"></i></span><h4>Health Vault</h4><p>Every lab, scan, prescription and visit — auto-read by OCR, organised, and shared securely only when you choose.</p></div>
-    <div class="pillar"><span class="pi tone-purple"><i class="bi bi-chat-dots-fill"></i></span><h4>Consult Doctors</h4><p>Find a specialist available now, book in seconds, and meet over video with live translation and notes saved to your vault.</p></div>
+<!-- ============================== TRUST STRIP ============================== -->
+<section class="trust-strip">
+  <div class="container">
+    <p>Built on healthcare-grade standards</p>
+    <div class="logo-row">
+      <span><i class="bi bi-shield-lock-fill"></i> HIPAA Compliant</span>
+      <span><i class="bi bi-file-earmark-lock2-fill"></i> End-to-end encrypted</span>
+      <span><i class="bi bi-hospital-fill"></i> FHIR interoperable</span>
+      <span><i class="bi bi-fingerprint"></i> Biometric lock</span>
+      <span><i class="bi bi-translate"></i> EN · ES · HI</span>
+    </div>
   </div>
 </section>
 
-<!-- ===================== FEATURE: SOS ===================== -->
-<section class="sec" id="sos" style="background:var(--bg-1);border-top:var(--hairline);border-bottom:var(--hairline)">
-  <div class="feature reveal">
-    <div class="feat-media">
-      <!-- SOS HOME -->
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="statusbar"><span>9:41</span><span class="right"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
-          <div class="scr">
-            <div class="m-head"><div class="m-ib"><i class="bi bi-list"></i></div><div class="ttl">SOS Emergency</div><div class="m-ib"><i class="bi bi-bell"></i></div></div>
-            <div class="scr-body" style="overflow:hidden">
+<!-- ============================== PILLARS ============================== -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">One app · five lifelines</span>
+      <h2>Everything your health needs, in one calm place</h2>
+      <p>From a life-threatening emergency to a routine prescription refill — every flow is one tap away, and every record stays encrypted and yours.</p>
+    </div>
+    <div class="feature-cards">
+      <div class="fcard reveal"><div class="ico tone-red"><i class="bi bi-heart-pulse-fill"></i></div><h3>SOS Emergency</h3><p>Hold for 3 seconds to dispatch help with your live location, medical profile and contacts — automatically.</p><span class="tag">Hold-to-dispatch →</span></div>
+      <div class="fcard reveal d1"><div class="ico tone-blue"><i class="bi bi-folder-fill"></i></div><h3>Health Vault</h3><p>247 records, encrypted and searchable. Scan anything and OCR files it in the right category instantly.</p><span class="tag">Records &amp; OCR →</span></div>
+      <div class="fcard reveal d2"><div class="ico tone-green"><i class="bi bi-person-bounding-box"></i></div><h3>Interactive Body Map</h3><p>Tap any organ to see a function &amp; fitness score blended from your latest labs, vitals and wearables.</p><span class="tag">Explore in 3D →</span></div>
+      <div class="fcard reveal"><div class="ico tone-purple"><i class="bi bi-chat-dots-fill"></i></div><h3>Doctors on call</h3><p>Find, book and video-consult a doctor in minutes — with live translation and notes synced to your vault.</p><span class="tag">Book a consult →</span></div>
+      <div class="fcard reveal d1"><div class="ico tone-blue"><i class="bi bi-capsule"></i></div><h3>Medications</h3><p>Track adherence, get refill alerts before you run out, and set a daily reminder schedule per medication.</p><span class="tag">Adherence &amp; refills →</span></div>
+      <div class="fcard reveal d2"><div class="ico tone-green"><i class="bi bi-people-fill"></i></div><h3>Family vaults</h3><p>One account for the people you care for. Manage records, meds and emergencies and switch profiles anytime.</p><span class="tag">Whole-family care →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FEATURE: HEALTH SCORE / HOME ============================== -->
+<section class="section section--tint" id="home">
+  <div class="container">
+    <div class="feature reveal">
+      <div class="feature-media">
+        <div class="glow" style="background:radial-gradient(circle,#16a34a,transparent 70%)"></div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll has-tabs">
+              <div class="m-largehead" style="padding-top:8px"><p class="greeting">Good morning,</p><h1>Jordan 👋</h1></div>
+              <div class="rings-card">
+                <div class="head"><div><div class="score">82<small> / 100</small></div><p class="lbl">Health score · trending up</p></div>
+                <svg class="ring-svg" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="3.4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#16a34a" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="17.5" transform="rotate(-90 18 18)"/></svg></div>
+                <div class="rings-row">
+                  <div class="ring-chip"><svg class="ring-mini" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#f87171" stroke-width="4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="23" transform="rotate(-90 18 18)"/></svg><span class="v">76</span><span class="k">Heart</span></div>
+                  <div class="ring-chip"><svg class="ring-mini" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="35" transform="rotate(-90 18 18)"/></svg><span class="v">64</span><span class="k">Move</span></div>
+                  <div class="ring-chip"><svg class="ring-mini" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#4ade80" stroke-width="4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="20" transform="rotate(-90 18 18)"/></svg><span class="v">112</span><span class="k">Glucose</span></div>
+                </div>
+                <p class="tapnote"><i class="bi bi-hand-index-thumb"></i> Tap to open your interactive body map</p>
+              </div>
+              <div class="m-section">
+                <div class="m-card" style="background:linear-gradient(135deg,rgba(22,163,74,.12),rgba(22,163,74,.03));border-color:rgba(22,163,74,.2);display:flex;align-items:center;gap:11px">
+                  <div class="ico tone-green" style="width:38px;height:38px"><i class="bi bi-apple"></i></div>
+                  <div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13.5px">Today's meal plan</div><div style="font-size:11.5px;color:var(--fg-muted)">1,820 kcal · tuned for diabetes</div></div>
+                  <i class="bi bi-chevron-right chev"></i>
+                </div>
+              </div>
+              <div class="m-section">
+                <div class="m-section-head"><h2>Recent activity</h2></div>
+                <div class="timeline">
+                  <div class="tl-item blue"><div class="when">Today · 9:02 AM</div><div class="what">Lipid panel uploaded &amp; OCR'd</div><span class="link blue">View result</span></div>
+                  <div class="tl-item green"><div class="when">Yesterday</div><div class="what">Shared records with Dr. Rao</div><span class="muted" style="font-size:11px">Cardiology · expires in 7 days</span></div>
+                  <div class="tl-item"><div class="when">Sat · 9:14 PM</div><div class="what">SOS test alert — resolved</div></div>
+                </div>
+              </div>
+            </div>
+            <nav class="tabbar"><div class="tab active"><i class="bi bi-house-door-fill"></i>Home</div><div class="tab"><i class="bi bi-folder2"></i>Records</div><div class="tab sos"><span class="sos-dot"><i class="bi bi-heart-pulse-fill"></i></span><span>SOS</span></div><div class="tab"><i class="bi bi-chat-square-text"></i>Doctors</div><div class="tab"><i class="bi bi-person"></i>You</div></nav>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-copy">
+        <span class="step-no c-green"><i class="bi bi-activity"></i> The dashboard</span>
+        <h3>Your whole health, scored at a glance</h3>
+        <p>Open the app to a single health score from 0–100, blended live from your labs, vitals and wearables — with Heart, Move and Glucose rings you can read in a second.</p>
+        <ul class="feature-list">
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>One number that means something.</b><p>“82 / 100 · trending up” turns a year of records into a glance.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Quick actions for what matters.</b><p>SOS, Book, Body 3D and Meds are always one tap from home.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Today, sorted.</b><p>Up-next appointments, today’s medications and a meal plan tuned to your conditions.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FEATURE: SOS ============================== -->
+<section class="section" id="sos">
+  <div class="container">
+    <div class="feature reverse reveal">
+      <div class="feature-media duo">
+        <div class="glow" style="background:radial-gradient(circle,#dc2626,transparent 70%)"></div>
+        <!-- SOS home -->
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll has-tabs">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-list"></i></div><div class="m-header-title">SOS Emergency</div><div class="m-iconbtn"><i class="bi bi-bell"></i></div></div>
               <div class="sos-stage">
-                <span class="pill green"><span class="dotp"></span>All systems ready</span>
-                <div class="sos-dome"><i class="bi bi-heart-pulse-fill"></i><b>HOLD 3S TO DISPATCH</b></div>
-                <p class="sos-instruct"><b>Hold for 3 seconds</b> to dispatch emergency services with your live location.</p>
+                <span class="m-status green" style="margin-bottom:4px"><span class="dot"></span> All systems ready</span>
+                <button class="sos-big"><i class="bi bi-heart-pulse-fill"></i><span class="lbl">SOS</span><span class="sub">Hold 3s to dispatch</span></button>
+                <p class="sos-instruct"><strong>Hold for 3 seconds</strong> to dispatch emergency services with your live location.</p>
               </div>
-              <div class="seclbl">What gets shared</div>
-              <div class="m-list">
-                <div class="row"><span class="ico tone-red"><i class="bi bi-geo-alt-fill"></i></span><div><div class="t">Location sharing</div><div class="s">On · 415 Mission St</div></div><span class="tr">6 m ago</span></div>
-                <div class="row"><span class="ico tone-blue"><i class="bi bi-people-fill"></i></span><div><div class="t">Emergency contacts</div><div class="s">3 contacts will be notified</div></div><span class="chev"><i class="bi bi-chevron-right"></i></span></div>
-                <div class="row"><span class="ico tone-purple"><i class="bi bi-capsule"></i></span><div><div class="t">Medical profile</div><div class="s">Penicillin allergy · Type II diabetes</div></div><span class="chev"><i class="bi bi-chevron-right"></i></span></div>
+              <div class="m-section">
+                <div class="m-section-head"><h2>What gets shared</h2></div>
+                <div class="m-list">
+                  <div class="m-list-row"><div class="ico tone-red"><i class="bi bi-geo-alt-fill"></i></div><div class="meta"><p class="t">Location sharing</p><p class="s">On · 415 Mission St</p></div><span class="trailing">6 m ago</span></div>
+                  <div class="m-list-row"><div class="ico tone-blue"><i class="bi bi-people-fill"></i></div><div class="meta"><p class="t">Emergency contacts</p><p class="s">3 contacts will be notified</p></div><i class="bi bi-chevron-right chev"></i></div>
+                  <div class="m-list-row"><div class="ico tone-purple"><i class="bi bi-file-medical-fill"></i></div><div class="meta"><p class="t">Medical profile</p><p class="s">Penicillin allergy · Type II diabetes</p></div><i class="bi bi-chevron-right chev"></i></div>
+                </div>
               </div>
             </div>
-            <div class="tabbar">
-              <div class="tab"><i class="bi bi-house-door-fill"></i>Home</div>
-              <div class="tab"><i class="bi bi-folder-fill"></i>Records</div>
-              <div class="tab-sos"><i class="bi bi-heart-pulse-fill"></i></div>
-              <div class="tab"><i class="bi bi-chat-dots-fill"></i>Doctors</div>
-              <div class="tab"><i class="bi bi-person-fill"></i>You</div>
-            </div>
+            <nav class="tabbar"><div class="tab"><i class="bi bi-house-door"></i>Home</div><div class="tab"><i class="bi bi-folder2"></i>Records</div><div class="tab sos"><span class="sos-dot"><i class="bi bi-heart-pulse-fill"></i></span><span>SOS</span></div><div class="tab"><i class="bi bi-chat-square-text"></i>Doctors</div><div class="tab"><i class="bi bi-person"></i>You</div></nav>
+            <div class="home-indicator"></div>
           </div>
-          <div class="home-indicator"></div>
+        </div>
+        <!-- SOS active -->
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen bleed">
+            <div class="statusbar light"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll" style="padding-top:0">
+              <div class="sos-band band-red band-glow">
+                <div class="m-header transparent" style="padding:30px 2px 6px"><div class="m-iconbtn light"><i class="bi bi-chevron-left"></i></div><div class="m-header-title light">Emergency in progress</div><div class="m-iconbtn light"><i class="bi bi-three-dots"></i></div></div>
+                <span class="dispatch"><span class="dot"></span> Dispatching</span>
+                <h2>Help is on the way</h2>
+                <div class="eta">ETA <strong>6 min 24 sec</strong> · Mercy General EMS-04</div>
+                <div class="mapbox"><svg viewBox="0 0 280 120" width="100%" height="100%"><path d="M10 90 Q90 70 130 40 T270 20" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="2"/><path d="M90 30 L120 75" stroke="#f87171" stroke-width="2" stroke-dasharray="5 5"/><circle cx="120" cy="78" r="7" fill="#dc2626" stroke="#fff" stroke-width="2"/><circle cx="90" cy="30" r="6" fill="#3b82f6" stroke="#fff" stroke-width="2"/></svg><div style="position:absolute;left:10px;bottom:8px;background:rgba(0,0,0,.4);color:#fff;font-size:10px;padding:3px 8px;border-radius:99px"><i class="bi bi-geo-alt-fill"></i> 415 Mission St</div></div>
+              </div>
+              <div class="m-section" style="margin-top:4px"><div class="m-list">
+                <div class="m-list-row"><div class="ico tone-blue"><i class="bi bi-person-arms-up"></i></div><div class="meta"><p class="t">Dr. Marcus Rivera</p><p class="s">EMT-Paramedic · Mercy General</p></div><span class="trailing">2.4 mi</span></div>
+                <div class="m-list-row"><div class="ico tone-green"><i class="bi bi-telephone-forward-fill"></i></div><div class="meta"><p class="t">Call dispatcher</p><p class="s">Direct line to your responder</p></div><i class="bi bi-chevron-right chev"></i></div>
+              </div></div>
+              <div class="m-section"><div class="m-banner info"><i class="bi bi-shield-fill-check"></i><div><span class="t">Sharing automatically</span>Live location, vitals, allergies and contacts sent to the responder.</div></div></div>
+            </div>
+            <div class="home-indicator light"></div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="feat-copy">
-      <span class="feat-tag"><i class="bi bi-heart-pulse-fill" style="color:var(--accent)"></i> SOS Emergency</span>
-      <span class="feat-icon tone-red"><i class="bi bi-heart-pulse-fill"></i></span>
-      <h3>One press can save a life.</h3>
-      <p>The SOS surface is the heart of the app. A single hold-to-dispatch dome means there is nothing to fumble for in a crisis — press, count to three, and help is moving. A filling progress ring shows it working, so you always know it registered.</p>
-      <ul class="feat-list">
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Hold-to-dispatch dome</b><span>3-second hold prevents accidental triggers, then alerts the nearest EMS unit.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Live location, automatically</b><span>Your exact position is streamed to responders the instant you dispatch.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Contacts &amp; Med ID shared</b><span>Emergency contacts are notified, and your allergies, conditions and meds travel with the alert.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Quick reach &amp; history</b><span>Call 911, share a location link, or open your Med ID — plus a log of past incidents.</span></div></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- SOS active + medical profile, second row -->
-  <div class="feature flip reveal" style="margin-top:clamp(56px,8vw,96px)">
-    <div class="feat-media">
-      <!-- ACTIVE DISPATCH -->
-      <div class="phone phone-sm">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="band-red band-glow" style="padding:34px 16px 18px">
-              <div class="m-head" style="padding:0 0 6px"><div class="m-ib" style="background:rgba(255,255,255,.2);color:#fff"><i class="bi bi-chevron-left"></i></div><div class="ttl" style="color:#fff">Emergency in progress</div><div class="m-ib" style="background:transparent;color:#fff"><i class="bi bi-three-dots"></i></div></div>
-              <div style="text-align:center">
-                <span class="video-chip" style="position:static;background:rgba(255,255,255,.2)"><span class="dotp" style="background:#fff"></span> DISPATCHING</span>
-                <div style="font-family:var(--font-display);font-weight:800;font-size:26px;margin:10px 0 3px">Help is on the way</div>
-                <div style="font-size:12px;opacity:.9">ETA <b>6 min 24 sec</b> · Mercy General EMS-04</div>
-              </div>
-            </div>
-            <div class="scr-pad" style="flex:1">
-              <div class="minimap" style="margin-bottom:10px">
-                <svg width="100%" height="100%" viewBox="0 0 300 120" preserveAspectRatio="none">
-                  <path d="M-20 80 Q60 60 140 88 T320 70" stroke="#fff" stroke-width="7" fill="none"/>
-                  <path d="M40 -10 L70 130" stroke="#fff" stroke-width="5" fill="none"/>
-                  <path d="M210 -10 L230 130" stroke="#fff" stroke-width="5" fill="none"/>
-                  <line x1="55" y1="40" x2="175" y2="84" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="5 4"/>
-                  <circle cx="175" cy="84" r="9" fill="#dc2626"/><circle cx="175" cy="84" r="16" fill="rgba(220,38,38,.2)"/>
-                  <circle cx="55" cy="40" r="6" fill="#3b82f6"/>
-                </svg>
-                <span class="pill" style="position:absolute;bottom:8px;left:8px;background:rgba(255,255,255,.95);color:#1f2937"><i class="bi bi-geo-alt-fill" style="color:var(--accent)"></i> 415 Mission St</span>
-              </div>
-              <div class="m-list">
-                <div class="row"><span class="ico tone-blue"><i class="bi bi-person-arms-up"></i></span><div><div class="t">Dr. Marcus Rivera</div><div class="s">EMT-Paramedic · Mercy General</div></div><span class="tr">2.4 mi</span></div>
-                <div class="row"><span class="ico tone-red"><i class="bi bi-truck-front-fill"></i></span><div><div class="t">EMS-04</div><div class="s">Ambulance dispatched · 6:42 PM</div></div><span class="tr">6 min</span></div>
-                <div class="row"><span class="ico tone-green"><i class="bi bi-telephone-forward-fill"></i></span><div><div class="t">Call dispatcher</div><div class="s">Direct line to your responder</div></div><span class="chev"><i class="bi bi-chevron-right"></i></span></div>
-              </div>
-              <div class="m-banner info" style="margin-top:10px"><i class="bi bi-broadcast-pin"></i><div><b>Sharing automatically</b>Your live location, vitals, allergies and contacts have been sent to the responder.</div></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
+      <div class="feature-copy">
+        <span class="step-no"><i class="bi bi-heart-pulse-fill"></i> SOS Emergency</span>
+        <h3>One press can save a life</h3>
+        <p>The big red button is the heart of the app. Hold it for three seconds and EaseMyDisease dispatches emergency services — no fumbling, no explaining, in any state.</p>
+        <ul class="feature-list">
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Hold to dispatch.</b><p>A 3-second hold prevents accidental triggers; release any time to cancel.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Your data, sent automatically.</b><p>Live location, vitals, allergies, conditions and emergency contacts go to the responder instantly.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Watch help arrive.</b><p>Live ETA, responder name and a direct line to your dispatcher — “Help is on the way.”</p></div></li>
+        </ul>
       </div>
-    </div>
-
-    <div class="feat-copy">
-      <span class="feat-tag"><i class="bi bi-broadcast-pin" style="color:var(--accent)"></i> Active dispatch &amp; Med ID</span>
-      <span class="feat-icon tone-red"><i class="bi bi-truck-front-fill"></i></span>
-      <h3>Stay calm. We'll handle the rest.</h3>
-      <p>The moment help is dispatched, a live screen replaces the panic: a moving map, the responder's name and unit, a countdown ETA, and a one-tap line to the dispatcher. Everything a first responder needs is already on its way to them.</p>
-      <ul class="feat-list">
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Live ETA &amp; responder tracking</b><span>Watch the ambulance approach with a real countdown and named paramedic.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Emergency Med ID</b><span>A QR-coded profile — blood type, allergies, conditions, meds — that first responders can read instantly.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>You decide what's shared</b><span>Per-field toggles let you choose exactly which medical details travel with an SOS.</span></div></li>
-      </ul>
     </div>
   </div>
 </section>
 
-<!-- ===================== FEATURE: BODY MAP (centerpiece) ===================== -->
-<section class="sec" id="body">
-  <div class="sec-head reveal">
-    <span class="eyebrow">The signature moment</span>
-    <h2>Your whole body, mapped and scored.</h2>
-    <p class="lead">Tap any organ to see how it's actually doing. EaseMyDisease blends your latest labs, vitals and wearable data into a function-and-fitness score for each system — then links every score straight back to the records behind it.</p>
-  </div>
-
-  <div class="feature reveal">
-    <div class="feat-media">
-      <!-- BODY MAP -->
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="statusbar"><span>9:41</span><span class="right"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
-          <div class="scr">
-            <div class="m-head"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Body map</div><div class="m-ib"><i class="bi bi-info-circle"></i></div></div>
-            <div class="scr" style="overflow:hidden">
-              <div class="anatomy-stage">
-                <svg class="anatomy-svg" viewBox="0 0 220 430">
-                  <g class="body-base">
-                    <circle cx="110" cy="40" r="28"/><rect x="98" y="62" width="24" height="22" rx="10"/>
-                    <circle cx="62" cy="94" r="17"/><circle cx="158" cy="94" r="17"/>
-                    <rect x="34" y="92" width="22" height="132" rx="11"/><rect x="164" y="92" width="22" height="132" rx="11"/>
-                    <rect x="56" y="80" width="108" height="152" rx="36"/><rect x="64" y="198" width="92" height="64" rx="26"/>
-                    <rect x="70" y="250" width="34" height="172" rx="16"/><rect x="116" y="250" width="34" height="172" rx="16"/>
-                  </g>
-                  <line x1="110" y1="84" x2="110" y2="250" stroke="rgba(0,0,0,.05)" stroke-width="1.5"/>
-                  <!-- brain 88 green -->
-                  <ellipse class="organ" cx="110" cy="35" rx="18" ry="13" fill="#16a34a" fill-opacity=".92"/>
-                  <!-- lungs 71 red -->
-                  <ellipse class="organ" cx="92" cy="128" rx="15" ry="26" fill="#dc2626" fill-opacity=".92"/>
-                  <ellipse class="organ" cx="128" cy="128" rx="15" ry="26" fill="#dc2626" fill-opacity=".92"/>
-                  <!-- heart 76 amber, selected -->
-                  <path class="organ sel" d="M114 116 C110 109 99 111 99 121 C99 130 109 137 114 141 C119 137 129 130 129 121 C129 111 118 109 114 116 Z" fill="#f59e0b" fill-opacity=".92"/>
-                  <!-- liver 84 amber -->
-                  <path class="organ" d="M78 156 Q104 148 116 158 Q112 176 92 176 Q80 174 78 156 Z" fill="#f59e0b" fill-opacity=".92"/>
-                  <!-- stomach 79 amber -->
-                  <path class="organ" d="M118 166 Q134 164 132 180 Q130 194 114 192 Q106 188 110 176 Q112 168 118 166 Z" fill="#f59e0b" fill-opacity=".92"/>
-                  <!-- kidneys 90 green -->
-                  <path class="organ" d="M90 192 q-9 2 -8 14 q1 9 9 8 q5 -1 4 -10 q-1 -11 -5 -12 z" fill="#16a34a" fill-opacity=".92"/>
-                  <path class="organ" d="M130 192 q9 2 8 14 q-1 9 -9 8 q-5 -1 -4 -10 q1 -11 5 -12 z" fill="#16a34a" fill-opacity=".92"/>
-                </svg>
-                <span class="organ-tag" style="left:60%;top:30%;background:#f59e0b">Heart · 76</span>
+<!-- ============================== FEATURE: BODY MAP ============================== -->
+<section class="section section--tint" id="body">
+  <div class="container">
+    <div class="feature reveal">
+      <div class="feature-media">
+        <div class="glow" style="background:radial-gradient(circle,#3b82f6,transparent 70%)"></div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll has-tabs">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Body map</div><div class="m-iconbtn"><i class="bi bi-info-circle"></i></div></div>
+              <div class="anatomy-mini">
+                <div style="position:relative;height:250px;display:flex;align-items:center;justify-content:center">
+                  <svg viewBox="0 0 120 250" height="240" style="overflow:visible">
+                    <g fill="var(--bg-3)" stroke="var(--border-2)" stroke-width="1.5">
+                      <circle cx="60" cy="26" r="18"/>
+                      <rect x="38" y="48" width="44" height="74" rx="20"/>
+                      <rect x="20" y="54" width="16" height="60" rx="8"/><rect x="84" y="54" width="16" height="60" rx="8"/>
+                      <rect x="42" y="120" width="16" height="84" rx="8"/><rect x="62" y="120" width="16" height="84" rx="8"/>
+                    </g>
+                    <ellipse cx="52" cy="40" rx="7" ry="6" fill="#16a34a" opacity=".85"/>
+                    <path d="M55 70 q8 -10 16 0 q4 8 -8 16 q-12 -8 -8 -16Z" fill="#dc2626"/>
+                    <ellipse cx="44" cy="74" rx="9" ry="13" fill="#3b82f6" opacity=".6"/><ellipse cx="76" cy="74" rx="9" ry="13" fill="#3b82f6" opacity=".4"/>
+                    <ellipse cx="46" cy="96" rx="9" ry="7" fill="#b45309" opacity=".8"/>
+                    <ellipse cx="66" cy="98" rx="8" ry="7" fill="#16a34a" opacity=".8"/>
+                    <circle cx="48" cy="112" r="4" fill="#0f766e"/><circle cx="72" cy="112" r="4" fill="#0f766e"/>
+                  </svg>
+                  <div class="organ-pop band-amber" style="top:60px;left:54%;background:linear-gradient(135deg,#fbbf24,#b45309)">Heart · 76</div>
+                </div>
+                <div class="anatomy-legend"><span><span class="dot" style="background:#16a34a"></span>Excellent</span><span><span class="dot" style="background:#f59e0b"></span>Good</span><span><span class="dot" style="background:#dc2626"></span>Watch</span></div>
               </div>
-              <div class="legend"><span><i style="background:#16a34a"></i>Excellent</span><span><i style="background:#f59e0b"></i>Good</span><span><i style="background:#dc2626"></i>Watch</span></div>
-              <div class="scr-pad" style="padding-top:0">
+              <div class="m-section">
                 <div class="m-card">
-                  <div class="row" style="padding:0;gap:11px;align-items:center">
-                    <span class="ico" style="background:#f59e0b22;color:#f59e0b;width:42px;height:42px;font-size:20px"><i class="bi bi-heart-pulse-fill"></i></span>
-                    <div style="flex:1"><div style="font-family:var(--font-display);font-weight:800;font-size:16px">Heart</div><span class="pill amber">Watch</span></div>
-                    <div style="text-align:right"><div class="metric-hero" style="font-size:28px;color:#f59e0b">76</div><div style="font-size:9px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:.06em">/ 100</div></div>
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <div class="ico tone-amber" style="width:40px;height:40px"><i class="bi bi-heart-pulse-fill"></i></div>
+                    <div style="flex:1"><div style="font-family:var(--font-display);font-weight:800;font-size:16px">Heart <span class="m-status amber" style="margin-left:4px">Watch</span></div></div>
+                    <div style="text-align:right"><span style="font-family:var(--font-display);font-weight:800;font-size:22px;color:#b45309">76</span><span style="font-size:11px;color:var(--fg-muted)"> / 100</span></div>
                   </div>
-                  <div class="scorebar"><i style="width:76%;background:#f59e0b"></i></div>
-                  <p style="font-size:12px;color:var(--fg-2);margin-top:10px;line-height:1.45">Resting HR 68 bpm, healthy. LDL optimal; triglycerides slightly elevated.</p>
-                  <div style="display:flex;align-items:center;gap:5px;margin-top:8px;font-size:11.5px;color:var(--accent-text);font-weight:600">Open full breakdown <i class="bi bi-arrow-right"></i></div>
+                  <div class="score-bar" style="margin-top:10px"><i style="width:76%;background:#f59e0b"></i></div>
+                  <p style="font-size:11.5px;color:var(--fg-2);margin:10px 0 4px">Resting HR 68 bpm, healthy. LDL optimal; triglycerides slightly elevated.</p>
+                  <span class="link" style="color:var(--accent-text);font-size:11.5px;font-weight:700">Open full breakdown <i class="bi bi-arrow-right"></i></span>
+                </div>
+              </div>
+              <div class="m-section">
+                <div class="m-section-head"><h2>All systems</h2></div>
+                <div class="m-list">
+                  <div class="m-list-row"><div class="ico tone-purple"><i class="bi bi-cpu"></i></div><div class="meta"><p class="t">Brain</p><p class="s">Sharp</p></div><div style="width:54px"><div class="score-bar"><i style="width:88%;background:#16a34a"></i></div></div><span class="trailing"><strong>88</strong></span></div>
+                  <div class="m-list-row"><div class="ico tone-green"><i class="bi bi-droplet-half"></i></div><div class="meta"><p class="t">Kidneys</p><p class="s">Excellent</p></div><div style="width:54px"><div class="score-bar"><i style="width:90%;background:#16a34a"></i></div></div><span class="trailing"><strong>90</strong></span></div>
                 </div>
               </div>
             </div>
+            <nav class="tabbar"><div class="tab"><i class="bi bi-house-door"></i>Home</div><div class="tab active"><i class="bi bi-folder2-open"></i>Records</div><div class="tab sos"><span class="sos-dot"><i class="bi bi-heart-pulse-fill"></i></span><span>SOS</span></div><div class="tab"><i class="bi bi-chat-square-text"></i>Doctors</div><div class="tab"><i class="bi bi-person"></i>You</div></nav>
+            <div class="home-indicator"></div>
           </div>
-          <div class="home-indicator"></div>
         </div>
       </div>
-    </div>
-
-    <div class="feat-copy">
-      <span class="feat-tag"><i class="bi bi-person-bounding-box" style="color:var(--emd-info)"></i> Interactive Body Map</span>
-      <span class="feat-icon tone-blue"><i class="bi bi-person-bounding-box"></i></span>
-      <h3>Understand your health at a glance.</h3>
-      <p>A stylised human figure, with each organ colour-coded by its fitness score — green for excellent, amber to keep an eye on, red to watch. It turns a pile of lab numbers into something you can actually feel and act on.</p>
-      <ul class="feat-list">
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Tap to explore any organ</b><span>Heart, brain, lungs, liver, digestive and kidneys each open a full breakdown.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Scores from your real data</b><span>Each number blends your latest labs, vitals and wearable readings.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Key metrics &amp; linked records</b><span>Drill in to see resting HR, blood pressure, VO₂ max — and jump to the exact lab behind it.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Talk to a specialist</b><span>Concerned about a score? Book the right specialist directly from the organ view.</span></div></li>
-      </ul>
+      <div class="feature-copy">
+        <span class="step-no c-blue"><i class="bi bi-person-bounding-box"></i> Interactive body map</span>
+        <h3>Understand your health, organ by organ</h3>
+        <p>Tap any organ to see a function &amp; fitness score blended from your latest labs, vitals and wearables — color-coded so you instantly know what’s excellent and what to watch.</p>
+        <ul class="feature-list">
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Six systems, scored.</b><p>Brain, heart, lungs, liver, digestive and kidneys — each with metrics and plain-language notes.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Every score is explained.</b><p>“Resting HR 68 bpm, LDL optimal” — no jargon, just what it means for you.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Records, linked.</b><p>Each organ links straight to the labs and scans behind its score.</p></div></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== FEATURE: VAULT / EHR ===================== -->
-<section class="sec" id="vault" style="background:var(--bg-1);border-top:var(--hairline);border-bottom:var(--hairline)">
-  <div class="feature flip reveal">
-    <div class="feat-media">
-      <!-- VAULT HOME -->
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="statusbar"><span>9:41</span><span class="right"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
-          <div class="scr">
-            <div class="m-large" style="display:flex;justify-content:space-between;align-items:flex-start">
-              <div><div class="grt">Vault · Jordan Patel</div><h1>Health Records</h1></div>
-              <div class="m-ib" style="margin-top:14px"><i class="bi bi-upload"></i></div>
-            </div>
-            <div class="scr-body" style="overflow:hidden">
-              <div class="row" style="background:var(--bg-3);border-radius:13px;padding:9px 13px;margin-bottom:12px"><i class="bi bi-search" style="color:var(--fg-muted)"></i><span class="s" style="font-size:12px">Search records, prescriptions</span></div>
-              <div class="band-blue band-glow" style="border-radius:18px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:12px">
-                <span class="ico" style="background:rgba(255,255,255,.2);color:#fff;width:46px;height:46px;font-size:24px"><i class="bi bi-person-bounding-box"></i></span>
-                <div style="flex:1"><div style="font-family:var(--font-display);font-weight:800;font-size:14px">Explore your body in 3D</div><div style="font-size:11px;opacity:.9;line-height:1.35">Tap any organ to see how it's doing and its linked records.</div></div>
-                <i class="bi bi-chevron-right"></i>
-              </div>
-              <div class="m-card" style="margin-bottom:12px">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-                  <div><div style="font-size:10px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700">My vault</div>
-                    <div style="font-family:var(--font-display);font-weight:800;font-size:20px">247 records</div></div>
-                  <span class="pill green"><i class="bi bi-shield-fill-check"></i> Synced</span>
-                </div>
-                <div style="display:flex;gap:8px">
-                  <div style="flex:1;background:var(--bg-2);border:var(--hairline);border-radius:13px;padding:10px"><i class="bi bi-capsule" style="color:var(--emd-doctor)"></i><div style="font-family:var(--font-display);font-weight:800;font-size:17px">12</div><div style="font-size:9.5px;color:var(--fg-muted)">Prescriptions</div></div>
-                  <div style="flex:1;background:var(--bg-2);border:var(--hairline);border-radius:13px;padding:10px"><i class="bi bi-clipboard-pulse-fill" style="color:var(--emd-info)"></i><div style="font-family:var(--font-display);font-weight:800;font-size:17px">38</div><div style="font-size:9.5px;color:var(--fg-muted)">Lab results</div></div>
+<!-- ============================== FEATURE: HEALTH VAULT ============================== -->
+<section class="section" id="vault">
+  <div class="container">
+    <div class="feature reverse reveal">
+      <div class="feature-media duo">
+        <div class="glow" style="background:radial-gradient(circle,#3b82f6,transparent 70%)"></div>
+        <!-- vault home -->
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll has-tabs">
+              <div class="m-largehead" style="padding-top:8px"><p class="greeting">Vault · Jordan Patel</p><h1>Health Records</h1></div>
+              <div class="m-section" style="padding-top:6px"><div class="m-search"><i class="bi bi-search"></i> Search records, prescriptions</div></div>
+              <div class="m-section" style="padding-top:2px">
+                <div class="m-card band-blue band-glow" style="border:0;display:flex;align-items:center;gap:11px;color:#fff">
+                  <div style="width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:18px"><i class="bi bi-person-bounding-box"></i></div>
+                  <div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13.5px">Explore your body in 3D</div><div style="font-size:11px;opacity:.85">Tap any organ to see how it’s doing.</div></div>
+                  <i class="bi bi-chevron-right"></i>
                 </div>
               </div>
-              <div class="m-list">
-                <div class="row"><span class="ico tone-purple"><i class="bi bi-capsule"></i></span><div><div class="t">Prescriptions</div><div class="s">12 records · 2 active</div></div><span class="chev"><i class="bi bi-chevron-right"></i></span></div>
-                <div class="row"><span class="ico tone-blue"><i class="bi bi-clipboard-pulse-fill"></i></span><div><div class="t">Lab results</div><div class="s">38 records · A1c due in 9 days</div></div><span class="chev"><i class="bi bi-chevron-right"></i></span></div>
-                <div class="row"><span class="ico tone-green"><i class="bi bi-camera-fill"></i></span><div><div class="t">Imaging &amp; scans</div><div class="s">6 records · MRI Apr 2026</div></div><span class="chev"><i class="bi bi-chevron-right"></i></span></div>
-              </div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="feat-copy">
-      <span class="feat-tag"><i class="bi bi-folder-fill" style="color:var(--emd-info)"></i> Health Vault</span>
-      <span class="feat-icon tone-blue"><i class="bi bi-folder-fill"></i></span>
-      <h3>Your entire medical history, finally in one place.</h3>
-      <p>Snap a lab report or prescription and the vault reads it with OCR, extracts the values, and files it in the right category automatically. Connect providers like Quest or LabCorp, or sync vitals from Apple Health — 247 records, all searchable, all yours.</p>
-      <ul class="feat-list">
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Scan &amp; auto-file with OCR</b><span>Documents are read, values extracted, and matched to the right record category.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Connect providers &amp; wearables</b><span>Pull in results from hospitals and labs, or sync steps, sleep and vitals from Apple Health.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Organised by category</b><span>Prescriptions, labs, imaging, visits, allergies and vaccinations — each grouped and dated.</span></div></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- lab detail + upload + share strip -->
-  <div class="feature reveal" style="margin-top:clamp(56px,8vw,96px)">
-    <div class="feat-media" style="gap:14px;flex-wrap:wrap">
-      <!-- LAB DETAIL -->
-      <div class="phone phone-sm" style="--pw:250px">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Lipid Panel</div><div class="m-ib"><i class="bi bi-share"></i></div></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="m-card" style="margin-bottom:10px">
-                <div class="row" style="padding:0;gap:10px"><span class="ico tone-blue"><i class="bi bi-clipboard-pulse-fill"></i></span><div style="flex:1"><div style="font-size:9.5px;color:var(--fg-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700">Lab result</div><div style="font-family:var(--font-display);font-weight:700;font-size:15px">Quest Diagnostics</div></div><span class="pill green">Normal</span></div>
-                <p style="font-size:10.5px;color:var(--fg-muted);margin-top:8px">Collected Tue May 12 · Reviewed by Dr. A. Rao</p>
-              </div>
-              <div class="seclbl">Values</div>
-              <div class="m-list">
-                <div class="row"><span class="ico tone-green" style="width:32px;height:32px;font-size:13px"><i class="bi bi-heart-fill"></i></span><div><div class="t">LDL Cholesterol</div><div class="s">Optimal: &lt; 100 mg/dL</div></div><span class="tr"><b>92 mg/dL</b>Normal</span></div>
-                <div class="row"><span class="ico tone-amber" style="width:32px;height:32px;font-size:13px"><i class="bi bi-droplet-fill"></i></span><div><div class="t">Triglycerides</div><div class="s">Optimal: &lt; 150 mg/dL</div></div><span class="tr"><b>172 mg/dL</b>Borderline</span></div>
-              </div>
-              <div class="m-banner warn" style="margin-top:10px"><i class="bi bi-exclamation-triangle-fill"></i><div><b>One value to watch</b>Triglycerides slightly elevated. Diet usually moves this back into range.</div></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-      <!-- SECURE SHARE -->
-      <div class="phone phone-sm" style="--pw:250px">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Share securely</div><div class="m-ib" style="background:transparent"></div></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="m-banner info"><i class="bi bi-clock-history"></i><div><b>Time-boxed access</b>The recipient sees only what you pick, and access auto-expires. Revoke anytime.</div></div>
-              <div class="seclbl">With</div>
-              <div class="m-list" style="margin-bottom:12px">
-                <div class="row" style="border:1.5px solid var(--accent);border-radius:14px"><div class="av blue" style="width:36px;height:36px;font-size:12px">AR</div><div style="flex:1"><div class="t">Dr. Amita Rao</div><div class="s">Cardiologist · Mercy General</div></div><span style="width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:10px"><i class="bi bi-check-lg"></i></span></div>
-              </div>
-              <div class="seclbl">Access expires after</div>
-              <div class="seg" style="margin-bottom:12px"><button>24 hours</button><button class="on">7 days</button><button>30 days</button></div>
-              <button class="btn-screen primary"><i class="bi bi-shield-lock-fill"></i> Generate secure link</button>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="feat-copy">
-      <span class="feat-tag"><i class="bi bi-shield-lock-fill" style="color:var(--emd-info)"></i> Read &amp; share results</span>
-      <span class="feat-icon tone-green"><i class="bi bi-clipboard2-pulse-fill"></i></span>
-      <h3>Results in plain language — shared on your terms.</h3>
-      <p>Every lab opens with reference ranges, clear flags, and a friendly note about what to watch. When you want a doctor to see it, you generate a secure, time-boxed link that shows only what you pick and expires on schedule. You can revoke access at any moment.</p>
-      <ul class="feat-list">
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Human-readable lab detail</b><span>Values, optimal ranges, and a note on anything borderline — no jargon.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Secure, expiring shares</b><span>Choose the doctor, the documents, and an expiry of 24 hours, 7 days or 30 days.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Always revocable</b><span>An access log shows exactly who viewed what, and one tap pulls it all back.</span></div></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FEATURE: DOCTORS ===================== -->
-<section class="sec" id="doctors">
-  <div class="sec-head reveal">
-    <span class="eyebrow">Consult a doctor</span>
-    <h2>A specialist, available now.</h2>
-    <p class="lead">Search by specialty, name or condition, see who's online, and book in a few taps. Meet over video with live translation, chat between visits, and find every note and prescription waiting in your vault afterwards.</p>
-  </div>
-
-  <div class="feature reveal">
-    <div class="feat-media" style="gap:14px;flex-wrap:wrap">
-      <!-- FIND A DOCTOR -->
-      <div class="phone phone-sm" style="--pw:250px">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-large" style="padding-top:44px"><div class="grt">Consult</div><h1 style="font-size:22px">Find a doctor</h1></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="row" style="background:var(--bg-3);border-radius:13px;padding:9px 13px;margin-bottom:11px"><i class="bi bi-search" style="color:var(--fg-muted)"></i><span class="s" style="font-size:12px">Specialty, name, condition</span></div>
-              <div style="display:flex;gap:6px;margin-bottom:12px;overflow:hidden">
-                <span class="pill red" style="padding:6px 11px"><i class="bi bi-lightning-charge-fill"></i> Available now</span>
-                <span class="pill" style="padding:6px 11px;background:var(--bg-3);color:var(--fg-2)">Video</span>
-                <span class="pill" style="padding:6px 11px;background:var(--bg-3);color:var(--fg-2)">Top rated</span>
-              </div>
-              <div class="m-card" style="margin-bottom:9px"><div class="row" style="padding:0;gap:10px"><div class="av blue" style="width:42px;height:42px">AR</div><div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13px">Dr. Amita Rao</div><div class="s">Cardiologist · 14 yr exp</div><div style="font-size:10px;margin-top:3px;color:var(--fg-2)"><i class="bi bi-star-fill" style="color:#f59e0b"></i> 4.9 (412) · 2.1 mi</div></div><div style="text-align:right"><span class="pill green" style="padding:2px 7px">Online</span><div style="font-family:var(--font-display);font-weight:800;font-size:14px;margin-top:5px">$45</div></div></div></div>
-              <div class="m-card" style="margin-bottom:9px"><div class="row" style="padding:0;gap:10px"><div class="av purple" style="width:42px;height:42px">MR</div><div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13px">Dr. Marcus Rivera</div><div class="s">General Physician · 8 yr exp</div><div style="font-size:10px;margin-top:3px;color:var(--fg-2)"><i class="bi bi-star-fill" style="color:#f59e0b"></i> 4.8 (1.2k) · 0.8 mi</div></div><div style="text-align:right"><span class="pill green" style="padding:2px 7px">Online</span><div style="font-family:var(--font-display);font-weight:800;font-size:14px;margin-top:5px">$30</div></div></div></div>
-              <div class="m-card"><div class="row" style="padding:0;gap:10px"><div class="av red" style="width:42px;height:42px">RD</div><div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13px">Dr. Rina Desai</div><div class="s">Internal Medicine · 9 yr exp</div><div style="font-size:10px;margin-top:3px;color:var(--fg-2)"><i class="bi bi-star-fill" style="color:#f59e0b"></i> 4.7 (320) · 1.7 mi</div></div><div style="text-align:right"><span class="pill green" style="padding:2px 7px">Online</span><div style="font-family:var(--font-display);font-weight:800;font-size:14px;margin-top:5px">$35</div></div></div></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-      <!-- VIDEO CALL -->
-      <div class="phone phone-sm" style="--pw:250px">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="video-screen">
-            <div class="video-stage">
-              <div class="av blue" style="width:120px;height:120px;border-radius:60px;font-size:42px;position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);box-shadow:0 12px 40px rgba(0,0,0,.5)">AR</div>
-              <span class="video-chip" style="left:14px"><span style="width:8px;height:8px;border-radius:99px;background:#22c55e"></span> 12:24</span>
-              <span class="video-chip" style="right:14px"><i class="bi bi-translate"></i> EN ↔ HI</span>
-              <div class="video-pip">JP</div>
-              <div style="position:absolute;bottom:120px;left:14px;right:14px;text-align:center;color:#fff">
-                <div style="font-family:var(--font-display);font-weight:700;font-size:18px">Dr. Amita Rao</div>
-                <div style="font-size:11px;opacity:.7;margin-top:3px">Cardiologist consult · Notes recording</div>
-              </div>
-            </div>
-            <div class="video-controls">
-              <button class="call-btn"><i class="bi bi-mic-fill"></i></button>
-              <button class="call-btn"><i class="bi bi-camera-video-fill"></i></button>
-              <button class="call-btn"><i class="bi bi-chat-square-text-fill"></i></button>
-              <button class="call-btn end"><i class="bi bi-telephone-x-fill"></i></button>
-            </div>
-          </div>
-          <div class="home-indicator" style="background:#fff"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="feat-copy">
-      <span class="feat-tag"><i class="bi bi-chat-dots-fill" style="color:var(--emd-doctor)"></i> Consult Doctor</span>
-      <span class="feat-icon tone-purple"><i class="bi bi-camera-video-fill"></i></span>
-      <h3>From "I should see someone" to face-to-face in minutes.</h3>
-      <p>Browse doctors by specialty, filter to who's available right now, and read full profiles with ratings, experience and fees. Pick a day and slot, confirm, and you're booked. Video consults include live EN ↔ HI translation, in-call chat, and notes that sync straight to your vault.</p>
-      <ul class="feat-list">
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Search &amp; filter instantly</b><span>By specialty, distance, rating, or "available now" for urgent needs.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Book in seconds</b><span>Day and time-slot picker with a clear confirmation and one-tap calendar add.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Video, voice, chat or in-person</b><span>Live translation, screen-side chat, and visit notes saved automatically.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Appointments hub</b><span>Upcoming and past visits, with join, directions, rebook and visit-summary actions.</span></div></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FEATURE: MEDS + DIET ===================== -->
-<section class="sec" id="meds" style="background:var(--bg-1);border-top:var(--hairline);border-bottom:var(--hairline)">
-  <div class="feature flip reveal">
-    <div class="feat-media" style="gap:14px;flex-wrap:wrap">
-      <!-- MEDS -->
-      <div class="phone phone-sm" style="--pw:250px">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Medications</div><div class="m-ib"><i class="bi bi-plus-lg"></i></div></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="m-card" style="background:radial-gradient(130% 95% at 100% 0%,rgba(59,130,246,.14),transparent 55%),var(--bg-1);margin-bottom:12px">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start">
-                  <div><div class="metric-hero" style="font-size:34px">94<small style="font-size:14px;color:var(--fg-muted)"> %</small></div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg-muted)">7-day adherence · great work</div></div>
-                  <div class="ring" style="--rs:6px;width:52px;height:52px;background:conic-gradient(#2563eb 94%,var(--bg-3) 0)"><span class="rc" style="color:#2563eb"><i class="bi bi-capsule"></i></span></div>
-                </div>
-                <div style="display:flex;gap:8px;margin-top:12px">
-                  <div style="flex:1;background:var(--bg-2);border:var(--hairline);border-radius:13px;padding:8px;text-align:center"><div style="font-family:var(--font-display);font-weight:800;font-size:16px">2</div><div style="font-size:8.5px;text-transform:uppercase;color:var(--fg-muted)">Active</div></div>
-                  <div style="flex:1;background:var(--bg-2);border:var(--hairline);border-radius:13px;padding:8px;text-align:center"><div style="font-family:var(--font-display);font-weight:800;font-size:16px">1</div><div style="font-size:8.5px;text-transform:uppercase;color:var(--fg-muted)">Refill soon</div></div>
-                  <div style="flex:1;background:var(--bg-2);border:var(--hairline);border-radius:13px;padding:8px;text-align:center"><div style="font-family:var(--font-display);font-weight:800;font-size:16px">3</div><div style="font-size:8.5px;text-transform:uppercase;color:var(--fg-muted)">Reminders</div></div>
+              <div class="m-section">
+                <div class="m-card">
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg-muted);font-weight:700">My vault</div><div style="font-family:var(--font-display);font-weight:800;font-size:24px;letter-spacing:-.02em">247 records</div></div><span class="m-status green"><i class="bi bi-shield-fill-check"></i> Synced</span></div>
+                  <div class="stat-grid" style="margin-top:12px">
+                    <div class="stat-tile"><div class="meta"><i class="bi bi-capsule"></i> Prescriptions</div><div class="num">12</div><div class="trend up"><i class="bi bi-arrow-up-short"></i> 2 active</div></div>
+                    <div class="stat-tile"><div class="meta"><i class="bi bi-clipboard-pulse"></i> Lab results</div><div class="num">38</div><div class="trend up"><i class="bi bi-arrow-up-short"></i> 5 this month</div></div>
+                  </div>
                 </div>
               </div>
-              <div class="seclbl">Active</div>
-              <div class="m-card" style="display:flex;gap:11px;margin-bottom:9px"><span class="ico tone-purple"><i class="bi bi-capsule"></i></span><div style="flex:1"><div style="display:flex;justify-content:space-between"><div class="t">Metformin <span style="color:var(--fg-muted);font-weight:500">500 mg</span></div><span class="s">18 left</span></div><div class="s" style="margin:3px 0 6px">Twice daily · Dr. Rina Desai</div><div class="scorebar" style="height:6px"><i style="width:94%;background:var(--emd-success)"></i></div></div></div>
-              <div class="m-card" style="display:flex;gap:11px"><span class="ico tone-blue"><i class="bi bi-lungs-fill"></i></span><div style="flex:1"><div style="display:flex;justify-content:space-between"><div class="t">Albuterol <span style="color:var(--fg-muted);font-weight:500">90 mcg</span></div><span class="pill red">Refill</span></div><div class="s" style="margin:3px 0 6px">As needed · Dr. Marcus Rivera</div><div class="scorebar" style="height:6px"><i style="width:100%;background:var(--emd-success)"></i></div></div></div>
+              <div class="m-section">
+                <div class="m-section-head"><h2>Categories</h2></div>
+                <div class="m-list">
+                  <div class="m-list-row"><div class="ico tone-blue"><i class="bi bi-clipboard-pulse-fill"></i></div><div class="meta"><p class="t">Lab results</p><p class="s">38 records · A1c due in 9 days</p></div><i class="bi bi-chevron-right chev"></i></div>
+                  <div class="m-list-row"><div class="ico tone-green"><i class="bi bi-camera-fill"></i></div><div class="meta"><p class="t">Imaging &amp; scans</p><p class="s">6 records · MRI Apr 2026</p></div><i class="bi bi-chevron-right chev"></i></div>
+                  <div class="m-list-row"><div class="ico tone-amber"><i class="bi bi-shield-fill-check"></i></div><div class="meta"><p class="t">Allergies &amp; conditions</p><p class="s">Penicillin · T2D · Asthma</p></div><i class="bi bi-chevron-right chev"></i></div>
+                </div>
+              </div>
             </div>
+            <nav class="tabbar"><div class="tab"><i class="bi bi-house-door"></i>Home</div><div class="tab active"><i class="bi bi-folder2-open"></i>Records</div><div class="tab sos"><span class="sos-dot"><i class="bi bi-heart-pulse-fill"></i></span><span>SOS</span></div><div class="tab"><i class="bi bi-chat-square-text"></i>Doctors</div><div class="tab"><i class="bi bi-person"></i>You</div></nav>
+            <div class="home-indicator"></div>
           </div>
-          <div class="home-indicator"></div>
+        </div>
+        <!-- OCR upload done -->
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Add to vault</div><div style="width:34px"></div></div>
+              <div style="padding:30px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px">
+                <div style="width:84px;height:84px;border-radius:50%;background:rgba(22,163,74,.12);display:grid;place-items:center;color:#16a34a;font-size:40px;margin-bottom:6px"><i class="bi bi-check-lg"></i></div>
+                <h1 style="font-family:var(--font-display);font-size:20px;margin:0">Added to your vault</h1>
+                <p style="font-size:12.5px;color:var(--fg-2);max-width:220px;margin:4px auto 0">Lipid Panel filed under <b>Lab results</b> and linked to your <b>Heart</b>.</p>
+              </div>
+              <div class="m-section">
+                <div class="m-card" style="text-align:left">
+                  <div style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg-muted);font-weight:700;margin-bottom:8px">Auto-read by OCR</div>
+                  <div class="kv"><span class="k">Total Cholesterol</span><span class="v">182 mg/dL</span></div>
+                  <div class="kv"><span class="k">Triglycerides</span><span class="v" style="color:#b45309">168 ↑</span></div>
+                  <div class="kv"><span class="k">HDL</span><span class="v">52 mg/dL</span></div>
+                </div>
+              </div>
+              <div class="m-section stack-8"><button class="m-btn primary block"><i class="bi bi-eye"></i> View result</button><button class="m-btn secondary block">Done</button></div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
         </div>
       </div>
-      <!-- DIET SHEET -->
-      <div class="phone phone-sm" style="--pw:250px">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-large" style="padding-top:44px"><div class="grt">Diet</div><h1 style="font-size:22px">Nutrition</h1></div>
-            <div class="scr-pad" style="opacity:.4;filter:blur(1.5px)">
-              <div class="m-list"><div class="row"><span class="ico tone-green"><i class="bi bi-apple"></i></span><div><div class="t">Today's meal plan</div><div class="s">1,820 kcal · Mediterranean</div></div></div></div>
-            </div>
-            <div style="margin-top:auto;background:var(--bg-1);border-top:var(--hairline);border-radius:20px 20px 0 0;padding:16px 15px 18px;box-shadow:0 -10px 30px rgba(0,0,0,.1)">
-              <div style="width:38px;height:4px;border-radius:99px;background:var(--border-2);margin:0 auto 12px"></div>
-              <div style="font-family:var(--font-display);font-weight:800;font-size:15px;text-align:center">Hand off to MyFoodCraving?</div>
-              <p style="font-size:11.5px;color:var(--fg-muted);text-align:center;margin:6px 0 12px;line-height:1.45">Diet &amp; nutrition lives in our partner app. We'll pass your conditions and meds so meal plans match.</p>
-              <div style="display:flex;gap:11px;align-items:center;padding:9px 11px;background:var(--bg-2);border-radius:13px;margin-bottom:12px"><span class="ico tone-green" style="width:36px;height:36px;font-size:16px"><i class="bi bi-apple"></i></span><div style="flex:1"><div class="t">MyFoodCraving</div><div class="s">Free · Will open in app</div></div><span class="pill green">Linked</span></div>
-              <button class="btn-screen primary"><i class="bi bi-box-arrow-up-right"></i> Open MyFoodCraving</button>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="feat-copy">
-      <span class="feat-tag"><i class="bi bi-capsule" style="color:var(--emd-success)"></i> Medications &amp; Diet</span>
-      <span class="feat-icon tone-green"><i class="bi bi-capsule"></i></span>
-      <h3>Never miss a dose — or a meal that fits.</h3>
-      <p>Track every prescription with a 7-day adherence ring, a per-time-of-day schedule, and refill reminders that nudge you before you run out. When you're ready to eat for your condition, EaseMyDisease hands off to its nutrition partner — passing along your conditions and meds so every plan fits.</p>
-      <ul class="feat-list">
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Adherence at a glance</b><span>See your 7-day streak, doses left, and refills remaining per medication.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Smart reminders &amp; refills</b><span>Morning, midday and night schedules with one-tap refill requests.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Condition-aware nutrition</b><span>A seamless hand-off to MyFoodCraving with your medical context already attached.</span></div></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FAMILY ===================== -->
-<section class="sec" id="family">
-  <div class="feature reveal">
-    <div class="feat-media">
-      <!-- FAMILY VAULTS -->
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="statusbar"><span>9:41</span><span class="right"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:8px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Family vaults</div><div class="m-ib"><i class="bi bi-person-plus-fill"></i></div></div>
-            <div class="scr-pad" style="flex:1">
-              <div class="m-banner info"><i class="bi bi-people-fill"></i><div><b>One account, whole family</b>Manage records, meds and emergencies for the people you care for — switch profiles anytime.</div></div>
-              <div style="height:14px"></div>
-              <div class="m-card" style="display:flex;gap:12px;align-items:center;margin-bottom:9px"><div class="av red" style="width:46px;height:46px">AP</div><div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:14px">Aanya Patel</div><div class="s">Spouse · 32</div></div><div class="ring" style="--rs:5px;width:40px;height:40px;background:conic-gradient(#16a34a 88%,var(--bg-3) 0)"><span class="rc" style="font-family:var(--font-display);font-weight:800;font-size:11px">88</span></div></div>
-              <div class="m-card" style="display:flex;gap:12px;align-items:center;margin-bottom:9px"><div class="av blue" style="width:46px;height:46px">RP</div><div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:14px">Raj Patel</div><div class="s">Father · 68</div></div><div class="ring" style="--rs:5px;width:40px;height:40px;background:conic-gradient(#dc2626 71%,var(--bg-3) 0)"><span class="rc" style="font-family:var(--font-display);font-weight:800;font-size:11px">71</span></div></div>
-              <div class="m-card" style="display:flex;gap:12px;align-items:center"><div class="av green" style="width:46px;height:46px">MP</div><div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:14px">Meera Patel</div><div class="s">Mother · 64</div></div><div class="ring" style="--rs:5px;width:40px;height:40px;background:conic-gradient(#f59e0b 80%,var(--bg-3) 0)"><span class="rc" style="font-family:var(--font-display);font-weight:800;font-size:11px">80</span></div></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="feat-copy">
-      <span class="feat-tag"><i class="bi bi-people-fill" style="color:var(--emd-success)"></i> Family vaults</span>
-      <span class="feat-icon tone-green"><i class="bi bi-people-fill"></i></span>
-      <h3>Care for the people you love, from one account.</h3>
-      <p>Add your spouse, parents and kids as their own vaults — each with their own records, medications, health score and emergency profile. Switch profiles in a tap to book a visit for Dad or refill Mom's prescription, all without leaving your account.</p>
-      <ul class="feat-list">
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>A vault per person</b><span>Separate records, meds and Med ID for everyone you care for.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Health score per family member</b><span>See at a glance who needs attention this week.</span></div></li>
-        <li><span class="ck"><i class="bi bi-check-lg"></i></span><div><b>Switch &amp; manage instantly</b><span>Book, refill and respond to emergencies on anyone's behalf.</span></div></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== ONBOARDING FLOW ===================== -->
-<section class="sec" id="onboarding" style="background:var(--bg-1);border-top:var(--hairline);border-bottom:var(--hairline)">
-  <div class="sec-head reveal">
-    <span class="eyebrow">Getting started</span>
-    <h2>Protected in 60 seconds.</h2>
-    <p class="lead">A warm welcome, a quick signup, and a one-time code to lock your vault to your phone. That's all it takes before your health is in one safe place.</p>
-  </div>
-  <div class="flow reveal">
-    <div class="flow-step"><div class="num">1</div><h4>Welcome</h4><p>A calm intro carousel — sub-10-minute SOS, a HIPAA vault, video consults in under 7 minutes — sets the tone before you sign up.</p></div>
-    <div class="flow-step"><div class="num">2</div><h4>Create your vault</h4><p>Name, phone, email and a password. Takes 60 seconds, and your records stay encrypted and locked to your device.</p></div>
-    <div class="flow-step"><div class="num">3</div><h4>Verify your number</h4><p>A 6-digit one-time code confirms it's you. We verify every new device once — that's what keeps the vault yours alone.</p></div>
-    <div class="flow-step"><div class="num">4</div><h4>You're in</h4><p>Land on your home dashboard with health rings, quick actions, your next appointment and today's medications.</p></div>
-  </div>
-
-  <div class="feat-media reveal" style="margin-top:48px">
-    <!-- WELCOME -->
-    <div class="phone phone-sm" style="--pw:240px">
-      <div class="phone-screen">
-        <div class="notch"></div>
-        <div class="statusbar"><span>9:41</span><span class="right"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
-        <div class="scr" style="padding:0 18px">
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px">
-            <div style="width:96px;height:96px;border-radius:28px;background:linear-gradient(180deg,#fdfbf6,#ecdfd0);display:grid;place-items:center;box-shadow:0 18px 36px rgba(220,38,38,.2)"><img src="assets/logo-256.png" style="width:78%;height:78%;object-fit:contain" alt=""></div>
-            <div class="eyebrow">EaseMyDisease</div>
-            <div style="font-family:var(--font-display);font-weight:800;font-size:21px;letter-spacing:-.03em;line-height:1.1">Medical help,<br><em style="font-style:normal;color:var(--accent-text)">the moment you need it</em></div>
-            <p style="font-size:12px;color:var(--fg-2);max-width:210px;line-height:1.45">Emergency response, your health records, and doctors on call — all in one calm place.</p>
-            <div style="width:100%;padding:11px 13px;border-radius:14px;background:var(--bg-1);border:var(--hairline);display:flex;gap:10px;align-items:center;margin-top:6px"><span class="ico tone-red" style="width:34px;height:34px;font-size:15px"><i class="bi bi-lightning-charge-fill"></i></span><span style="font-size:12px;font-weight:600;text-align:left">Sub-10 minute SOS response</span></div>
-            <div style="display:flex;gap:5px;margin-top:4px"><span style="width:20px;height:6px;border-radius:99px;background:var(--accent)"></span><span style="width:6px;height:6px;border-radius:99px;background:var(--border-2)"></span><span style="width:6px;height:6px;border-radius:99px;background:var(--border-2)"></span></div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:9px;padding-bottom:18px">
-            <button class="btn-screen primary">Get Protected Now <i class="bi bi-arrow-right"></i></button>
-            <button class="btn-screen secondary">I already have an account</button>
-          </div>
-        </div>
-        <div class="home-indicator"></div>
-      </div>
-    </div>
-    <!-- OTP -->
-    <div class="phone phone-sm" style="--pw:240px">
-      <div class="phone-screen">
-        <div class="notch"></div>
-        <div class="scr">
-          <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Verify your number</div><div class="m-ib" style="background:transparent"></div></div>
-          <div class="scr-pad">
-            <p style="font-size:12px;color:var(--fg-2);margin:4px 0 18px;line-height:1.5">We sent a 6-digit code to <b style="color:var(--fg-1)">+1 (415) 555-0142</b>. It expires in 10 minutes.</p>
-            <div class="otp-row"><div class="otp-box fill">4</div><div class="otp-box fill">2</div><div class="otp-box fill">7</div><div class="otp-box"></div><div class="otp-box"></div><div class="otp-box"></div></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0"><span style="font-size:12px;color:var(--fg-muted)">Didn't get it?</span><span style="font-size:12px;color:var(--fg-muted);opacity:.6">Resend in 0:23</span></div>
-            <div class="m-banner info"><i class="bi bi-shield-lock"></i><div><b>Why a code?</b>Your health vault is locked to your phone. We verify every new device once.</div></div>
-            <div style="height:16px"></div>
-            <button class="btn-screen primary">Verify &amp; Continue <i class="bi bi-arrow-right"></i></button>
-          </div>
-        </div>
-        <div class="home-indicator"></div>
-      </div>
-    </div>
-    <!-- BOOKED confirmation as a delight moment -->
-    <div class="phone phone-sm" style="--pw:240px">
-      <div class="phone-screen">
-        <div class="notch"></div>
-        <div class="scr" style="padding:0 18px">
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
-            <div style="width:88px;height:88px;border-radius:50%;background:rgba(124,58,237,.12);display:grid;place-items:center"><i class="bi bi-calendar-check-fill" style="font-size:40px;color:var(--emd-doctor)"></i></div>
-            <div style="font-family:var(--font-display);font-weight:800;font-size:21px;margin:18px 0 8px">You're booked!</div>
-            <p style="font-size:12.5px;color:var(--fg-muted);max-width:220px;line-height:1.45">Video consult with <b style="color:var(--fg-1)">Dr. Amita Rao</b> on Tue May 25 at 3:00 PM.</p>
-            <div class="m-card" style="width:100%;margin-top:18px;text-align:left">
-              <div class="kv" style="padding:7px 0"><span class="k">Doctor</span><span class="v">Dr. Amita Rao</span></div>
-              <div class="kv" style="padding:7px 0"><span class="k">Mode</span><span class="v">Video</span></div>
-              <div class="kv" style="padding:7px 0"><span class="k">When</span><span class="v">Tue May 25 · 3:00 PM</span></div>
-              <div class="kv" style="padding:7px 0"><span class="k">Fee</span><span class="v">$45</span></div>
-            </div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:9px;padding-bottom:18px">
-            <button class="btn-screen primary"><i class="bi bi-calendar-plus"></i> Add to calendar</button>
-            <button class="btn-screen secondary">Back to home</button>
-          </div>
-        </div>
-        <div class="home-indicator"></div>
+      <div class="feature-copy">
+        <span class="step-no c-blue"><i class="bi bi-folder-fill"></i> Health Vault</span>
+        <h3>Your entire medical history, finally in one place</h3>
+        <p>247 records, encrypted on your device and searchable in a second. Scan a lab report or prescription and OCR reads it, files it in the right category, and links it to the right organ.</p>
+        <ul class="feature-list">
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Scan &amp; auto-file with OCR.</b><p>Camera, photos, a connected provider, or Apple Health — it sorts itself.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Organised by category.</b><p>Prescriptions, labs, imaging, visits, allergies, conditions and vaccinations.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Results in plain language.</b><p>“One value to watch” explanations, not just numbers on a page.</p></div></li>
+        </ul>
+        <a href="#security" class="btn btn-ghost" style="margin-top:24px"><i class="bi bi-share-fill"></i> See secure sharing</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== SECURITY ===================== -->
-<section class="sec" id="security">
-  <div class="sec-head reveal">
-    <span class="eyebrow">Privacy &amp; security</span>
-    <h2>Your health is yours. Full stop.</h2>
-    <p class="lead">EaseMyDisease is built privacy-first: your vault is encrypted on your device, locked behind biometrics, and never sold. You see who accessed what, and you can export or revoke everything at any time.</p>
-  </div>
-  <div class="pillars reveal">
-    <div class="pillar"><span class="pi tone-green"><i class="bi bi-shield-lock-fill"></i></span><h4>End-to-end encrypted</h4><p>Your vault is encrypted on your device. Not even we can read it without your key.</p></div>
-    <div class="pillar"><span class="pi tone-blue"><i class="bi bi-fingerprint"></i></span><h4>Biometric lock</h4><p>Face ID or fingerprint is required to open your vault, every time.</p></div>
-    <div class="pillar"><span class="pi tone-purple"><i class="bi bi-clock-history"></i></span><h4>Access log</h4><p>See exactly who viewed your records and when — and revoke all shared access in one tap.</p></div>
-    <div class="pillar"><span class="pi tone-amber"><i class="bi bi-box-arrow-down"></i></span><h4>Export anytime</h4><p>Download a full copy of your data in standard FHIR or PDF formats. It's portable, because it's yours.</p></div>
-    <div class="pillar"><span class="pi tone-red"><i class="bi bi-shield-fill-check"></i></span><h4>HIPAA-compliant</h4><p>Handling and storage meet HIPAA standards, with consent baked into every share.</p></div>
-    <div class="pillar"><span class="pi tone-teal"><i class="bi bi-translate"></i></span><h4>Three languages</h4><p>English, Spanish and Hindi throughout — including live translation during consults.</p></div>
-  </div>
-</section>
-
-<!-- ===================== EVERY SCREEN GALLERY ===================== -->
-<section class="sec" id="screens" style="background:var(--bg-1);border-top:var(--hairline)">
-  <div class="sec-head reveal">
-    <span class="eyebrow">Every flow, covered</span>
-    <h2>A look at the rest of the app.</h2>
-    <p class="lead">Medical profile, insurance, notifications, the in-consult chat and your privacy controls — the surfaces that make EaseMyDisease feel complete.</p>
-  </div>
-
-  <div class="gallery reveal">
-
-    <!-- MED ID -->
-    <div class="gcell">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Medical profile</div><div class="m-ib"><i class="bi bi-pencil"></i></div></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="band-red band-glow" style="border-radius:18px;padding:14px;margin-bottom:11px;display:flex;align-items:center;gap:11px">
-                <div class="av" style="width:46px;height:46px;background:rgba(255,255,255,.2)">JP</div>
-                <div style="flex:1"><div style="font-family:var(--font-display);font-weight:800;font-size:16px">Jordan Patel</div><div style="font-size:11px;opacity:.9">34 · Male · O+</div></div>
-                <div style="text-align:center"><i class="bi bi-qr-code" style="font-size:30px"></i><div style="font-size:8px;opacity:.85">MED ID</div></div>
+<!-- ============================== FEATURE: DOCTORS ============================== -->
+<section class="section section--tint" id="doctors">
+  <div class="container">
+    <div class="feature reveal">
+      <div class="feature-media duo">
+        <div class="glow" style="background:radial-gradient(circle,#7c3aed,transparent 70%)"></div>
+        <!-- doctor profile -->
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll has-tabs">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Doctor</div><div class="m-iconbtn"><i class="bi bi-heart"></i></div></div>
+              <div style="text-align:center;padding:16px"><div class="doc-avatar blue" style="width:76px;height:76px;border-radius:24px;font-size:26px;margin:0 auto 10px">AR</div><h1 style="font-family:var(--font-display);font-size:19px;margin:0">Dr. Amita Rao</h1><p style="font-size:12.5px;color:var(--fg-muted);margin:3px 0 8px">Cardiologist · Mercy General</p><span class="m-status green"><span class="dot"></span> Available now</span></div>
+              <div class="m-section" style="padding-top:0">
+                <div class="stat-grid" style="grid-template-columns:repeat(4,1fr)">
+                  <div class="stat-tile" style="align-items:center;text-align:center;padding:9px 4px"><div class="num" style="font-size:16px">4.9</div><div class="meta" style="font-size:8.5px">Rating</div></div>
+                  <div class="stat-tile" style="align-items:center;text-align:center;padding:9px 4px"><div class="num" style="font-size:16px">412</div><div class="meta" style="font-size:8.5px">Reviews</div></div>
+                  <div class="stat-tile" style="align-items:center;text-align:center;padding:9px 4px"><div class="num" style="font-size:16px">14y</div><div class="meta" style="font-size:8.5px">Exp.</div></div>
+                  <div class="stat-tile" style="align-items:center;text-align:center;padding:9px 4px"><div class="num" style="font-size:13px">EN·HI</div><div class="meta" style="font-size:8.5px">Speaks</div></div>
+                </div>
               </div>
-              <div class="m-card" style="margin-bottom:11px;padding:4px 12px">
-                <div class="kv" style="padding:7px 0"><span class="k">Blood type</span><span class="v">O+</span></div>
-                <div class="kv" style="padding:7px 0"><span class="k">Date of birth</span><span class="v">Mar 14, 1991</span></div>
+              <div class="m-section">
+                <div class="m-section-head"><h2>Consultation fee</h2></div>
+                <div class="m-list">
+                  <div class="m-list-row"><div class="ico tone-blue"><i class="bi bi-camera-video-fill"></i></div><div class="meta"><p class="t">Video consult</p><p class="s">20 min · notes synced to vault</p></div><span class="trailing"><strong>$45</strong></span></div>
+                  <div class="m-list-row"><div class="ico tone-purple"><i class="bi bi-hospital-fill"></i></div><div class="meta"><p class="t">In-person visit</p><p class="s">Mercy General</p></div><span class="trailing"><strong>$70</strong></span></div>
+                </div>
               </div>
-              <div class="seclbl">Allergies</div>
-              <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="pill red" style="padding:5px 10px"><i class="bi bi-exclamation-triangle-fill"></i> Penicillin</span><span class="pill red" style="padding:5px 10px"><i class="bi bi-exclamation-triangle-fill"></i> Peanuts</span></div>
+              <div class="m-section stack-8"><button class="m-btn primary block"><i class="bi bi-calendar-plus"></i> Book appointment</button></div>
             </div>
+            <nav class="tabbar"><div class="tab"><i class="bi bi-house-door"></i>Home</div><div class="tab"><i class="bi bi-folder2"></i>Records</div><div class="tab sos"><span class="sos-dot"><i class="bi bi-heart-pulse-fill"></i></span><span>SOS</span></div><div class="tab active"><i class="bi bi-chat-square-text-fill"></i>Doctors</div><div class="tab"><i class="bi bi-person"></i>You</div></nav>
+            <div class="home-indicator"></div>
           </div>
-          <div class="home-indicator"></div>
+        </div>
+        <!-- video call -->
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen bleed">
+            <div class="statusbar light"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(165deg,#6d28d9,#3b1078);display:flex;flex-direction:column">
+              <div style="display:flex;justify-content:space-between;padding:46px 16px 0;color:#fff">
+                <span style="background:rgba(0,0,0,.3);font-size:11px;padding:4px 9px;border-radius:99px"><span style="color:#4ade80">●</span> 12:24</span>
+                <span style="background:rgba(0,0,0,.3);font-size:11px;padding:4px 9px;border-radius:99px"><i class="bi bi-translate"></i> EN ↔ HI</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff">
+                <div class="doc-avatar blue" style="width:96px;height:96px;border-radius:32px;font-size:34px;box-shadow:0 0 0 6px rgba(255,255,255,.12)">AR</div>
+                <div style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-top:14px">Dr. Amita Rao</div>
+                <div style="font-size:11px;opacity:.8">Cardiology consult · Notes recording</div>
+              </div>
+              <div style="position:absolute;top:74px;right:16px;width:70px;height:96px;border-radius:14px;background:#1f2937;border:2px solid rgba(255,255,255,.5);display:grid;place-items:center;color:#fff;font-family:var(--font-display);font-weight:800">JP</div>
+              <div style="display:flex;justify-content:center;gap:14px;padding:18px 0 30px"><div class="m-iconbtn light" style="width:46px;height:46px;border-radius:50%;font-size:18px"><i class="bi bi-mic-fill"></i></div><div class="m-iconbtn light" style="width:46px;height:46px;border-radius:50%;font-size:18px"><i class="bi bi-camera-video-fill"></i></div><div class="m-iconbtn light" style="width:46px;height:46px;border-radius:50%;font-size:18px"><i class="bi bi-chat-dots-fill"></i></div><div style="width:46px;height:46px;border-radius:50%;background:#dc2626;color:#fff;display:grid;place-items:center;font-size:18px"><i class="bi bi-telephone-x-fill"></i></div></div>
+            </div>
+            <div class="home-indicator light"></div>
+          </div>
         </div>
       </div>
-      <div class="cap"><b>Medical profile &amp; Med ID</b><span>QR-coded vitals first responders can read in seconds.</span></div>
-    </div>
-
-    <!-- ORGAN DRILLDOWN -->
-    <div class="gcell">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="band-red band-glow" style="background:linear-gradient(165deg,#f59e0b,#d97706);padding:34px 15px 16px">
-              <div class="m-head" style="padding:0 0 8px"><div class="m-ib" style="background:rgba(255,255,255,.2);color:#fff"><i class="bi bi-chevron-left"></i></div><div class="ttl" style="color:#fff">Heart</div><div class="m-ib" style="background:transparent;color:#fff"><i class="bi bi-share"></i></div></div>
-              <div style="display:flex;align-items:flex-end;justify-content:space-between">
-                <div><span class="pill" style="background:rgba(255,255,255,.2);color:#fff"><i class="bi bi-heart-pulse-fill"></i> WATCH</span><div style="font-family:var(--font-display);font-weight:800;font-size:38px;margin-top:6px">76<span style="font-size:18px;opacity:.7"> / 100</span></div><div style="font-size:11px;opacity:.9">Function &amp; fitness score</div></div>
-                <div class="ring" style="--rs:7px;width:72px;height:72px;background:conic-gradient(#fff 76%,rgba(255,255,255,.25) 0)"><span class="rc" style="background:#e8920f;color:#fff;font-size:20px"><i class="bi bi-heart-pulse-fill"></i></span></div>
-              </div>
-            </div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="m-banner info"><i class="bi bi-info-circle-fill"></i><div><b>What this means</b>Resting HR 68 bpm, healthy. LDL optimal; triglycerides slightly elevated.</div></div>
-              <div class="seclbl">Key metrics</div>
-              <div style="display:flex;gap:8px"><div class="m-card" style="flex:1;text-align:left;padding:10px"><div style="font-size:9px;color:var(--fg-muted)">Resting HR</div><div class="metric-hero" style="font-size:18px">68 bpm</div></div><div class="m-card" style="flex:1;text-align:left;padding:10px"><div style="font-size:9px;color:var(--fg-muted)">Blood pressure</div><div class="metric-hero" style="font-size:18px">124/79</div></div></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
+      <div class="feature-copy">
+        <span class="step-no c-purple"><i class="bi bi-chat-dots-fill"></i> Doctors on call</span>
+        <h3>A doctor in minutes, not days</h3>
+        <p>Search by specialty, name or condition, compare ratings and fees, and book a video, voice, in-person or chat consult. Live translation in-call, and every note synced back to your vault.</p>
+        <ul class="feature-list">
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Find &amp; filter instantly.</b><p>“Available now”, video, in-person or top-rated — with distance and price up front.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Book in three taps.</b><p>Pick a mode, a day and a time slot — and we add it to your calendar.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Consult in your language.</b><p>In-call live translation across English, Spanish and Hindi.</p></div></li>
+        </ul>
       </div>
-      <div class="cap"><b>Organ breakdown</b><span>Metrics and linked records for every body system.</span></div>
-    </div>
-
-    <!-- CHAT -->
-    <div class="gcell">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl" style="display:flex;align-items:center;gap:7px;justify-content:center"><span class="av blue" style="width:26px;height:26px;font-size:10px">AR</span>Dr Amita Rao</div><div class="m-ib"><i class="bi bi-camera-video-fill"></i></div></div>
-            <div class="chat-scroll">
-              <div class="chat-day">Today</div>
-              <div class="bubble them">Hi Jordan, I reviewed your lipid panel. Overall it looks good.<div style="font-size:9px;opacity:.5;margin-top:3px">10:02</div></div>
-              <div class="bubble me">Thanks doctor! I was worried about the triglycerides.<div style="font-size:9px;opacity:.7;margin-top:3px">10:03</div></div>
-              <div class="bubble them">They're only slightly above range — nothing alarming. Let's adjust your diet first.<div style="font-size:9px;opacity:.5;margin-top:3px">10:04</div></div>
-              <div class="bubble me">Sounds good. Should I book a follow-up?<div style="font-size:9px;opacity:.7;margin-top:3px">10:05</div></div>
-            </div>
-            <div class="chat-bar"><span class="m-ib"><i class="bi bi-plus"></i></span><input placeholder="Message…" disabled><span class="m-ib solid"><i class="bi bi-send-fill"></i></span></div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-      <div class="cap"><b>In-consult chat</b><span>Message your doctor between visits, jump to video anytime.</span></div>
-    </div>
-
-    <!-- INSURANCE -->
-    <div class="gcell">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Insurance</div><div class="m-ib"><i class="bi bi-plus-lg"></i></div></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="band-blue band-glow" style="border-radius:18px;padding:18px;min-height:160px;display:flex;flex-direction:column;justify-content:space-between;position:relative">
-                <div class="dotgrid" style="position:absolute;inset:0;opacity:.25;border-radius:18px"></div>
-                <div style="display:flex;justify-content:space-between;align-items:flex-start;position:relative"><div><div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;opacity:.85">Aetna</div><div style="font-family:var(--font-display);font-weight:800;font-size:18px">PPO Select</div></div><i class="bi bi-shield-fill-check" style="font-size:23px"></i></div>
-                <div style="position:relative"><div class="cc-num">W-2291-4408</div><div style="display:flex;justify-content:space-between;margin-top:7px;font-size:10px;opacity:.9"><span>MEMBER · JORDAN PATEL</span><span>GRP 77120</span></div></div>
-              </div>
-              <div class="seclbl">Coverage</div>
-              <div class="m-list">
-                <div class="row"><span class="ico tone-green" style="width:32px;height:32px;font-size:13px"><i class="bi bi-cash-coin"></i></span><div><div class="t">Deductible</div><div class="s">$1,200 of $2,000 met</div></div><span class="tr"><b>60%</b></span></div>
-                <div class="row"><span class="ico tone-blue" style="width:32px;height:32px;font-size:13px"><i class="bi bi-hospital-fill"></i></span><div><div class="t">Network</div><div class="s">In-network: Mercy General</div></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-      <div class="cap"><b>Insurance card</b><span>Your plan, member ID and coverage — ready at check-in.</span></div>
-    </div>
-
-    <!-- NOTIFICATIONS -->
-    <div class="gcell">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Notifications</div><div class="m-ib" style="background:transparent;width:auto;font-size:11px;color:var(--accent-text);font-weight:700">Mark all</div></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="m-list">
-                <div class="row" style="background:var(--accent-soft)"><span class="ico tone-blue"><i class="bi bi-clipboard-pulse-fill"></i></span><div style="flex:1"><div class="t">Lipid panel results are in</div><div class="s">Quest shared a new lab result · 12 min ago</div></div><span style="width:8px;height:8px;border-radius:50%;background:var(--accent)"></span></div>
-                <div class="row" style="background:var(--accent-soft)"><span class="ico tone-red"><i class="bi bi-capsule"></i></span><div style="flex:1"><div class="t">Albuterol refill running low</div><div class="s">1 day of doses left · 2 h ago</div></div><span style="width:8px;height:8px;border-radius:50%;background:var(--accent)"></span></div>
-                <div class="row"><span class="ico tone-purple"><i class="bi bi-calendar-check-fill"></i></span><div style="flex:1"><div class="t">Appointment confirmed</div><div class="s">Dr. Rao · Tue May 25 · Yesterday</div></div></div>
-                <div class="row"><span class="ico tone-green"><i class="bi bi-share-fill"></i></span><div style="flex:1"><div class="t">Dr. Rao viewed your records</div><div class="s">Access expires in 7 days</div></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-      <div class="cap"><b>Activity &amp; notifications</b><span>Results, refills, confirmations and access alerts in one feed.</span></div>
-    </div>
-
-    <!-- PRIVACY -->
-    <div class="gcell">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Privacy &amp; data</div><div class="m-ib" style="background:transparent"></div></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="m-banner success"><i class="bi bi-shield-lock-fill"></i><div><b>End-to-end encrypted</b>Your vault is encrypted on your device. Not even we can read it without your key.</div></div>
-              <div class="seclbl">Security</div>
-              <div class="m-card" style="padding:2px 12px">
-                <div class="kv" style="padding:9px 0"><div><div class="k" style="color:var(--fg-1)">Face ID / biometric lock</div><div class="s">Require to open vault</div></div><span class="sw on"></span></div>
-                <div class="kv" style="padding:9px 0"><div class="k" style="color:var(--fg-1)">Share location in SOS</div><span class="sw on"></span></div>
-                <div class="kv" style="padding:9px 0"><div><div class="k" style="color:var(--fg-1)">Anonymous research</div><div class="s">Help improve care, never sold</div></div><span class="sw on"></span></div>
-                <div class="kv" style="padding:9px 0"><div class="k" style="color:var(--fg-1)">Usage analytics</div><span class="sw"></span></div>
-              </div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-      <div class="cap"><b>Privacy controls</b><span>Biometric lock, access log, export and full revoke.</span></div>
-    </div>
-
-    <!-- BOOKING -->
-    <div class="gcell">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Book appointment</div><div class="m-ib"><i class="bi bi-heart"></i></div></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <div class="m-card" style="display:flex;gap:10px;align-items:center;margin-bottom:12px"><div class="av blue" style="width:40px;height:40px">AR</div><div style="flex:1"><div class="t">Dr. Amita Rao</div><div class="s">Cardiologist · Mercy General</div></div><div class="metric-hero" style="font-size:15px">$45</div></div>
-              <div style="display:flex;gap:6px;margin-bottom:14px"><span class="pill red" style="padding:6px 12px">Video</span><span class="pill" style="padding:6px 12px;background:var(--bg-3);color:var(--fg-2)">Voice</span><span class="pill" style="padding:6px 12px;background:var(--bg-3);color:var(--fg-2)">In person</span><span class="pill" style="padding:6px 12px;background:var(--bg-3);color:var(--fg-2)">Chat</span></div>
-              <div class="seclbl" style="margin-top:0">May · this week</div>
-              <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:14px">
-                <div style="text-align:center;padding:8px 0;border-radius:11px;border:var(--hairline);opacity:.4"><div style="font-size:9px;font-weight:700">Mon</div><div style="font-family:var(--font-display);font-weight:800;font-size:15px">24</div></div>
-                <div style="text-align:center;padding:8px 0;border-radius:11px;background:var(--accent);color:#fff"><div style="font-size:9px;font-weight:700">Tue</div><div style="font-family:var(--font-display);font-weight:800;font-size:15px">25</div></div>
-                <div style="text-align:center;padding:8px 0;border-radius:11px;border:var(--hairline)"><div style="font-size:9px;font-weight:700">Wed</div><div style="font-family:var(--font-display);font-weight:800;font-size:15px">26</div></div>
-                <div style="text-align:center;padding:8px 0;border-radius:11px;border:var(--hairline);opacity:.4"><div style="font-size:9px;font-weight:700">Thu</div><div style="font-family:var(--font-display);font-weight:800;font-size:15px">27</div></div>
-                <div style="text-align:center;padding:8px 0;border-radius:11px;border:var(--hairline)"><div style="font-size:9px;font-weight:700">Fri</div><div style="font-family:var(--font-display);font-weight:800;font-size:15px">28</div></div>
-              </div>
-              <div class="seclbl" style="margin-top:0">Available slots</div>
-              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px"><span class="pill" style="padding:9px 0;justify-content:center;background:var(--bg-3);color:var(--fg-2)">9:00</span><span class="pill" style="padding:9px 0;justify-content:center;background:var(--bg-3);color:var(--fg-2)">10:30</span><span class="pill red" style="padding:9px 0;justify-content:center">3:00 PM</span></div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-      <div class="cap"><b>Booking</b><span>Pick mode, day and slot — confirm in one tap.</span></div>
-    </div>
-
-    <!-- UPLOAD OCR -->
-    <div class="gcell">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-          <div class="scr">
-            <div class="m-head" style="padding-top:42px"><div class="m-ib"><i class="bi bi-chevron-left"></i></div><div class="ttl">Add to vault</div><div class="m-ib" style="background:transparent"></div></div>
-            <div class="scr-pad" style="flex:1;overflow:hidden">
-              <p class="s" style="font-size:12px;margin-bottom:14px">We'll auto-read (OCR) the document and file it in the right category.</p>
-              <div class="m-list" style="background:transparent;border:0;display:grid;gap:9px">
-                <div class="m-card row" style="gap:11px"><span class="ico tone-green"><i class="bi bi-camera-fill"></i></span><div style="flex:1"><div class="t">Scan with camera</div><div class="s">Snap a lab report or prescription</div></div><i class="bi bi-chevron-right" style="color:var(--fg-muted)"></i></div>
-                <div class="m-card row" style="gap:11px"><span class="ico tone-blue"><i class="bi bi-image-fill"></i></span><div style="flex:1"><div class="t">Upload from photos</div><div class="s">PDF, JPG or PNG</div></div><i class="bi bi-chevron-right" style="color:var(--fg-muted)"></i></div>
-                <div class="m-card row" style="gap:11px"><span class="ico tone-purple"><i class="bi bi-hospital"></i></span><div style="flex:1"><div class="t">Connect a provider</div><div class="s">Mercy General, Quest, LabCorp…</div></div><i class="bi bi-chevron-right" style="color:var(--fg-muted)"></i></div>
-                <div class="m-card row" style="gap:11px"><span class="ico tone-red"><i class="bi bi-heart-pulse"></i></span><div style="flex:1"><div class="t">Sync from Apple Health</div><div class="s">Vitals, steps, sleep</div></div><i class="bi bi-chevron-right" style="color:var(--fg-muted)"></i></div>
-              </div>
-            </div>
-          </div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-      <div class="cap"><b>Add to vault (OCR)</b><span>Scan, upload, connect a provider, or sync a wearable.</span></div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===================== FINAL CTA ===================== -->
-<section class="cta" id="download">
-  <div class="cta-card reveal">
-    <img src="assets/logo-256.png" alt="EaseMyDisease">
-    <h2>Carry a caregiver in your pocket.</h2>
-    <p>Emergency SOS, your encrypted health vault, an interactive body map, and doctors on call — for you and everyone you love. Get protected in 60 seconds.</p>
-    <div class="store-badges">
-      <a class="store-badge" href="#"><i class="bi bi-apple"></i><span><small>Download on the</small><b>App Store</b></span></a>
-      <a class="store-badge" href="#"><i class="bi bi-google-play"></i><span><small>Get it on</small><b>Google Play</b></span></a>
     </div>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <a class="brand" href="#top"><img src="assets/logo-256.png" alt="">Ease<b>My</b>Disease</a>
-      <p>Medical help, the moment you need it. Emergency response, your health records, and doctors on call — all in one calm, human place.</p>
+<!-- ============================== FEATURE: MEDS + DIET ============================== -->
+<section class="section" id="meds">
+  <div class="container">
+    <div class="feature reverse reveal">
+      <div class="feature-media duo">
+        <div class="glow" style="background:radial-gradient(circle,#3b82f6,transparent 70%)"></div>
+        <!-- medications -->
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Medications</div><div class="m-iconbtn"><i class="bi bi-plus-lg"></i></div></div>
+              <div class="m-section">
+                <div class="m-card band-blue band-glow" style="border:0;color:#fff;display:flex;align-items:center;gap:14px">
+                  <svg class="ring-svg" viewBox="0 0 36 36" style="width:62px;height:62px"><circle cx="18" cy="18" r="15.5" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="3.4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="97.4" stroke-dashoffset="6" transform="rotate(-90 18 18)"/></svg>
+                  <div><div style="font-family:var(--font-display);font-weight:800;font-size:26px">94 %</div><div style="font-size:11px;opacity:.9">7-day adherence · great work</div></div>
+                </div>
+              </div>
+              <div class="m-section">
+                <div class="m-section-head"><h2>Active</h2></div>
+                <div class="stack-10">
+                  <div class="rx-card"><div class="pillico ico tone-purple"><i class="bi bi-capsule"></i></div><div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13.5px">Metformin · 500 mg</div><div style="font-size:11px;color:var(--fg-muted)">Twice daily · Dr. Rina Desai</div><div class="linebar" style="margin-top:7px"><i style="width:94%"></i></div></div><span class="trailing" style="font-size:11px;color:var(--fg-muted)">18 left</span></div>
+                  <div class="rx-card"><div class="pillico ico tone-blue"><i class="bi bi-lungs-fill"></i></div><div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13.5px">Albuterol · 90 mcg</div><div style="font-size:11px;color:var(--fg-muted)">As needed · Dr. Marcus Rivera</div><div class="linebar" style="margin-top:7px"><i style="width:100%;background:#3b82f6"></i></div></div><span class="m-status red">Refill</span></div>
+                </div>
+              </div>
+              <div class="m-section"><div class="m-banner warn"><i class="bi bi-exclamation-triangle-fill"></i><div><span class="t">Running low</span>Only 1 dose of Albuterol left. Request a refill so you don’t miss a day.</div></div></div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+        <!-- diet handoff sheet -->
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll" style="filter:brightness(.96);padding-top:38px">
+              <div class="m-largehead"><p class="greeting">Good morning,</p><h1>Jordan 👋</h1></div>
+              <div class="m-section"><div class="m-card" style="height:90px"></div></div>
+              <div class="m-section"><div class="m-card" style="height:120px"></div></div>
+            </div>
+            <div style="position:absolute;inset:0;background:rgba(15,23,42,.45)"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;background:var(--bg-1);border-radius:24px 24px 42px 42px;padding:12px 18px 24px;box-shadow:0 -12px 40px rgba(15,23,42,.25)">
+              <div style="width:40px;height:4px;border-radius:99px;background:var(--border-2);margin:2px auto 14px"></div>
+              <h3 style="font-size:16px;margin:0 0 4px">Hand off to MyFoodCraving?</h3>
+              <p style="font-size:12px;color:var(--fg-2);margin:0 0 14px">Diet &amp; nutrition lives in our partner app. We’ll pass your conditions and meds so meal plans match.</p>
+              <div class="m-card" style="display:flex;align-items:center;gap:11px;margin-bottom:14px"><div class="ico tone-green" style="width:38px;height:38px"><i class="bi bi-apple"></i></div><div style="flex:1"><div style="font-family:var(--font-display);font-weight:700;font-size:13px">MyFoodCraving</div><div style="font-size:11px;color:var(--fg-muted)">Free · Will open in app</div></div><span class="m-status green">Linked</span></div>
+              <div class="stack-8"><button class="m-btn primary block"><i class="bi bi-box-arrow-up-right"></i> Open MyFoodCraving</button><button class="m-btn secondary block">Not now</button></div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-copy">
+        <span class="step-no c-blue"><i class="bi bi-capsule"></i> Medications &amp; nutrition</span>
+        <h3>Never miss a dose — or a refill</h3>
+        <p>Track every active and completed prescription, see a 7-day adherence score, and get a heads-up before you run out. Diet &amp; nutrition hands off to your meal-plan app with your conditions already attached.</p>
+        <ul class="feature-list">
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Adherence at a glance.</b><p>“94% · great work,” with per-medication progress bars.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Refill before empty.</b><p>“Running low” alerts and one-tap refill requests.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Meal plans that fit your diagnosis.</b><p>1,820 kcal tuned for diabetes — your conditions travel with you.</p></div></li>
+        </ul>
+      </div>
     </div>
-    <div><h5>Features</h5><ul><li><a href="#sos">Emergency SOS</a></li><li><a href="#body">3D Body Map</a></li><li><a href="#vault">Health Vault</a></li><li><a href="#doctors">Consult Doctors</a></li><li><a href="#meds">Medications</a></li></ul></div>
-    <div><h5>Company</h5><ul><li><a href="#features">About</a></li><li><a href="#security">Security</a></li><li><a href="#family">Family vaults</a></li><li><a href="#onboarding">Get started</a></li></ul></div>
-    <div><h5>Legal</h5><ul><li><a href="#">Privacy Notice</a></li><li><a href="#">HIPAA Notice</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Contact support</a></li></ul></div>
   </div>
-  <div class="foot-bottom">
-    <span>© 2026 EaseMyDisease · v3.0 · Made with care</span>
-    <span style="display:inline-flex;gap:14px"><a href="#"><i class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a></span>
+</section>
+
+<!-- ============================== FAMILY / PROFILE / INSURANCE ============================== -->
+<section class="section section--tint" id="family">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Profile · Family · Insurance</span>
+      <h2>One account for the whole family</h2>
+      <p>Your Med ID, your insurance card and a vault for everyone you care for — parents, partner and kids — switchable in a tap.</p>
+    </div>
+    <div class="feature-cards reveal">
+      <!-- Med ID -->
+      <div class="fcard">
+        <div class="ico tone-red"><i class="bi bi-file-medical-fill"></i></div>
+        <h3>Medical ID, ready in a crisis</h3>
+        <p>Blood type, allergies, conditions and medications on one scannable card — shareable the instant an SOS fires.</p>
+        <div class="medid band-red band-glow dotgrid" style="margin-top:16px">
+          <div class="avatar" style="width:44px;height:44px;background:rgba(255,255,255,.2)">JP</div>
+          <div style="flex:1"><div style="font-family:var(--font-display);font-weight:800;font-size:15px">Jordan Patel</div><div style="font-size:11px;opacity:.9">34 · Male · O+</div></div>
+          <div style="text-align:center"><i class="bi bi-qr-code" style="font-size:26px"></i><div style="font-size:8px;letter-spacing:.1em">MED ID</div></div>
+        </div>
+      </div>
+      <!-- Family -->
+      <div class="fcard">
+        <div class="ico tone-green"><i class="bi bi-people-fill"></i></div>
+        <h3>Family vaults</h3>
+        <p>Manage records, meds and emergencies for the people you care for — and switch profiles anytime.</p>
+        <div class="stack-8" style="margin-top:16px">
+          <div class="m-list-row" style="border:1px solid var(--border-1);border-radius:14px"><div class="avatar red" style="width:36px;height:36px;border-radius:11px;font-size:13px">AP</div><div class="meta"><p class="t" style="font-size:13px">Aanya Patel</p><p class="s">Spouse · 32</p></div><span class="trailing"><strong style="color:#16a34a">88</strong></span></div>
+          <div class="m-list-row" style="border:1px solid var(--border-1);border-radius:14px"><div class="avatar blue" style="width:36px;height:36px;border-radius:11px;font-size:13px">RP</div><div class="meta"><p class="t" style="font-size:13px">Raj Patel</p><p class="s">Father · 68</p></div><span class="trailing"><strong style="color:#b45309">71</strong></span></div>
+        </div>
+      </div>
+      <!-- Insurance -->
+      <div class="fcard">
+        <div class="ico tone-blue"><i class="bi bi-credit-card-2-front-fill"></i></div>
+        <h3>Insurance, digitised</h3>
+        <p>Your card, deductible progress and network status — always in your pocket, ready to show.</p>
+        <div class="ins-card band-blue band-glow dotgrid" style="margin-top:16px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;opacity:.85">Aetna</div><div style="font-family:var(--font-display);font-weight:800;font-size:18px">PPO Select</div></div><i class="bi bi-shield-fill-check" style="font-size:22px"></i></div>
+          <div><div class="num">W-2291-4408</div><div style="display:flex;justify-content:space-between;font-size:9.5px;opacity:.85;margin-top:5px"><span>MEMBER · JORDAN PATEL</span><span>GRP-77120</span></div></div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="foot-disc">EaseMyDisease is a personal health-management tool and is not a substitute for professional medical advice, diagnosis, or treatment. In a life-threatening emergency, always call your local emergency number. Screens shown are product mockups with sample data.</p>
+</section>
+
+<!-- ============================== SECURITY ============================== -->
+<section class="section" id="security">
+  <div class="container">
+    <div class="feature reveal">
+      <div class="feature-media">
+        <div class="glow" style="background:radial-gradient(circle,#dc2626,transparent 70%)"></div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Privacy &amp; data</div><div style="width:34px"></div></div>
+              <div class="m-section"><div class="m-banner success"><i class="bi bi-shield-lock-fill"></i><div><span class="t">End-to-end encrypted</span>Your vault is encrypted on your device. Not even we can read it without your key.</div></div></div>
+              <div class="m-section">
+                <div class="m-section-head"><h2>Security</h2></div>
+                <div class="m-list">
+                  <div class="m-list-row"><div class="meta"><p class="t">Face ID / biometric lock</p><p class="s">Require to open vault</p></div><span class="m-switch on"></span></div>
+                  <div class="m-list-row"><div class="meta"><p class="t">Share location in SOS</p></div><span class="m-switch on"></span></div>
+                  <div class="m-list-row"><div class="meta"><p class="t">Anonymous research</p><p class="s">Help improve care, never sold</p></div><span class="m-switch on"></span></div>
+                  <div class="m-list-row"><div class="meta"><p class="t">Usage analytics</p></div><span class="m-switch"></span></div>
+                </div>
+              </div>
+              <div class="m-section">
+                <div class="m-section-head"><h2>Your data</h2></div>
+                <div class="m-list">
+                  <div class="m-list-row"><div class="ico tone-blue"><i class="bi bi-clock-history"></i></div><div class="meta"><p class="t">Access log</p><p class="s">See who viewed your records</p></div><i class="bi bi-chevron-right chev"></i></div>
+                  <div class="m-list-row"><div class="ico tone-green"><i class="bi bi-box-arrow-down"></i></div><div class="meta"><p class="t">Export all data</p><p class="s">Download a copy (FHIR / PDF)</p></div><i class="bi bi-chevron-right chev"></i></div>
+                  <div class="m-list-row"><div class="ico tone-amber"><i class="bi bi-shield-slash"></i></div><div class="meta"><p class="t">Revoke all shared access</p></div><i class="bi bi-chevron-right chev"></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-copy">
+        <span class="step-no"><i class="bi bi-shield-lock-fill"></i> Privacy &amp; security</span>
+        <h3>Your records. Your key. Your call.</h3>
+        <p>Your vault is encrypted on your device and locked to your phone — verified once with a one-time code. Share exactly what you choose, for exactly as long as you choose.</p>
+        <ul class="feature-list">
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>End-to-end encrypted.</b><p>Not even we can read your records without your key.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Time-boxed sharing.</b><p>Grant a doctor 24-hour, 7-day or 30-day access — and revoke it anytime.</p></div></li>
+          <li><div class="ck"><i class="bi bi-check-lg"></i></div><div><b>Yours to take.</b><p>Full access log and one-tap export to FHIR or PDF. HIPAA-compliant throughout.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== EVERY SCREEN GALLERY ============================== -->
+<section class="section section--tint" id="screens">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Every flow, covered</span>
+      <h2>A look at the rest of the app</h2>
+      <p>Onboarding, appointments, in-consult chat, notifications and more — the screens that make EaseMyDisease feel complete.</p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="gallery reveal">
+      <!-- OTP / device verify -->
+      <div class="gitem">
+        <div class="phone" style="width:262px;height:568px">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Verify your number</div><div style="width:34px"></div></div>
+              <div class="m-section"><p style="font-size:12.5px;color:var(--fg-2)">We sent a 6-digit code to <b>+1 (415) 555-0142</b>. It expires in 10 minutes.</p>
+                <div class="m-otp" style="margin:14px 0"><span class="box filled">4</span><span class="box filled">2</span><span class="box filled">7</span><span class="box"></span><span class="box"></span><span class="box"></span></div>
+                <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--fg-muted)"><span>Didn’t get it?</span><span style="color:var(--accent-text);font-weight:600">Resend in 0:22</span></div>
+                <div class="m-banner info" style="margin-top:14px"><i class="bi bi-shield-lock-fill"></i><div><span class="t">Why a code?</span>Your health vault is locked to your phone. We verify every new device once.</div></div>
+                <button class="m-btn primary block" style="margin-top:14px">Verify &amp; Continue <i class="bi bi-arrow-right"></i></button>
+              </div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+        <div class="cap"><b>Device verification</b><span>Your vault is locked to your phone</span></div>
+      </div>
+
+      <!-- Lab detail -->
+      <div class="gitem">
+        <div class="phone" style="width:262px;height:568px">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Lipid Panel</div><div class="m-iconbtn"><i class="bi bi-share"></i></div></div>
+              <div class="m-section">
+                <div class="m-card"><div style="display:flex;align-items:center;gap:10px"><div class="ico tone-blue" style="width:38px;height:38px"><i class="bi bi-clipboard-pulse-fill"></i></div><div style="flex:1"><div style="font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--fg-muted);font-weight:700">Lab result</div><div style="font-family:var(--font-display);font-weight:800;font-size:16px">Lipid Panel</div></div><span class="m-status green">Normal</span></div><p style="font-size:10.5px;color:var(--fg-muted);margin:8px 0 0">Collected May 12 · Quest Diagnostics</p></div>
+              </div>
+              <div class="m-section"><div class="m-section-head"><h2>Values</h2></div><div class="m-list">
+                <div class="m-list-row"><div class="meta"><p class="t" style="font-size:13px">LDL Cholesterol</p><p class="s">Optimal &lt; 100 mg/dL</p></div><span class="trailing"><strong>92</strong> mg/dL</span></div>
+                <div class="m-list-row"><div class="meta"><p class="t" style="font-size:13px">Triglycerides</p><p class="s">Optimal &lt; 150 mg/dL</p></div><span class="trailing"><strong style="color:#b45309">172 ↑</strong></span></div>
+                <div class="m-list-row"><div class="meta"><p class="t" style="font-size:13px">HDL Cholesterol</p><p class="s">Optimal &gt; 60 mg/dL</p></div><span class="trailing"><strong>64</strong> mg/dL</span></div>
+              </div></div>
+              <div class="m-section"><div class="m-banner warn"><i class="bi bi-exclamation-triangle-fill"></i><div><span class="t">One value to watch</span>Triglycerides are slightly elevated. Diet usually moves this back into range.</div></div></div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+        <div class="cap"><b>Lab results, explained</b><span>Plain-language flags, not just numbers</span></div>
+      </div>
+
+      <!-- Booking -->
+      <div class="gitem">
+        <div class="phone" style="width:262px;height:568px">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Book appointment</div><div style="width:34px"></div></div>
+              <div class="m-section"><div class="m-seg"><button class="active">Video</button><button>Voice</button><button>In&nbsp;person</button><button>Chat</button></div></div>
+              <div class="m-section"><div class="m-section-head"><h2>May · this week</h2></div>
+                <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px">
+                  <div class="m-chip" style="flex-direction:column;padding:8px 0;opacity:.4">Mon<br>24</div>
+                  <div class="m-chip active" style="flex-direction:column;padding:8px 0">Tue<br>25</div>
+                  <div class="m-chip" style="flex-direction:column;padding:8px 0">Wed<br>26</div>
+                  <div class="m-chip" style="flex-direction:column;padding:8px 0;opacity:.4">Thu<br>27</div>
+                  <div class="m-chip" style="flex-direction:column;padding:8px 0">Fri<br>28</div>
+                </div>
+              </div>
+              <div class="m-section"><div class="m-section-head"><h2>Available slots · Tue 25</h2></div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px">
+                  <div class="m-chip">9:00 AM</div><div class="m-chip active">10:30 AM</div><div class="m-chip">11:15 AM</div>
+                  <div class="m-chip">1:45 PM</div><div class="m-chip">3:00 PM</div><div class="m-chip">4:30 PM</div>
+                </div>
+              </div>
+              <div class="m-section"><button class="m-btn primary block">Confirm · Video · 10:30 AM <i class="bi bi-arrow-right"></i></button></div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+        <div class="cap"><b>Three-tap booking</b><span>Mode, day, time — then it’s in your calendar</span></div>
+      </div>
+
+      <!-- Chat -->
+      <div class="gitem">
+        <div class="phone" style="width:262px;height:568px">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll" style="display:flex;flex-direction:column;padding-top:38px">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div style="display:flex;align-items:center;gap:8px;flex:1"><div class="avatar blue" style="width:30px;height:30px;border-radius:10px;font-size:11px">AR</div><div class="m-header-title" style="text-align:left;flex:0">Dr. Rao</div></div><div class="m-iconbtn"><i class="bi bi-camera-video"></i></div></div>
+              <div class="chat-scroll" style="flex:1">
+                <div class="chat-day">Today</div>
+                <div class="bubble them">Hi Jordan, I reviewed your lipid panel. Overall it looks good.<span class="time">10:02</span></div>
+                <div class="bubble me">Thanks doctor! I was worried about the triglycerides.<span class="time">10:03</span></div>
+                <div class="bubble them">They’re only slightly above range — let’s adjust your diet before considering medication.<span class="time">10:04</span></div>
+                <div class="bubble me">Sounds good. Should I book a follow-up?<span class="time">10:05</span></div>
+              </div>
+              <div class="chat-bar"><i class="bi bi-plus-circle" style="color:var(--fg-muted);font-size:18px"></i><div class="fakeinput">Message…</div><i class="bi bi-send-fill" style="color:var(--accent)"></i></div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+        <div class="cap"><b>Chat with your doctor</b><span>Follow-up questions, answered</span></div>
+      </div>
+
+      <!-- Notifications -->
+      <div class="gitem">
+        <div class="phone" style="width:262px;height:568px">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Notifications</div><span class="link" style="color:var(--accent-text);font-size:11.5px;font-weight:700">Mark all</span></div>
+              <div class="m-section"><div class="m-list">
+                <div class="m-list-row"><div class="ico tone-blue"><i class="bi bi-clipboard-pulse-fill"></i></div><div class="meta"><p class="t" style="font-size:13px">Lipid panel results are in</p><p class="s">Quest shared a new lab result</p></div><span style="width:8px;height:8px;border-radius:50%;background:var(--accent)"></span></div>
+                <div class="m-list-row"><div class="ico tone-red"><i class="bi bi-capsule"></i></div><div class="meta"><p class="t" style="font-size:13px">Albuterol refill running low</p><p class="s">1 day of doses left — refill now</p></div><span style="width:8px;height:8px;border-radius:50%;background:var(--accent)"></span></div>
+                <div class="m-list-row"><div class="ico tone-purple"><i class="bi bi-calendar-check-fill"></i></div><div class="meta"><p class="t" style="font-size:13px">Appointment confirmed</p><p class="s">Dr. Amita Rao · Tue May 25</p></div></div>
+                <div class="m-list-row"><div class="ico tone-green"><i class="bi bi-share-fill"></i></div><div class="meta"><p class="t" style="font-size:13px">Dr. Rao viewed your records</p><p class="s">Access expires in 7 days</p></div></div>
+                <div class="m-list-row"><div class="ico tone-amber"><i class="bi bi-shield-fill-check"></i></div><div class="meta"><p class="t" style="font-size:13px">Vault backed up</p><p class="s">247 records encrypted and synced</p></div></div>
+              </div></div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+        <div class="cap"><b>Smart notifications</b><span>Labs, refills, shares and SOS — prioritised</span></div>
+      </div>
+
+      <!-- Share securely -->
+      <div class="gitem">
+        <div class="phone" style="width:262px;height:568px">
+          <div class="phone-screen">
+            <div class="statusbar"><span>9:41</span><span class="icons"><i class="bi bi-reception-4"></i><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
+            <div class="scroll">
+              <div class="m-header"><div class="m-iconbtn"><i class="bi bi-chevron-left"></i></div><div class="m-header-title">Share securely</div><div style="width:34px"></div></div>
+              <div class="m-section"><div class="m-banner info"><i class="bi bi-clock-fill"></i><div><span class="t">Time-boxed access</span>The recipient sees only what you pick, and access auto-expires. Revoke anytime.</div></div></div>
+              <div class="m-section"><div class="m-section-head"><h2>Sharing</h2></div><div class="m-list"><div class="m-list-row"><div class="ico tone-blue"><i class="bi bi-clipboard-pulse-fill"></i></div><div class="meta"><p class="t" style="font-size:13px">Lipid Panel</p><p class="s">1 lab result</p></div><span class="m-status blue">Selected</span></div></div></div>
+              <div class="m-section"><div class="m-section-head"><h2>With</h2></div><div class="doc-card" style="border-color:var(--accent)"><div class="doc-avatar blue" style="width:40px;height:40px;border-radius:13px;font-size:15px">AR</div><div class="doc-info"><h4>Dr. Amita Rao</h4><div class="role">Cardiologist · Mercy General</div></div><i class="bi bi-check-circle-fill" style="color:var(--accent)"></i></div></div>
+              <div class="m-section"><div class="m-section-head"><h2>Access expires after</h2></div><div class="m-seg"><button>24 hours</button><button class="active">7 days</button><button>30 days</button></div></div>
+              <div class="m-section"><button class="m-btn primary block"><i class="bi bi-shield-lock-fill"></i> Generate secure link</button></div>
+            </div>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+        <div class="cap"><b>Secure record sharing</b><span>Pick what, pick who, set an expiry</span></div>
+      </div>
+    </div>
+    <p class="gallery-hint"><i class="bi bi-arrow-left-right"></i> Swipe to explore more screens</p>
+  </div>
+</section>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal"><span class="eyebrow" style="justify-content:center">Get protected in 60 seconds</span><h2>How EaseMyDisease works</h2></div>
+    <div class="journey-rail reveal">
+      <div class="jstep"><div class="num">1</div><h3>Create your vault</h3><p>Sign up in 60 seconds. Your records are encrypted and locked to your phone from the first tap.</p></div>
+      <div class="jstep"><div class="num">2</div><h3>Verify your device</h3><p>One 6-digit code confirms it’s you. We verify every new device once — that’s your key.</p></div>
+      <div class="jstep"><div class="num">3</div><h3>Build your record</h3><p>Scan labs and prescriptions; OCR files everything and builds your interactive body map.</p></div>
+      <div class="jstep"><div class="num">4</div><h3>You’re protected</h3><p>SOS, doctors and your full history are ready — for you and everyone in your family.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== COMPARISON ============================== -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section-head center reveal"><span class="eyebrow" style="justify-content:center">Why it matters</span><h2>From scattered &amp; stressful to calm &amp; covered</h2></div>
+    <div class="compare reveal">
+      <div class="col before">
+        <h3><i class="bi bi-emoji-frown"></i> Health, the hard way</h3>
+        <ul>
+          <li><span class="mark"><i class="bi bi-x-lg"></i></span> Records spread across portals, PDFs and paper folders</li>
+          <li><span class="mark"><i class="bi bi-x-lg"></i></span> In an emergency, no one knows your allergies or contacts</li>
+          <li><span class="mark"><i class="bi bi-x-lg"></i></span> Lab results that read like a foreign language</li>
+          <li><span class="mark"><i class="bi bi-x-lg"></i></span> Days of waiting just to reach a doctor</li>
+          <li><span class="mark"><i class="bi bi-x-lg"></i></span> Missed doses and surprise empty prescriptions</li>
+        </ul>
+      </div>
+      <div class="col after">
+        <h3><i class="bi bi-heart-pulse-fill"></i> Health with EaseMyDisease</h3>
+        <ul>
+          <li><span class="mark"><i class="bi bi-check-lg"></i></span> One encrypted vault — 247 records, searchable in a second</li>
+          <li><span class="mark"><i class="bi bi-check-lg"></i></span> SOS shares your location, vitals and contacts automatically</li>
+          <li><span class="mark"><i class="bi bi-check-lg"></i></span> Every result explained in plain language</li>
+          <li><span class="mark"><i class="bi bi-check-lg"></i></span> A doctor on video in under seven minutes</li>
+          <li><span class="mark"><i class="bi bi-check-lg"></i></span> Adherence tracking and refill alerts before you run out</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TESTIMONIALS ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal"><span class="eyebrow" style="justify-content:center">Loved by families</span><h2>Calm in the moments that matter</h2></div>
+    <div class="quotes reveal">
+      <div class="quote"><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>“My father collapsed at home. I held SOS and within minutes paramedics had his allergies and history before they arrived. It saved time we didn’t have.”</p><div class="who"><div class="avatar red">PM</div><div><b>Priya M.</b><span>Caregiver · San Jose</span></div></div></div>
+      <div class="quote"><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>“Scanning a lab report and watching it file itself — and explain what’s off — felt like magic. The body map finally made my numbers make sense.”</p><div class="who"><div class="avatar blue">DT</div><div><b>Daniel T.</b><span>Type II diabetes · Austin</span></div></div></div>
+      <div class="quote"><div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div><p>“One account holds my vault, my mum’s and my kids’. A video doctor at 11pm with live translation for my mum was the moment I knew we’d keep it.”</p><div class="who"><div class="avatar green">LR</div><div><b>Lena R.</b><span>Family of four · Chicago</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PRICING ============================== -->
+<section class="section section--tint" id="pricing">
+  <div class="container">
+    <div class="section-head center reveal"><span class="eyebrow" style="justify-content:center">Simple, honest pricing</span><h2>Protection for every household</h2><p>Emergency SOS is free for everyone, forever. Upgrade when you want the full vault and care tools.</p></div>
+    <div class="plans reveal">
+      <div class="plan">
+        <h3>Essential</h3>
+        <div class="price">$0<span> / forever</span></div>
+        <p class="desc">Lifesaving basics, free for everyone.</p>
+        <ul>
+          <li><i class="bi bi-check-circle-fill"></i> One-touch SOS &amp; live location</li>
+          <li><i class="bi bi-check-circle-fill"></i> Medical ID &amp; 3 emergency contacts</li>
+          <li><i class="bi bi-check-circle-fill"></i> Up to 25 vault records</li>
+          <li><i class="bi bi-check-circle-fill"></i> Medication reminders</li>
+        </ul>
+        <a href="#download" class="btn btn-ghost btn-block">Get started free</a>
+      </div>
+      <div class="plan featured">
+        <span class="tag">Most popular</span>
+        <h3>Plus</h3>
+        <div class="price">$9<span> / month</span></div>
+        <p class="desc">The full vault, body map and doctors on call.</p>
+        <ul>
+          <li><i class="bi bi-check-circle-fill"></i> Everything in Essential</li>
+          <li><i class="bi bi-check-circle-fill"></i> Unlimited records &amp; OCR scanning</li>
+          <li><i class="bi bi-check-circle-fill"></i> Interactive body map &amp; insights</li>
+          <li><i class="bi bi-check-circle-fill"></i> Doctor video consults &amp; live translation</li>
+          <li><i class="bi bi-check-circle-fill"></i> Time-boxed secure sharing</li>
+        </ul>
+        <a href="#download" class="btn btn-primary btn-block">Start 14-day free trial</a>
+      </div>
+      <div class="plan">
+        <h3>Family</h3>
+        <div class="price">$19<span> / month</span></div>
+        <p class="desc">One account for up to 6 people you care for.</p>
+        <ul>
+          <li><i class="bi bi-check-circle-fill"></i> Everything in Plus</li>
+          <li><i class="bi bi-check-circle-fill"></i> Up to 6 family vaults</li>
+          <li><i class="bi bi-check-circle-fill"></i> Shared emergencies &amp; caregiver access</li>
+          <li><i class="bi bi-check-circle-fill"></i> Priority doctor availability</li>
+        </ul>
+        <a href="#download" class="btn btn-ghost btn-block">Protect your family</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FAQ ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal"><span class="eyebrow" style="justify-content:center">Good questions</span><h2>Everything you might be wondering</h2></div>
+    <div class="faq reveal">
+      <details open><summary>How does the SOS button work? <span class="chev"><i class="bi bi-chevron-down"></i></span></summary><div class="ans">Hold the red SOS button for three seconds to dispatch emergency services. The hold prevents accidental triggers, and you can release any time to cancel. Once dispatched, your live location, vitals, allergies, conditions and emergency contacts are sent to the responder automatically, and you see live ETA and a direct line to the dispatcher.</div></details>
+      <details><summary>Is my health data really private? <span class="chev"><i class="bi bi-chevron-down"></i></span></summary><div class="ans">Yes. Your vault is end-to-end encrypted on your device and locked to your phone — verified once with a one-time code. Not even we can read your records without your key. EaseMyDisease is HIPAA-compliant, and you can export everything (FHIR or PDF) or delete your account at any time.</div></details>
+      <details><summary>What does “time-boxed sharing” mean? <span class="chev"><i class="bi bi-chevron-down"></i></span></summary><div class="ans">When you share a record with a doctor, you choose exactly what they see and for how long — 24 hours, 7 days or 30 days. Access auto-expires, and you can revoke it instantly. An access log shows you everyone who has ever viewed your records.</div></details>
+      <details><summary>How does scanning records actually work? <span class="chev"><i class="bi bi-chevron-down"></i></span></summary><div class="ans">Snap a lab report or prescription with your camera, upload a PDF/photo, connect a provider like Quest or LabCorp, or sync Apple Health. Our OCR reads the document, extracts the values, files it under the right category, and links it to the relevant organ on your body map.</div></details>
+      <details><summary>Can I manage my family’s health too? <span class="chev"><i class="bi bi-chevron-down"></i></span></summary><div class="ans">Absolutely. The Family plan gives one account up to six vaults — for your partner, parents and kids. You can manage their records, medications and emergencies, see each person’s health score, and switch profiles in a tap.</div></details>
+      <details><summary>Which languages are supported? <span class="chev"><i class="bi bi-chevron-down"></i></span></summary><div class="ans">The app is available in English, Spanish and Hindi, and in-consultation live translation works across all three — so you can speak with a doctor in your language even if they speak another.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== DOWNLOAD CTA ============================== -->
+<section class="section" id="download">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="inner">
+        <span class="eyebrow" style="color:#fff;opacity:.9">Get EaseMyDisease</span>
+        <h2 style="margin-top:12px">Help, the moment you need it — in your pocket today</h2>
+        <p>Free emergency SOS for everyone. Build your encrypted vault, map your health and reach a doctor in minutes.</p>
+        <div class="store-row" style="margin-top:24px">
+          <a href="#" class="store-btn"><i class="bi bi-apple"></i><span><small>Download on the</small><b>App Store</b></span></a>
+          <a href="#" class="store-btn"><i class="bi bi-google-play"></i><span><small>Get it on</small><b>Google Play</b></span></a>
+        </div>
+        <div class="cta-extra">
+          <div class="avs"><div class="avatar red">PM</div><div class="avatar blue">DT</div><div class="avatar green">LR</div><div class="avatar amber">JP</div></div>
+          <span>Trusted by 250,000+ families · 4.9★ average rating</span>
+        </div>
+      </div>
+      <div class="cta-media">
+        <div class="qr"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" fill="#fff"/><g fill="#111827"><rect x="6" y="6" width="22" height="22"/><rect x="12" y="12" width="10" height="10" fill="#fff"/><rect x="72" y="6" width="22" height="22"/><rect x="78" y="12" width="10" height="10" fill="#fff"/><rect x="6" y="72" width="22" height="22"/><rect x="12" y="78" width="10" height="10" fill="#fff"/><rect x="36" y="8" width="6" height="6"/><rect x="48" y="8" width="6" height="6"/><rect x="58" y="14" width="6" height="6"/><rect x="36" y="20" width="6" height="6"/><rect x="8" y="36" width="6" height="6"/><rect x="20" y="36" width="6" height="6"/><rect x="36" y="36" width="6" height="6"/><rect x="48" y="42" width="6" height="6"/><rect x="60" y="36" width="6" height="6"/><rect x="72" y="40" width="6" height="6"/><rect x="84" y="36" width="6" height="6"/><rect x="36" y="48" width="6" height="6"/><rect x="48" y="54" width="6" height="6"/><rect x="66" y="54" width="6" height="6"/><rect x="84" y="54" width="6" height="6"/><rect x="40" y="66" width="6" height="6"/><rect x="52" y="66" width="6" height="6"/><rect x="64" y="66" width="6" height="6"/><rect x="76" y="66" width="6" height="6"/><rect x="40" y="78" width="6" height="6"/><rect x="58" y="78" width="6" height="6"/><rect x="72" y="78" width="6" height="6"/><rect x="84" y="84" width="6" height="6"/></g></svg></div>
+        <div style="color:#fff"><div style="font-family:var(--font-display);font-weight:800;font-size:1.1rem">Scan to install</div><div style="opacity:.85;font-size:.85rem">Point your camera here</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top"><img src="assets/logos/logo-circle-light.png" alt="" style="width:34px;height:34px;border-radius:10px">Ease<b>My</b>Disease</a>
+        <p>Medical help, the moment you need it. Emergency response, your encrypted health vault, and doctors on call — all in one calm place.</p>
+        <div class="social">
+          <a href="#" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="fcol"><h4>Product</h4><a href="#sos">SOS Emergency</a><a href="#vault">Health Vault</a><a href="#body">Body Map</a><a href="#doctors">Doctors</a><a href="#meds">Medications</a><a href="#pricing">Pricing</a></div>
+      <div class="fcol"><h4>Company</h4><a href="#">About us</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Blog</a><a href="#">Contact</a></div>
+      <div class="fcol"><h4>Trust &amp; legal</h4><a href="#security">Security</a><a href="#">HIPAA Privacy Notice</a><a href="#">Terms of service</a><a href="#">Privacy policy</a><a href="#">Help center</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 EaseMyDisease, Inc. · v3.0 · Made with care.</span>
+      <div class="badges"><span><i class="bi bi-shield-lock-fill"></i> HIPAA compliant</span><span><i class="bi bi-file-earmark-lock2-fill"></i> End-to-end encrypted</span></div>
+    </div>
+    <p class="disclaimer">EaseMyDisease is a personal health-management tool and does not provide medical advice, diagnosis or treatment. In a life-threatening emergency, always call your local emergency number. SOS dispatch availability and response times depend on your region and network. This landing page is a product demonstration; screen mockups recreate the EaseMyDisease design system.</p>
+  </div>
 </footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
 
 <script src="main.js"></script>
 </body>

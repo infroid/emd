@@ -1,0 +1,883 @@
+/*
+  main.css - Custom Bootstrap-based Styles for Ease My Disease
+  ----------------------------------------------------------
+  - Extends Bootstrap 5.3+ using variables and utility classes where possible
+  - Only customizes what is not achievable with Bootstrap utilities
+  - All custom classes are prefixed and documented
+  - Mobile-first, dark mode supported via Bootstrap's data-bs-theme
+*/
+
+/* 1. Typography: Use Bootstrap font utilities, only override for branding */
+body {
+    font-family: 'Outfit', var(--bs-body-font-family, system-ui, sans-serif);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+    font-family: 'Plus Jakarta Sans', var(--bs-heading-font-family, system-ui, sans-serif);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.lead {
+    font-family: 'Outfit', var(--bs-body-font-family, system-ui, sans-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+/* 2. Color Scheme: Use Bootstrap variables, extend for custom brand colors */
+:root {
+    --primary-gradient: linear-gradient(135deg, #ff3b3b, #ff6b6b);
+    --primary-light: #ff3b3b;
+    --primary-dark: #ff6b6b;
+    --secondary-gradient: linear-gradient(135deg, #2c3e50, #34495e);
+    --accent-gradient: linear-gradient(135deg, #e74c3c, #c0392b);
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --bg-light: #fff;
+    --bg-light-alt: #f8f9fa;
+    --border-light: rgba(0, 0, 0, 0.08);
+}
+
+[data-bs-theme="dark"] {
+    --primary-gradient: linear-gradient(135deg, #ff3b3b, #ff6b6b);
+    --primary-light: #ff6b6b;
+    --primary-dark: #ff3b3b;
+    --secondary-gradient: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    --accent-gradient: linear-gradient(135deg, #e74c3c, #c0392b);
+    --text-primary: #fff;
+    --text-secondary: rgba(255, 255, 255, 0.8);
+    --bg-light: var(--bs-body-bg);
+    --bg-light-alt: #2d2d2d;
+    --border-light: rgba(255, 255, 255, 0.1);
+}
+
+/* 3. Card & Feature Styles: Extend Bootstrap .card, use utility classes */
+.card,
+.stat-card,
+.process-step,
+.feature-card {
+    border-radius: 1.5rem;
+    border: 1px solid var(--border-light);
+    background: var(--bg-light);
+    transition: box-shadow .3s, border-color .3s, transform .3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.card:hover,
+.stat-card:hover,
+.process-step:hover,
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary-light);
+}
+
+/* 4. Icon Styles: Use Bootstrap icon utilities, only custom if needed */
+.feature-icon,
+.stat-icon,
+.process-step-number {
+    width: 64px;
+    height: 64px;
+    background: var(--bg-light-alt);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-light);
+    font-size: 2rem;
+    margin-bottom: 1.75rem;
+    transition: background .3s, color .3s;
+}
+
+.card:hover .feature-icon,
+.stat-card:hover .stat-icon,
+.process-step:hover .process-step-number {
+    background: var(--primary-gradient);
+    color: #fff;
+}
+
+[data-bs-theme="dark"] .feature-icon,
+[data-bs-theme="dark"] .stat-icon,
+[data-bs-theme="dark"] .process-step-number {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* 5. Navbar: Use Bootstrap navbar, only custom for brand */
+.navbar {
+    padding: .75rem 0;
+    background: var(--bg-light) !important;
+    border-bottom: 1px solid var(--border-light);
+    transition: background .3s, border-color .3s;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: color .3s, transform .3s;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-1px);
+}
+
+.nav-link {
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    transition: color .3s, background .3s;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-light);
+    background: var(--bg-light-alt);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: var(--primary-light);
+    border-radius: 2px;
+}
+
+/* 6. Buttons: Use Bootstrap .btn, only custom for special buttons */
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--text-primary);
+    background: var(--bg-light-alt);
+    border: 1px solid var(--border-light);
+    transition: background .3s, color .3s, border-color .3s, transform .3s;
+}
+
+.btn-icon:hover {
+    background: var(--primary-light);
+    color: #fff;
+    border-color: var(--primary-light);
+    transform: translateY(-1px);
+}
+
+/* 7. Dropdown: Use Bootstrap dropdown, only custom for border and radius */
+.dropdown-menu {
+    border: 1px solid var(--border-light);
+    border-radius: .75rem;
+    padding: .5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+}
+
+.dropdown-item {
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    color: var(--text-primary);
+    transition: background .2s, color .2s;
+}
+
+.dropdown-item:hover {
+    background: var(--bg-light-alt);
+    color: var(--primary-light);
+}
+
+.dropdown-item.text-danger:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* 8. Footer: Use Bootstrap footer utilities, only custom for color and mobile layout */
+footer {
+    background: var(--bg-light) !important;
+    border-color: var(--border-light) !important;
+}
+
+footer a {
+    color: var(--text-primary);
+    opacity: .8;
+    transition: color .3s, opacity .3s;
+}
+
+footer a:hover {
+    color: var(--primary-light);
+    opacity: 1;
+}
+
+/* Footer mobile improvements */
+@media (max-width: 576px) {
+    footer .row.align-items-center {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    footer .col-md-6,
+    footer .col-md-6.text-md-end {
+        width: 100%;
+        max-width: 100%;
+        text-align: center !important;
+        margin-bottom: 0.25rem;
+    }
+
+    /* Make footer links always on their own line and spaced */
+    footer .footer-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.25rem;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
+
+    footer .footer-links a {
+        margin: 0;
+        display: inline-block;
+        min-width: 110px;
+        text-align: center;
+    }
+
+    footer p.mb-0 {
+        margin-bottom: 0.5rem !important;
+    }
+}
+
+/* 9. Emergency Button: Custom, but uses Bootstrap btn structure */
+.btn-emergency {
+    background: linear-gradient(135deg, #ff3b3b 0%, #ff5252 100%);
+    border: none;
+    font-family: 'Outfit', var(--bs-body-font-family, system-ui, sans-serif);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: box-shadow .3s, transform .3s;
+    box-shadow: 0 4px 20px rgba(255, 59, 59, 0.25);
+    overflow: hidden;
+}
+
+.btn-emergency:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 59, 59, 0.35);
+}
+
+/* 10. Responsive: Use Bootstrap grid/utilities, only custom for padding/font-size */
+@media (max-width: 768px) {
+
+    .card,
+    .stat-card,
+    .process-step,
+    .feature-card {
+        padding: 2rem;
+    }
+
+    .feature-icon,
+    .stat-icon,
+    .process-step-number {
+        width: 56px;
+        height: 56px;
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.25rem;
+    }
+
+    .feature-title,
+    .stat-title,
+    .process-step-title {
+        font-size: 1.25rem;
+    }
+
+    .feature-text,
+    .stat-text,
+    .process-step-text {
+        font-size: .95rem;
+    }
+
+    .btn-emergency {
+        padding: .875rem 1.25rem;
+    }
+}
+
+/* 11. Utility & Header Action Buttons */
+
+/* THEME TOGGLE BUTTON - REBUILT FROM SCRATCH */
+.theme-toggle {
+    /* Basic button setup */
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--bs-body-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+
+    /* Perfect centering using flexbox */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+
+    /* Border for light theme */
+    border: 2px solid var(--bs-border-color, #e5e7eb);
+}
+
+/* Hover effects */
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(255, 59, 59, 0.2);
+    border-color: var(--primary-light, #ff3b3b);
+}
+
+/* Focus state for accessibility */
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 59, 59, 0.3);
+}
+
+/* Active state */
+.theme-toggle:active {
+    transform: translateY(0);
+}
+
+/* Icons - both positioned in same spot */
+.theme-toggle i {
+    position: absolute;
+    font-size: 18px;
+    line-height: 1;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.8) rotate(180deg);
+}
+
+/* Light theme - show sun */
+[data-bs-theme="light"] .theme-toggle .light-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    color: #f59e0b;
+}
+
+[data-bs-theme="light"] .theme-toggle .dark-icon {
+    opacity: 0;
+    transform: scale(0.8) rotate(-180deg);
+}
+
+/* Dark theme - show moon */
+[data-bs-theme="dark"] .theme-toggle .dark-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    color: #60a5fa;
+}
+
+[data-bs-theme="dark"] .theme-toggle .light-icon {
+    opacity: 0;
+    transform: scale(0.8) rotate(180deg);
+}
+
+/* Dark theme button styling */
+[data-bs-theme="dark"] .theme-toggle {
+    background: var(--bs-body-bg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-bs-theme="dark"] .theme-toggle:hover {
+    border-color: var(--primary-light, #ff3b3b);
+    box-shadow: 0 4px 16px rgba(255, 59, 59, 0.2);
+}
+
+/* LANGUAGE SELECTOR - MATCHING THEME TOGGLE DESIGN */
+.language-toggle {
+    /* Matching theme toggle design */
+    height: 44px;
+    border: none;
+    border-radius: 22px;
+    background: var(--bs-body-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+
+    /* Flexible layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 0.75rem;
+
+    /* Typography */
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+
+    /* Border for consistency */
+    border: 2px solid var(--bs-border-color, #e5e7eb);
+    color: var(--bs-body-color);
+}
+
+/* Mobile: Icon-only */
+@media (max-width: 576px) {
+    .language-toggle {
+        width: 44px;
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .language-code {
+        display: none !important;
+    }
+}
+
+/* Hover effects */
+.language-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.2);
+    border-color: var(--bs-primary, #0d6efd);
+}
+
+/* Focus state for accessibility */
+.language-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.3);
+}
+
+/* Active state */
+.language-toggle:active {
+    transform: translateY(0);
+}
+
+/* Language toggle icon */
+.language-toggle i {
+    font-size: 18px;
+    line-height: 1;
+    color: var(--bs-primary, #0d6efd);
+}
+
+/* Language code text */
+.language-code {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--bs-body-color);
+}
+
+/* Dark theme styling */
+[data-bs-theme="dark"] .language-toggle {
+    background: var(--bs-body-bg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-bs-theme="dark"] .language-toggle:hover {
+    border-color: var(--bs-primary, #0d6efd);
+    box-shadow: 0 4px 16px rgba(13, 110, 253, 0.2);
+}
+
+/* Language Dropdown Menu */
+.language-menu {
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    min-width: 220px;
+    background: var(--bs-body-bg);
+    backdrop-filter: blur(10px);
+    margin-top: 0.5rem;
+}
+
+.language-menu .dropdown-header {
+    padding: 0.75rem 1rem;
+    background: var(--bs-tertiary-bg);
+    border-radius: 0.75rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    font-weight: 600;
+    color: var(--bs-body-color);
+}
+
+.language-menu .language-option {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--bs-body-color);
+    transition: all 0.2s;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.language-menu .language-option:hover {
+    background: var(--bs-tertiary-bg);
+    color: var(--bs-primary);
+    transform: translateX(4px);
+}
+
+.language-menu .language-option.active {
+    background: rgba(13, 110, 253, 0.1);
+    color: var(--bs-primary);
+    font-weight: 600;
+}
+
+.language-flag {
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+.language-name {
+    flex: 1;
+}
+
+/* Enhanced Profile Button and Dropdown */
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bs-body-bg);
+    border: 2px solid var(--bs-border-color);
+    border-radius: 2rem;
+    padding: 0.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--bs-body-color);
+    text-decoration: none;
+    min-height: 2.75rem;
+}
+
+.profile-btn:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    background: var(--bs-tertiary-bg);
+    color: var(--bs-body-color);
+    text-decoration: none;
+}
+
+.profile-avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-inverse);
+    font-size: 1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0 0.75rem 0 0.5rem;
+}
+
+.profile-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--bs-body-color);
+}
+
+.profile-arrow {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    transition: transform 0.2s;
+}
+
+.profile-dropdown.show .profile-arrow {
+    transform: rotate(180deg);
+}
+
+/* Enhanced Profile Menu */
+.profile-menu {
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    min-width: 280px;
+    background: var(--bs-body-bg);
+    backdrop-filter: blur(10px);
+    margin-top: 0.5rem;
+}
+
+.profile-menu .dropdown-header {
+    padding: 1rem;
+    background: var(--bs-tertiary-bg);
+    border-radius: 0.75rem;
+    margin-bottom: 0.5rem;
+    border: none;
+}
+
+.profile-menu .user-info strong {
+    font-size: 1rem;
+    color: var(--bs-body-color);
+}
+
+.profile-menu .dropdown-item {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--bs-body-color);
+    transition: all 0.2s;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.profile-menu .dropdown-item:hover {
+    background: var(--bs-tertiary-bg);
+    color: var(--primary-light);
+    transform: translateX(4px);
+}
+
+.profile-menu .logout-item:hover {
+    background: rgba(220, 38, 38, 0.1);
+    color: #dc2626;
+}
+
+/* Auth Buttons - Redesigned to Match Theme Toggle */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Base Auth Button Style - Matching Theme Toggle */
+.auth-btn {
+    /* Size similar to theme toggle */
+    height: 44px;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    position: relative;
+
+    /* Flexible width for mobile/desktop */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+
+    /* Typography */
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+
+    /* Border for consistency */
+    border: 2px solid transparent;
+}
+
+/* Mobile: Icon-only buttons */
+@media (max-width: 576px) {
+    .auth-btn {
+        width: 44px;
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .auth-text {
+        display: none !important;
+    }
+}
+
+/* Login Button */
+.login-btn {
+    background: var(--bs-body-bg);
+    border-color: var(--bs-border-color, #e5e7eb);
+    color: var(--bs-body-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-light, #ff3b3b);
+    color: var(--primary-light, #ff3b3b);
+}
+
+.login-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Signup Button */
+.signup-btn {
+    background: linear-gradient(135deg, var(--primary-light, #ff3b3b), var(--primary-dark, #ff6b6b));
+    color: var(--color-text-inverse);
+    box-shadow: 0 2px 8px rgba(255, 59, 59, 0.25);
+}
+
+.signup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(255, 59, 59, 0.35);
+    background: linear-gradient(135deg, var(--primary-dark, #ff6b6b), var(--primary-light, #ff3b3b));
+}
+
+.signup-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 59, 59, 0.3);
+}
+
+/* Icon styling */
+.auth-btn i {
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* Text styling */
+.auth-text {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Dark theme styling */
+[data-bs-theme="dark"] .login-btn {
+    background: var(--bs-body-bg);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .login-btn:hover {
+    border-color: var(--primary-light, #ff3b3b);
+    color: var(--primary-light, #ff3b3b);
+}
+
+/* Toast Container and Install Prompt Styles */
+.toast-container {
+    z-index: 9997;
+}
+
+.install-prompt.toast,
+.update-notification.toast {
+    min-width: 320px;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--bs-border-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.install-prompt .toast-header,
+.update-notification .toast-header {
+    background: linear-gradient(135deg, var(--healthcare-primary, #dc2626), var(--healthcare-primary-dark, #b91c1c));
+    color: white;
+    border-bottom: none;
+}
+
+.install-prompt .toast-header .btn-close,
+.update-notification .toast-header .btn-close {
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+.install-prompt .toast-header .btn-close:hover,
+.update-notification .toast-header .btn-close:hover {
+    opacity: 1;
+}
+
+.install-prompt .toast-body,
+.update-notification .toast-body {
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-radius: 0 0 var(--bs-border-radius) var(--bs-border-radius);
+}
+
+/* Red theme buttons for install/update actions */
+.install-prompt .btn-primary,
+.update-notification .btn-primary {
+    background: linear-gradient(135deg, var(--healthcare-primary, #dc2626), var(--healthcare-primary-dark, #b91c1c));
+    border-color: var(--healthcare-primary, #dc2626);
+    color: white;
+    font-weight: 600;
+}
+
+.install-prompt .btn-primary:hover,
+.update-notification .btn-primary:hover {
+    background: linear-gradient(135deg, var(--healthcare-primary-dark, #b91c1c), #991b1b);
+    border-color: var(--healthcare-primary-dark, #b91c1c);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* Dark mode compatibility */
+[data-bs-theme="dark"] .install-prompt.toast,
+[data-bs-theme="dark"] .update-notification.toast {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .install-prompt .toast-body,
+[data-bs-theme="dark"] .update-notification .toast-body {
+    background: var(--bs-dark);
+    color: var(--bs-light);
+}
+
+/* Animation for toast entry */
+.toast.showing {
+    animation: toast-slide-in 0.3s ease-out;
+}
+
+@keyframes toast-slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

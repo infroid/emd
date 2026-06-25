@@ -1,34 +1,58 @@
 # EaseMyDisease — App Landing Page
 
-A mobile-first marketing landing page for **EaseMyDisease**, a calm health app that
+A mobile-first marketing landing page for **EaseMyDisease** — a calm health app that
 brings one-touch **emergency SOS**, an **end-to-end encrypted health vault**, an
-**interactive body map**, **doctors on call**, and **medication management** into one
-place — built for the whole family and HIPAA-compliant.
+**interactive body map**, **doctors on call** and **medication tracking** into one
+place. HIPAA-compliant, built for the whole family.
 
-The page walks an end user through every core flow of the app using detailed,
-hand-built phone mockups (pure HTML/CSS — no images of screens required):
+The page is built directly on the **EaseMyDisease design system** (red-primary brand,
+Plus Jakarta Sans + Inter, warm dark mode) and recreates the actual app screens as
+faithful in-phone mockups — using the same component primitives and tokens as the
+product itself, so the marketing site and the app look and feel like one thing.
 
-| Section | Flow it explains |
+## What the page covers
+
+Every core flow is explained to an end user with a real mockup of that screen:
+
+| Section | Flow / screens shown |
 |---|---|
-| **Onboarding** | Getting set up in a few taps |
-| **SOS** | One-press emergency dispatch, live location, responder ETA |
-| **Body Map** | Tap any organ to see its latest labs, vitals & fitness score |
-| **Vault** | Encrypted records, OCR scan-to-vault, secure time-limited sharing |
-| **Doctors** | Book appointments and consult over secure chat/video |
-| **Meds** | Reminders, refills and adherence tracking |
-| **Family** | Manage profiles and care for dependents |
-| **Security** | End-to-end encryption, HIPAA compliance |
-| **Every screen** | A gallery covering the remaining app screens |
+| **Hero** | Home dashboard + live SOS dispatch |
+| **Dashboard** | Health score (82/100) with Heart · Move · Glucose rings, quick actions, today's meds & meal plan |
+| **SOS Emergency** | Hold-to-dispatch button → "Help is on the way" with live ETA, responder & auto-shared medical data |
+| **Body Map** | Tap-an-organ anatomy view with function & fitness scores and linked records |
+| **Health Vault** | 247 encrypted records, categories, and OCR scan-to-vault auto-filing |
+| **Doctors on call** | Doctor profile, fees, and an in-call video consult with live translation |
+| **Medications** | 7-day adherence, refill alerts, and the diet/nutrition hand-off |
+| **Family · Profile · Insurance** | Medical ID card, family vaults, digital insurance card |
+| **Security** | End-to-end encryption, biometric lock, time-boxed sharing, FHIR/PDF export |
+| **Every screen** | A swipe gallery: device verification (OTP), lab results, booking, chat, notifications, secure sharing |
+| **How it works · Comparison · Testimonials · Pricing · FAQ · Download** | Supporting marketing flow |
+
+Plus a light/dark theme toggle, responsive layout, scroll-reveal animations, and
+accessible nav (skip link, keyboard-dismissable drawer).
+
+## Repository layout
+
+```
+site/            The landing page (the deliverable)
+  index.html       Full single-page site
+  styles.css       Design tokens + in-phone mobile-kit primitives + marketing layout
+  main.js          Theme toggle, drawer, scroll reveal, header & back-to-top
+  assets/logos/    EaseMyDisease brand logos
+design/          The exported EaseMyDisease design system (tokens, components, UI kits)
+mockup/          The high-fidelity app prototype (per-feature screens + screenshots)
+.github/workflows/deploy-pages.yml   Publishes site/ to GitHub Pages on push to main
+```
+
+`design/` and `mockup/` are the source-of-truth handoffs the landing page is built
+from; the live site lives entirely in `site/`.
 
 ## Tech
 
 Zero-dependency static site — plain **HTML + CSS + vanilla JS**.
-
-- `site/index.html` — the full single-page landing page
-- `site/styles.css` — design system, responsive layout, light/dark themes
-- `site/main.js` — theme toggle, mobile drawer, scroll-reveal (with no-JS/older-browser fallbacks)
-- `site/assets/` — brand logos
-- Icons via [Bootstrap Icons](https://icons.getbootstrap.com/) (CDN) and fonts via Google Fonts (CDN)
+Icons via [Bootstrap Icons](https://icons.getbootstrap.com/) (CDN); fonts via Google
+Fonts (Plus Jakarta Sans, Inter, Outfit). With the network blocked, the layout still
+renders and falls back to system fonts.
 
 ## Run locally
 
@@ -44,10 +68,9 @@ python3 -m http.server 8080
 push to `main`. Enable it once under **Settings → Pages → Build and deployment →
 Source: "GitHub Actions"**.
 
-## Notes
+## Note
 
-- The page loads Bootstrap Icons and Google Fonts from CDNs; with the network blocked
-  the layout still renders, falling back to system fonts.
-- `assets/logo-circle-*.png` and `assets/logo-primary.png` are additional brand
-  variants kept for future use (favicons, social/OG images); the live page currently
-  references `logo-128.png` and `logo-256.png`.
+This landing page is a product demonstration. The phone mockups recreate the
+EaseMyDisease design system in HTML/CSS; they are not the shipping application.
+EaseMyDisease does not provide medical advice — in an emergency, call your local
+emergency number.
