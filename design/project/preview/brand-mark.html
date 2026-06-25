@@ -1,0 +1,152 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Brand mark" subtitle="Illustration lockup + 4 framed variants · EASE my DISEASE wordmark" viewport="700x420" -->
+<html><head><meta charset="utf-8"><title>Brand mark</title>
+<link rel="stylesheet" href="_preview.css">
+<style>
+  body { background: var(--bg-1); }
+
+  .stage {
+    display: grid;
+    grid-template-rows: 200px 220px;
+  }
+
+  /* Top row: full lockup */
+  .lockup-row {
+    background: linear-gradient(180deg, #fdfbf6 0%, #f5ede0 100%);
+    border-bottom: 1px solid var(--border-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 32px;
+  }
+  .lockup {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .markwrap {
+    width: 132px; height: 132px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, #ffffff 0%, #f0e6d6 100%);
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,.04),
+      0 8px 22px rgba(120,80,40,.10),
+      inset 0 1px 0 rgba(255,255,255,.7);
+  }
+  .markwrap img { width: 92%; height: 92%; object-fit: contain; display: block; }
+
+  /* Wordmark treatment: variable weights + accent dots */
+  .wordmark {
+    font-family: var(--font-display);
+    line-height: 0.95;
+    color: var(--fg-1);
+    letter-spacing: -0.025em;
+  }
+  .wordmark .row1 {
+    font-size: 40px;
+    font-weight: 800;
+  }
+  .wordmark .row1 .ease { color: var(--fg-1); }
+  .wordmark .row1 .my { color: var(--accent); }
+  .wordmark .row1 .disease { color: var(--fg-1); }
+  .wordmark .row2 {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .wordmark .row2::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .cap-corner {
+    position: absolute;
+    bottom: 12px; left: 0; right: 0;
+    text-align: center;
+    font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-muted);
+    opacity: 0.6;
+  }
+
+  /* Bottom row: 4 framed variants */
+  .variants {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .cell {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+    border-right: 1px solid var(--border-1);
+    position: relative;
+    padding: 14px;
+  }
+  .cell:last-child { border-right: 0; }
+  .cell.sq-light { background: linear-gradient(180deg, #fafafa 0%, #efe9dd 100%); }
+  .cell.sq-dark  { background: linear-gradient(180deg, #2a2520 0%, #0a0807 100%); }
+  .cell.cr-light { background: linear-gradient(180deg, #fdfbf6 0%, #ecdfd0 100%); }
+  .cell.cr-dark  { background: linear-gradient(180deg, #1a1612 0%, #0d0a07 100%); }
+
+  .v-img {
+    width: 120px;
+    height: 120px;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .cap {
+    font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--fg-muted);
+    opacity: 0.7;
+  }
+  .cell.sq-dark .cap, .cell.cr-dark .cap { color: #fff; opacity: 0.7; }
+
+</style></head><body>
+<div class="stage">
+
+  <div class="lockup-row">
+    <div class="lockup">
+      <div class="markwrap"><img src="../assets/logos/logo-256.png" alt="EaseMyDisease"></div>
+      <div class="wordmark">
+        <div class="row1"><span class="ease">Ease</span><span class="my">My</span><span class="disease">Disease</span></div>
+        <div class="row2">healthcare, simplified</div>
+      </div>
+    </div>
+    <div class="cap-corner">Full lockup · primary</div>
+  </div>
+
+  <div class="variants">
+    <div class="cell sq-light">
+      <img class="v-img" src="../assets/logos/logo-square-light.png" alt="">
+      <div class="cap">Square · light</div>
+    </div>
+    <div class="cell sq-dark">
+      <img class="v-img" src="../assets/logos/logo-square-dark.png" alt="">
+      <div class="cap">Square · dark</div>
+    </div>
+    <div class="cell cr-light">
+      <img class="v-img" src="../assets/logos/logo-circle-light.png" alt="">
+      <div class="cap">Circle · light</div>
+    </div>
+    <div class="cell cr-dark">
+      <img class="v-img" src="../assets/logos/logo-circle-dark.png" alt="">
+      <div class="cap">Circle · dark</div>
+    </div>
+  </div>
+
+</div>
+</body></html>

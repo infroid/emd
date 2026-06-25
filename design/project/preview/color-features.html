@@ -1,0 +1,156 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Feature accents" subtitle="Brand mark in 4 voices — one tone per surface" viewport="700x360" -->
+<html><head><meta charset="utf-8"><title>Feature accents</title>
+<link rel="stylesheet" href="_preview.css">
+<style>
+  body { background: var(--bg-1); }
+  .pv-card { padding: 0; }
+
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .cell {
+    border-right: 1px solid var(--border-1);
+    display: flex; flex-direction: column;
+    background: var(--bg-1);
+  }
+  .cell:last-child { border-right: 0; }
+
+  /* Top half: BIG numeral as the visual */
+  .num {
+    aspect-ratio: 4 / 3;
+    background: var(--tint);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* Soft top-right highlight gradient — same vocabulary as hero radial blobs */
+  .num::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(255,255,255,.55) 0%, transparent 50%),
+      radial-gradient(circle at 15% 95%, var(--tint-deeper) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .num .digit {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 96px;
+    line-height: 1;
+    letter-spacing: -0.07em;
+    color: var(--c);
+    position: relative;
+    z-index: 1;
+  }
+  .num .corner {
+    position: absolute;
+    top: 12px; right: 14px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    color: var(--c);
+    opacity: 0.55;
+    z-index: 2;
+  }
+  /* Small mark watermark — the brand 'e', heavily faded */
+  .num .watermark {
+    position: absolute;
+    bottom: -22px; left: -20px;
+    width: 90px; height: 90px;
+    color: var(--c);
+    opacity: 0.12;
+    transform: rotate(-12deg);
+    z-index: 0;
+  }
+
+  .meta {
+    padding: 14px 16px 16px;
+    border-top: 1px solid var(--border-1);
+  }
+  .meta .surface {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--fg-1);
+    margin-bottom: 4px;
+  }
+  .meta .role {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 10px;
+  }
+  .meta .hex {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--c);
+    font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .meta .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--c);
+    box-shadow: 0 0 0 2px var(--tint);
+  }
+</style></head><body>
+<div class="pv-card">
+  <div class="grid">
+
+    <div class="cell" style="--c:#dc2626;--tint:rgba(220,38,38,.10);--tint-deeper:rgba(220,38,38,.20)">
+      <div class="num">
+        
+        <span class="corner">surface</span>
+        <span class="digit">01</span>
+      </div>
+      <div class="meta">
+        <div class="surface">SOS Emergency</div>
+        <div class="role">CTA · brand-defining</div>
+        <div class="hex"><span class="dot"></span> #DC2626</div>
+      </div>
+    </div>
+
+    <div class="cell" style="--c:#3b82f6;--tint:rgba(59,130,246,.10);--tint-deeper:rgba(59,130,246,.20)">
+      <div class="num">
+        
+        <span class="corner">surface</span>
+        <span class="digit">02</span>
+      </div>
+      <div class="meta">
+        <div class="surface">Health Records</div>
+        <div class="role">Vault · clinical, calm</div>
+        <div class="hex"><span class="dot"></span> #3B82F6</div>
+      </div>
+    </div>
+
+    <div class="cell" style="--c:#7c3aed;--tint:rgba(124,58,237,.10);--tint-deeper:rgba(124,58,237,.20)">
+      <div class="num">
+        
+        <span class="corner">surface</span>
+        <span class="digit">03</span>
+      </div>
+      <div class="meta">
+        <div class="surface">Consult Doctor</div>
+        <div class="role">Specialist · personal</div>
+        <div class="hex"><span class="dot"></span> #7C3AED</div>
+      </div>
+    </div>
+
+    <div class="cell" style="--c:#16a34a;--tint:rgba(22,163,74,.10);--tint-deeper:rgba(22,163,74,.20)">
+      <div class="num">
+        
+        <span class="corner">surface</span>
+        <span class="digit">04</span>
+      </div>
+      <div class="meta">
+        <div class="surface">Diet & Nutrition</div>
+        <div class="role">Hand-off · partner</div>
+        <div class="hex"><span class="dot"></span> #16A34A</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body></html>

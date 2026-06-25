@@ -1,0 +1,25 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="SOS button" subtitle="Signature radial-pulse SOS · the brand's loudest moment" viewport="700x260" -->
+<html><head><meta charset="utf-8"><title>SOS button</title>
+<link rel="stylesheet" href="_preview.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  body { background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg-1) 100%); }
+  .stage { display:flex; align-items:center; justify-content:center; padding:18px 0; position:relative; min-height:240px; }
+  .sos-wrap { position:relative; width:130px; height:130px; }
+  .sos { position:absolute; inset:0; border-radius:50%; background:linear-gradient(135deg,#ff3b3b,#dc2626); display:flex; align-items:center; justify-content:center; flex-direction:column; color:#fff; box-shadow:0 8px 32px rgba(220,38,38,.45), inset 0 1px 0 rgba(255,255,255,.2); font-family:var(--font-display); font-weight:800; z-index:2; }
+  .sos i { font-size:32px; margin-bottom:2px; }
+  .sos span { font-size:22px; letter-spacing:0.08em; }
+  .ring { position:absolute; inset:0; border-radius:50%; border:2px solid rgba(220,38,38,.4); animation:pulse 2s infinite ease-out; }
+  .ring.d { animation-delay:1s; }
+  @keyframes pulse { 0% { transform:scale(1); opacity:1 } 100% { transform:scale(1.55); opacity:0 } }
+  .caption { position:absolute; bottom:14px; left:0; right:0; text-align:center; font-family:var(--font-mono); font-size:10px; color:var(--fg-muted); }
+</style></head><body>
+<div class="stage">
+  <div class="sos-wrap">
+    <div class="ring"></div>
+    <div class="ring d"></div>
+    <div class="sos"><i class="bi bi-telephone-fill"></i><span>SOS</span></div>
+  </div>
+  <div class="caption">Signature · two-ring 2s pulse · gradient red · 8px inset highlight</div>
+</div>
+</body></html>

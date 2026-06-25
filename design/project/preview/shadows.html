@@ -1,0 +1,28 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Shadows" subtitle="Elevation 1–5 + 2 brand-tinted SOS shadows" viewport="700x280" -->
+<html><head><meta charset="utf-8"><title>Shadows</title>
+<link rel="stylesheet" href="_preview.css">
+<style>
+  body { background: var(--bg-2); }
+  .row { display:flex; gap:18px; padding:14px 0; }
+  .item { flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .box { width:100%; height:64px; background:#fff; border-radius:12px; }
+  .tok { font-family:var(--font-mono); font-size:10px; color:var(--fg-muted); text-align:center; line-height:1.4; }
+  .tok b { color:var(--fg-1); display:block; }
+</style></head><body>
+<div class="pv-card">
+  <div class="pv-label">Shadows · elevation</div>
+  <div class="row">
+    <div class="item"><div class="box" style="box-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05)"></div><div class="tok"><b>--shadow-sm</b>hairline lift</div></div>
+    <div class="item"><div class="box" style="box-shadow:0 4px 6px -1px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.10)"></div><div class="tok"><b>--shadow-md</b>resting card</div></div>
+    <div class="item"><div class="box" style="box-shadow:0 10px 15px -3px rgb(0 0 0 / 0.10), 0 4px 6px -4px rgb(0 0 0 / 0.10)"></div><div class="tok"><b>--shadow-lg</b>hovered card</div></div>
+    <div class="item"><div class="box" style="box-shadow:0 20px 25px -5px rgb(0 0 0 / 0.10), 0 8px 10px -6px rgb(0 0 0 / 0.10)"></div><div class="tok"><b>--shadow-xl</b>modal</div></div>
+  </div>
+  <div class="row">
+    <div class="item"><div class="box" style="box-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25)"></div><div class="tok"><b>--shadow-2xl</b>hero stage</div></div>
+    <div class="item"><div class="box" style="background:#dc2626;box-shadow:0 4px 20px rgba(255,59,59,.25)"></div><div class="tok"><b>--shadow-emergency</b>SOS at rest</div></div>
+    <div class="item"><div class="box" style="background:#dc2626;box-shadow:0 6px 25px rgba(255,59,59,.35)"></div><div class="tok"><b>--shadow-emergency-hover</b>SOS hover</div></div>
+    <div class="item"></div>
+  </div>
+</div>
+</body></html>

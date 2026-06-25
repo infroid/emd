@@ -1,0 +1,108 @@
+{
+  "background_color": "#ffffff",
+  "categories": [
+    "health",
+    "medical",
+    "emergency",
+    "lifestyle"
+  ],
+  "description": "Emergency healthcare platform providing SOS services, medical consultations, health records, and nutrition guidance",
+  "dir": "ltr",
+  "display": "standalone",
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "icons": [
+    {
+      "purpose": "maskable any",
+      "sizes": "any",
+      "src": "/static/images/logos/logo.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "purpose": "any",
+      "sizes": "192x192",
+      "src": "/static/images/logos/logo.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "/static/images/logos/logo.svg",
+      "type": "image/svg+xml"
+    }
+  ],
+  "lang": "en",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "name": "Ease My Disease - Emergency Healthcare Platform",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "scope": "/",
+  "screenshots": [
+    {
+      "form_factor": "narrow",
+      "label": "Homepage on mobile device",
+      "sizes": "320x640",
+      "src": "/static/images/screenshots/homepage-mobile.png",
+      "type": "image/png"
+    },
+    {
+      "form_factor": "narrow",
+      "label": "Emergency SOS feature on mobile",
+      "sizes": "320x640",
+      "src": "/static/images/screenshots/sos-mobile.png",
+      "type": "image/png"
+    },
+    {
+      "form_factor": "wide",
+      "label": "Homepage on desktop",
+      "sizes": "1280x720",
+      "src": "/static/images/screenshots/homepage-desktop.png",
+      "type": "image/png"
+    }
+  ],
+  "short_name": "EaseMyDisease",
+  "shortcuts": [
+    {
+      "description": "Quick access to emergency services",
+      "icons": [
+        {
+          "sizes": "96x96",
+          "src": "/static/images/icons/sos-shortcut.png"
+        }
+      ],
+      "name": "Emergency SOS",
+      "short_name": "SOS",
+      "url": "/sos/"
+    },
+    {
+      "description": "Book medical consultation",
+      "icons": [
+        {
+          "sizes": "96x96",
+          "src": "/static/images/icons/doctor-shortcut.png"
+        }
+      ],
+      "name": "Find Doctor",
+      "short_name": "Doctor",
+      "url": "/doctor/"
+    },
+    {
+      "description": "Access your health records",
+      "icons": [
+        {
+          "sizes": "96x96",
+          "src": "/static/images/icons/ehr-shortcut.png"
+        }
+      ],
+      "name": "Health Records",
+      "short_name": "EHR",
+      "url": "/ehr/"
+    }
+  ],
+  "start_url": "/",
+  "theme_color": "#e74c3c"
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Status colors" subtitle="Success · Warning · Info · Error" viewport="700x220" -->
+<html><head><meta charset="utf-8"><title>Status colors</title>
+<link rel="stylesheet" href="_preview.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+  .chip { display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border-radius:9999px; font-size:12px; font-weight:600; }
+  .row2 { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+  .row2 > div { padding:14px 16px; border-radius:14px; display:flex; align-items:center; gap:12px; }
+  .ico { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; flex-shrink:0; }
+  .meta { display:flex; flex-direction:column; gap:2px; }
+  .name { font-family:var(--font-display); font-weight:700; font-size:13px; }
+  .hex { font-family:var(--font-mono); font-size:10px; color:var(--fg-muted); }
+</style></head><body>
+<div class="pv-card">
+  <div class="pv-label">Status</div>
+  <div class="row2">
+    <div style="background:#f0fdf4;border:1px solid #bbf7d0">
+      <div class="ico" style="background:#16a34a"><i class="bi bi-check-circle-fill"></i></div>
+      <div class="meta"><div class="name" style="color:#15803d">Success</div><div class="hex">#16a34a · --emd-success</div></div>
+    </div>
+    <div style="background:#fffbeb;border:1px solid #fde68a">
+      <div class="ico" style="background:#f59e0b"><i class="bi bi-exclamation-triangle-fill"></i></div>
+      <div class="meta"><div class="name" style="color:#b45309">Warning</div><div class="hex">#f59e0b · --emd-warning</div></div>
+    </div>
+    <div style="background:#eff6ff;border:1px solid #bfdbfe">
+      <div class="ico" style="background:#3b82f6"><i class="bi bi-info-circle-fill"></i></div>
+      <div class="meta"><div class="name" style="color:#1d4ed8">Info</div><div class="hex">#3b82f6 · --emd-info</div></div>
+    </div>
+    <div style="background:#fef2f2;border:1px solid #fecaca">
+      <div class="ico" style="background:#ef4444"><i class="bi bi-x-circle-fill"></i></div>
+      <div class="meta"><div class="name" style="color:#b91c1c">Error</div><div class="hex">#ef4444 · --emd-error</div></div>
+    </div>
+  </div>
+</div>
+</body></html>

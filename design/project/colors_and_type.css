@@ -1,0 +1,234 @@
+/* =========================================================================
+   EaseMyDisease — Design Tokens
+   =========================================================================
+   Colors + typography for the EMD brand. Synthesized from
+   infroid/emd `unified-design.css`, `guest.css`, and `main.css`.
+
+   Two layered systems:
+     1) BASE tokens   — raw palette + type scale (--emd-*)
+     2) SEMANTIC vars — what to actually use in product code (--fg-1, --h1...)
+
+   Theme is opted into with `data-bs-theme="light" | "dark"` on <html>.
+   ========================================================================= */
+
+/* ------- 1. WEBFONTS --------------------------------------------------- */
+/* Display + body type are loaded from Google Fonts to match production.
+   If you ship offline, drop the .ttf into /fonts and switch the @font-face. */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap");
+
+/* Bootstrap Icons — the brand's primary icon set.
+   Production loads this from cdn.jsdelivr.net; mirrored here for parity. */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+/* ------- 2. BASE TOKENS (light) ---------------------------------------- */
+:root {
+    /* Brand red — emergency, urgency, healthcare CTA */
+    --emd-red-50:  #fef2f2;
+    --emd-red-100: #fee2e2;
+    --emd-red-200: #fecaca;
+    --emd-red-300: #fca5a5;
+    --emd-red-400: #f87171;
+    --emd-red-500: #ef4444;   /* main primary */
+    --emd-red-600: #dc2626;   /* hero CTA bg */
+    --emd-red-700: #b91c1c;   /* hover */
+    --emd-red-800: #991b1b;   /* WCAG-AA text */
+    --emd-red-900: #7f1d1d;
+
+    /* Coral — used in legacy main.css gradients; softer accent */
+    --emd-coral-500: #ff3b3b;
+    --emd-coral-600: #ff5252;
+    --emd-coral-700: #ff6b6b;
+
+    /* Logo teal — only used in the EMD mark itself, NEVER for primary UI */
+    --emd-teal-300: #6dd3cf;
+    --emd-teal-500: #2bbbbd;
+    --emd-teal-700: #1a8b9a;
+
+    /* Neutrals — the workhorse gray scale */
+    --emd-gray-25:  #fdfdfd;
+    --emd-gray-50:  #f9fafb;
+    --emd-gray-100: #f3f4f6;
+    --emd-gray-200: #e5e7eb;
+    --emd-gray-300: #d1d5db;
+    --emd-gray-400: #9ca3af;
+    --emd-gray-500: #6b7280;
+    --emd-gray-600: #4b5563;
+    --emd-gray-700: #374151;
+    --emd-gray-800: #1f2937;
+    --emd-gray-900: #111827;
+
+    /* Status — green/amber/blue, paired with the four feature areas */
+    --emd-success: #16a34a;
+    --emd-warning: #f59e0b;
+    --emd-info:    #3b82f6;
+    --emd-error:   #ef4444;
+
+    /* Feature accents (one per nav area, used sparingly) */
+    --emd-sos:    var(--emd-red-600);     /* SOS Emergency */
+    --emd-ehr:    var(--emd-info);        /* Health Records */
+    --emd-doctor: #7c3aed;                /* Consult Doctor (purple from main.css) */
+    --emd-diet:   var(--emd-success);     /* Diet & Nutrition */
+
+    /* ------- 3. SEMANTIC COLOR VARS — use these in product code ------- */
+    --fg-1:        var(--emd-gray-900);   /* primary text */
+    --fg-2:        var(--emd-gray-700);   /* secondary text */
+    --fg-muted:    var(--emd-gray-600);   /* hint text, meta */
+    --fg-inverse:  #ffffff;
+
+    --bg-1:        #ffffff;               /* card / elevated surfaces */
+    --bg-2:        var(--emd-gray-50);    /* page background */
+    --bg-3:        var(--emd-gray-100);   /* sunken / chip background */
+    --bg-inverse:  var(--emd-gray-900);
+
+    --border-1:    var(--emd-gray-200);   /* default hairline */
+    --border-2:    var(--emd-gray-300);   /* stronger hairline */
+    --border-focus: var(--emd-red-500);
+
+    --accent:        var(--emd-red-600);
+    --accent-hover:  var(--emd-red-700);
+    --accent-soft:   var(--emd-red-50);
+    --accent-text:   var(--emd-red-800);  /* meets WCAG-AA on white */
+
+    /* ------- 4. SHADOWS & ELEVATION --------------------------------- */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.10);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.10), 0 4px 6px -4px rgb(0 0 0 / 0.10);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.10), 0 8px 10px -6px rgb(0 0 0 / 0.10);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-emergency: 0 4px 20px rgba(255, 59, 59, 0.25); /* signature red glow */
+    --shadow-emergency-hover: 0 6px 25px rgba(255, 59, 59, 0.35);
+
+    /* ------- 5. RADII ------------------------------------------------ */
+    --radius-sm:   0.375rem;  /* 6px  — chips, small buttons */
+    --radius-md:   0.5rem;    /* 8px  — inputs, dense controls */
+    --radius-lg:   0.75rem;   /* 12px — default buttons, primary CTA */
+    --radius-xl:   1rem;      /* 16px — toasts, modal headers */
+    --radius-2xl:  1.5rem;    /* 24px — card surfaces (signature) */
+    --radius-full: 9999px;    /* pills, avatars, theme toggle */
+
+    /* ------- 6. SPACING (4-pt grid) --------------------------------- */
+    --space-1:  0.25rem;
+    --space-2:  0.5rem;
+    --space-3:  0.75rem;
+    --space-4:  1rem;
+    --space-5:  1.25rem;
+    --space-6:  1.5rem;
+    --space-8:  2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+
+    /* ------- 7. TYPE SCALE ------------------------------------------ */
+    --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-alt:     'Outfit', 'Inter', system-ui, sans-serif;  /* used by main.css for marketing body */
+    --font-mono:    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+    /* Fluid scale (clamp): mobile → desktop */
+    --t-display-1: clamp(2.5rem, 4vw + 1rem, 4.5rem);     /* 40 → 72 */
+    --t-display-2: clamp(2rem, 3.5vw + 0.5rem, 3.5rem);   /* 32 → 56 */
+    --t-display-3: clamp(1.75rem, 3vw + 0.5rem, 3rem);    /* 28 → 48 */
+    --t-h1:        clamp(1.875rem, 2.5vw + 1rem, 2.5rem); /* 30 → 40 */
+    --t-h2:        clamp(1.5rem, 2vw + 0.5rem, 2rem);     /* 24 → 32 */
+    --t-h3:        clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
+    --t-h4:        clamp(1.125rem, 1vw + 0.5rem, 1.5rem);
+    --t-lead:      clamp(1.125rem, 1vw + 0.25rem, 1.25rem);
+    --t-body:      1rem;
+    --t-sm:        0.875rem;
+    --t-xs:        0.75rem;
+
+    --leading-tight:   1.1;
+    --leading-snug:    1.2;
+    --leading-normal:  1.4;
+    --leading-relaxed: 1.6;
+
+    --tracking-tight:  -0.025em;
+    --tracking-normal: 0;
+}
+
+/* ------- 8. DARK MODE ------------------------------------------------- */
+/* Warm, soft dark — keyed to the illustration's tones (cream / brown / coral).
+   Brighter than typical "dark mode" so the illustration and cards still pop. */
+[data-bs-theme="dark"] {
+    --fg-1:       #f5f1ea;        /* warmer than #f9fafb */
+    --fg-2:       #d8d2c4;        /* warm secondary */
+    --fg-muted:   #a8a193;        /* warm muted */
+    --fg-inverse: var(--emd-gray-900);
+
+    --bg-1:       #2e2a24;        /* warm dark card — visibly lighter than page */
+    --bg-2:       #221f1a;        /* warm dark page */
+    --bg-3:       #18150f;        /* warm darkest — sunken */
+    --bg-inverse: var(--emd-gray-50);
+
+    --border-1:   #423b32;        /* warm border, clearly visible against card */
+    --border-2:   #524a3f;
+
+    --accent:        #ef4444;     /* slightly lighter for warmth */
+    --accent-hover:  #dc2626;
+    --accent-soft:   rgba(239, 68, 68, 0.18);
+    --accent-text:   #ff8585;     /* bright for AA contrast on warm dark */
+}
+
+/* ========================================================================
+   SEMANTIC RECIPES — copy/paste-ready class names that re-use the tokens
+   ======================================================================== */
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--t-body);
+    line-height: var(--leading-relaxed);
+    color: var(--fg-1);
+    background: var(--bg-2);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, .h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--t-h1);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--fg-1);
+    margin: 0 0 var(--space-4);
+}
+h2, .h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--t-h2);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    color: var(--fg-1);
+    margin: 0 0 var(--space-4);
+}
+h3, .h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--t-h3);
+    line-height: var(--leading-snug);
+    color: var(--fg-1);
+    margin: 0 0 var(--space-3);
+}
+h4, .h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--t-h4);
+    line-height: var(--leading-snug);
+    color: var(--fg-1);
+    margin: 0 0 var(--space-3);
+}
+
+.display-1 { font-family: var(--font-display); font-weight: 800; font-size: var(--t-display-1); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+.display-2 { font-family: var(--font-display); font-weight: 800; font-size: var(--t-display-2); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+.display-3 { font-family: var(--font-display); font-weight: 700; font-size: var(--t-display-3); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+
+.lead     { font-size: var(--t-lead); font-weight: 500; line-height: var(--leading-relaxed); color: var(--fg-2); }
+.text-sm  { font-size: var(--t-sm); }
+.text-xs  { font-size: var(--t-xs); }
+.mono     { font-family: var(--font-mono); font-size: 0.95em; }
+
+p { margin: 0 0 var(--space-4); color: var(--fg-2); line-height: var(--leading-relaxed); }
+
+a { color: var(--accent-text); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }

@@ -1,0 +1,1565 @@
+/* ========================================
+   MOBILE MOCKUP CSS - Dedicated Stylesheet
+   ======================================== */
+
+/*
+   Organization:
+   1. Mobile UI/UX Framework (Common)
+   2. Mobile OS Components (iOS/Android)
+   3. App Common Components
+   4. Page-Specific Components
+*/
+
+/* ========================================
+   1. MOBILE UI/UX FRAMEWORK (COMMON)
+   ======================================== */
+
+/* Mobile Mockup Container */
+.mobile-mockup {
+    position: relative;
+    max-width: min(320px, 90vw);
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Phone Frame - Modern Smartphone Design */
+.mobile-frame {
+    width: 100%;
+    aspect-ratio: 1 / 2;
+    max-width: 320px;
+    max-height: 640px;
+    background: linear-gradient(145deg, #2c2c2e, #1c1c1e);
+    border-radius: min(50px, 8vw);
+    padding: min(8px, 1.5vw);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Hover effects - Desktop only */
+@media (hover: hover) {
+    .mobile-frame:hover {
+        transform: translateY(-4px) rotateX(5deg) rotateY(2deg);
+        box-shadow:
+            0 25px 70px rgba(0, 0, 0, 0.35),
+            0 12px 40px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+}
+
+/* Mobile devices - disable 3D effects */
+@media (max-width: 767.98px) {
+    .mobile-frame:hover {
+        transform: none;
+    }
+}
+
+/* Dynamic Island (iPhone 14+ style) */
+.mobile-frame::before {
+    content: '';
+    position: absolute;
+    top: min(12px, 2.2vw);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(120px, 35%);
+    height: min(30px, 5.5vw);
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: min(15px, 2.8vw);
+    z-index: 10;
+}
+
+/* Home Indicator */
+.mobile-frame::after {
+    content: '';
+    position: absolute;
+    bottom: min(12px, 2vw);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(140px, 40%);
+    height: min(4px, 0.8vw);
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: min(2px, 0.4vw);
+    z-index: 10;
+}
+
+/* Phone Screen */
+.mobile-screen {
+    width: 100%;
+    height: 100%;
+    background: var(--healthcare-neutral-25, #fafafa);
+    border-radius: min(42px, 7vw);
+    overflow: hidden;
+    position: relative;
+    box-shadow:
+        inset 0 2px 10px rgba(0, 0, 0, 0.1),
+        inset 0 0 1px rgba(0, 0, 0, 0.2);
+    padding: min(12px, 2vw) min(18px, 3vw) min(20px, 3.5vw) min(18px, 3vw);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Loading State Animation */
+.mobile-mockup-loading {
+    opacity: 0;
+    animation: mobile-fade-in 0.8s ease-out 0.3s both;
+}
+
+@keyframes mobile-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 475.98px) {
+    .mobile-mockup {
+        max-width: 85vw;
+    }
+
+    .mobile-frame {
+        border-radius: min(35px, 7vw);
+        padding: min(6px, 1.2vw);
+    }
+
+    .mobile-screen {
+        border-radius: min(32px, 6.5vw);
+        padding: 6px 10px 12px 10px;
+    }
+}
+
+/* ========================================
+   2. MOBILE OS COMPONENTS (iOS/ANDROID)
+   ======================================== */
+
+/* Status Bar */
+.mobile-status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: min(8px, 1.5vw) min(4px, 0.8vw);
+    margin-bottom: min(8px, 1.5vw);
+    font-size: clamp(12px, 2.5vw, 14px);
+    font-weight: 600;
+    color: var(--healthcare-neutral-900, #111827);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    position: relative;
+    z-index: 15;
+}
+
+.mobile-status-time {
+    color: var(--healthcare-neutral-900, #111827);
+    font-size: clamp(13px, 2.8vw, 15px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.mobile-status-bar-right {
+    display: flex;
+    align-items: center;
+    gap: min(8px, 1.5vw);
+    position: relative;
+    z-index: 16;
+}
+
+.mobile-signal-icons {
+    display: flex;
+    align-items: center;
+    gap: min(6px, 1.2vw);
+    color: var(--healthcare-neutral-700, #374151);
+    font-size: clamp(11px, 2.3vw, 13px);
+}
+
+/* App Header */
+.mobile-app-header {
+    padding: min(12px, 2.2vw) 0 min(16px, 3vw) 0;
+    border-bottom: 1px solid var(--healthcare-neutral-200, #e5e7eb);
+    margin-bottom: min(16px, 3vw);
+}
+
+.mobile-app-title {
+    font-size: clamp(16px, 3.5vw, 18px);
+    font-weight: 700;
+    color: var(--healthcare-neutral-900, #111827);
+    margin: 0 0 min(4px, 0.8vw) 0;
+    line-height: 1.2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.mobile-app-subtitle {
+    font-size: clamp(11px, 2.4vw, 13px);
+    color: var(--healthcare-neutral-600, #4b5563);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ========================================
+   3. APP COMMON COMPONENTS
+   ======================================== */
+
+/* Bottom Navigation Tab */
+.mobile-bottom-nav {
+    position: absolute;
+    bottom: min(20px, 3.5vw);
+    left: min(18px, 3vw);
+    right: min(18px, 3vw);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: min(16px, 3vw);
+    padding: min(12px, 2.2vw);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: min(4px, 0.8vw);
+    padding: min(8px, 1.5vw);
+    border-radius: min(8px, 1.5vw);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    min-width: min(44px, 8vw);
+    min-height: min(44px, 8vw);
+}
+
+.mobile-nav-item:hover {
+    background: rgba(220, 38, 38, 0.1);
+}
+
+.mobile-nav-item.active {
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--healthcare-primary, #dc2626);
+}
+
+.mobile-nav-icon {
+    font-size: clamp(18px, 3.8vw, 20px);
+}
+
+.mobile-nav-label {
+    font-size: clamp(10px, 2vw, 11px);
+    font-weight: 500;
+}
+
+/* Interactive Cards Grid */
+.mobile-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: min(8px, 1.5vw);
+    margin-bottom: min(16px, 3vw);
+}
+
+.mobile-card {
+    background: white;
+    border: 1px solid var(--healthcare-neutral-200, #e5e7eb);
+    border-radius: min(12px, 2.2vw);
+    padding: min(12px, 2.2vw);
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    min-height: min(80px, 15vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--healthcare-primary, #dc2626);
+}
+
+/* Mobile touch-friendly improvements */
+@media (max-width: 767.98px) {
+    .mobile-card {
+        min-height: 70px;
+        transition: background-color 0.2s ease;
+    }
+
+    .mobile-card:active {
+        background-color: var(--healthcare-neutral-50, #f9fafb);
+        transform: scale(0.98);
+    }
+}
+
+/* Card Content */
+.mobile-card-label {
+    font-size: clamp(9px, 2vw, 11px);
+    color: var(--healthcare-neutral-600, #4b5563);
+    margin-bottom: min(4px, 0.8vw);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mobile-card-value {
+    font-size: clamp(14px, 3vw, 16px);
+    font-weight: 700;
+    color: var(--healthcare-neutral-900, #111827);
+    margin-bottom: min(4px, 0.8vw);
+    line-height: 1;
+}
+
+.mobile-card-unit {
+    font-size: clamp(10px, 2.2vw, 12px);
+    font-weight: 500;
+    color: var(--healthcare-neutral-600, #4b5563);
+}
+
+/* Button Components */
+.mobile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: min(25px, 5vw);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 44px;
+    min-height: 44px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-button-primary {
+    background: linear-gradient(135deg, var(--healthcare-primary, #dc2626), var(--healthcare-primary-light, #ef4444));
+    color: white;
+    font-size: clamp(12px, 2.6vw, 14px);
+    gap: min(8px, 1.5vw);
+}
+
+.mobile-button-secondary {
+    background: linear-gradient(135deg, var(--healthcare-info, #3b82f6), #60a5fa);
+    color: white;
+    font-size: clamp(12px, 2.6vw, 14px);
+    gap: min(8px, 1.5vw);
+}
+
+/* Button hover effects - Desktop only */
+@media (hover: hover) {
+    .mobile-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Mobile devices - touch feedback */
+@media (max-width: 767.98px) {
+    .mobile-button:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Ripple Effect for Buttons */
+.mobile-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.mobile-button:active::after {
+    width: 200%;
+    height: 200%;
+}
+
+/* List Components */
+.mobile-list {
+    display: flex;
+    flex-direction: column;
+    gap: min(8px, 1.5vw);
+}
+
+.mobile-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: min(12px, 2.2vw);
+    background: var(--healthcare-neutral-50, #f9fafb);
+    border-radius: min(8px, 1.5vw);
+    border: 1px solid var(--healthcare-neutral-200, #e5e7eb);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-list-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--healthcare-primary, #dc2626);
+}
+
+/* Shimmer effect for list items */
+.mobile-list-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(220, 38, 38, 0.1),
+            transparent);
+    transition: left 0.5s ease;
+}
+
+.mobile-list-item:hover::before {
+    left: 100%;
+}
+
+/* ========================================
+   4. PAGE-SPECIFIC MOBILE MOCKUP COMPONENTS
+   ======================================== */
+
+/* ========================================
+   4.1 SOS EMERGENCY COMPONENTS
+   ======================================== */
+
+.mobile-emergency-interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: min(20px, 3.5vw);
+    position: relative;
+}
+
+.mobile-emergency-button {
+    width: min(120px, 25vw);
+    height: min(120px, 25vw);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--healthcare-primary, #dc2626), var(--healthcare-primary-dark, #b91c1c));
+    color: white;
+    border: none;
+    font-size: clamp(14px, 3vw, 16px);
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: min(4px, 0.8vw);
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+    transition: all 0.2s ease;
+}
+
+.mobile-emergency-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(220, 38, 38, 0.4);
+}
+
+.mobile-emergency-button i {
+    font-size: clamp(24px, 5vw, 28px);
+}
+
+/* Pulse Ring Animation for Emergency */
+.mobile-pulse-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(140px, 30vw);
+    height: min(140px, 30vw);
+    border: 2px solid rgba(220, 38, 38, 0.6);
+    border-radius: 50%;
+    animation: mobile-pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    pointer-events: none;
+}
+
+.mobile-pulse-delay {
+    animation-delay: 1s;
+}
+
+@keyframes mobile-pulse-ring {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* Emergency Status */
+.mobile-emergency-status {
+    display: flex;
+    align-items: center;
+    gap: min(12px, 2.2vw);
+    margin-bottom: min(24px, 4.5vw);
+    padding: min(12px, 2.2vw);
+    background: rgba(34, 197, 94, 0.1);
+    border-radius: min(12px, 2.2vw);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.mobile-emergency-status-icon {
+    width: min(24px, 4.5vw);
+    height: min(24px, 4.5vw);
+    background: #16a34a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: clamp(12px, 2.2vw, 14px);
+}
+
+.mobile-emergency-status-text {
+    flex: 1;
+}
+
+.mobile-emergency-status-title {
+    font-size: clamp(12px, 2.4vw, 14px);
+    font-weight: 600;
+    color: var(--healthcare-neutral-900, #111827);
+    margin-bottom: min(2px, 0.4vw);
+}
+
+.mobile-emergency-status-subtitle {
+    font-size: clamp(10px, 2vw, 11px);
+    color: var(--healthcare-neutral-600, #4b5563);
+}
+
+/* Consultation Status (SOS-style) */
+.mobile-consultation-status {
+    display: flex;
+    align-items: center;
+    gap: min(12px, 2.2vw);
+    margin-bottom: min(24px, 4.5vw);
+    padding: min(12px, 2.2vw);
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: min(12px, 2.2vw);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.mobile-consultation-status-icon {
+    width: min(24px, 4.5vw);
+    height: min(24px, 4.5vw);
+    background: #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: clamp(12px, 2.2vw, 14px);
+}
+
+.mobile-consultation-status-text {
+    flex: 1;
+}
+
+.mobile-consultation-status-title {
+    font-size: clamp(12px, 2.4vw, 14px);
+    font-weight: 600;
+    color: var(--healthcare-neutral-900, #111827);
+    margin-bottom: min(2px, 0.4vw);
+}
+
+.mobile-consultation-status-subtitle {
+    font-size: clamp(10px, 2vw, 11px);
+    color: var(--healthcare-neutral-600, #4b5563);
+}
+
+/* ========================================
+   4.2 EHR HEALTH MONITORING COMPONENTS
+   ======================================== */
+
+.mobile-health-dashboard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: min(16px, 3vw);
+}
+
+.mobile-health-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: min(8px, 1.5vw);
+}
+
+.mobile-health-metric {
+    background: white;
+    border: 1px solid var(--healthcare-neutral-200, #e5e7eb);
+    border-radius: min(12px, 2.2vw);
+    padding: min(12px, 2.2vw);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-health-metric-label {
+    font-size: clamp(9px, 2vw, 11px);
+    color: var(--healthcare-neutral-600, #4b5563);
+    margin-bottom: min(4px, 0.8vw);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mobile-health-metric-value {
+    font-size: clamp(16px, 3.5vw, 18px);
+    font-weight: 700;
+    color: var(--healthcare-neutral-900, #111827);
+    margin-bottom: min(4px, 0.8vw);
+}
+
+.mobile-health-metric-trend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: min(4px, 0.8vw);
+    font-size: clamp(8px, 1.8vw, 10px);
+    font-weight: 600;
+    padding: min(2px, 0.4vw) min(6px, 1.2vw);
+    border-radius: min(6px, 1.2vw);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: min(4px, 0.8vw);
+}
+
+.mobile-trend-up {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.mobile-trend-down {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+}
+
+.mobile-trend-stable {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+/* Health Charts */
+.mobile-health-chart {
+    background: white;
+    border: 1px solid var(--healthcare-neutral-200, #e5e7eb);
+    border-radius: min(12px, 2.2vw);
+    padding: min(12px, 2.2vw);
+    margin-bottom: min(16px, 3vw);
+}
+
+.mobile-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: min(8px, 1.5vw);
+}
+
+.mobile-chart-title {
+    font-size: clamp(12px, 2.4vw, 14px);
+    font-weight: 600;
+    color: var(--healthcare-neutral-900, #111827);
+}
+
+.mobile-chart-period {
+    font-size: clamp(10px, 2vw, 11px);
+    color: var(--healthcare-neutral-600, #4b5563);
+    background: var(--healthcare-neutral-100, #f3f4f6);
+    padding: min(2px, 0.4vw) min(6px, 1.2vw);
+    border-radius: min(4px, 0.8vw);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mobile-chart-visual {
+    height: min(40px, 7.5vw);
+    background: linear-gradient(90deg, var(--healthcare-neutral-100, #f3f4f6) 0%, var(--healthcare-primary, #dc2626) 100%);
+    border-radius: min(6px, 1.2vw);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ========================================
+   4.3 DOCTOR CONSULTATION COMPONENTS
+   ======================================== */
+
+.mobile-consultation-interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: min(16px, 3vw);
+}
+
+.mobile-consultation-button {
+    width: min(120px, 25vw);
+    height: min(120px, 25vw);
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--healthcare-info, #3b82f6), #60a5fa);
+    color: white;
+    font-size: clamp(14px, 3vw, 16px);
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: min(4px, 0.8vw);
+    cursor: pointer;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    position: relative;
+}
+
+.mobile-consultation-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4);
+}
+
+.mobile-consultation-button i {
+    font-size: clamp(24px, 5vw, 28px);
+}
+
+.mobile-doctor-list {
+    display: flex;
+    flex-direction: column;
+    gap: min(8px, 1.5vw);
+}
+
+.mobile-doctor-card {
+    display: flex;
+    align-items: center;
+    gap: min(12px, 2.2vw);
+    padding: min(12px, 2.2vw);
+    background: white;
+    border: 1px solid var(--healthcare-neutral-200, #e5e7eb);
+    border-radius: min(12px, 2.2vw);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.mobile-doctor-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--healthcare-primary, #dc2626);
+}
+
+.mobile-doctor-avatar {
+    width: min(40px, 7.5vw);
+    height: min(40px, 7.5vw);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--healthcare-primary, #dc2626), var(--healthcare-primary-light, #ef4444));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: clamp(16px, 3.2vw, 18px);
+}
+
+.mobile-doctor-info {
+    flex: 1;
+}
+
+.mobile-doctor-name {
+    font-size: clamp(12px, 2.4vw, 14px);
+    font-weight: 600;
+    color: var(--healthcare-neutral-900, #111827);
+    margin-bottom: min(2px, 0.4vw);
+}
+
+.mobile-doctor-specialty {
+    font-size: clamp(10px, 2vw, 11px);
+    color: var(--healthcare-neutral-600, #4b5563);
+}
+
+.mobile-doctor-availability {
+    font-size: clamp(7px, 1.6vw, 8px);
+    font-weight: 600;
+    padding: min(3px, 0.6vw) min(8px, 1.5vw);
+    border-radius: min(8px, 1.5vw);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+    border: 1px solid rgba(107, 114, 128, 0.2);
+    display: inline-block;
+    text-align: center;
+    margin-top: min(4px, 0.8vw);
+    max-width: fit-content;
+}
+
+/* ========================================
+   4.4 NUTRITION TRACKING COMPONENTS
+   ======================================== */
+
+.mobile-nutrition-interface {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: min(12px, 2.2vw);
+    padding: min(8px, 1.5vw) min(16px, 3vw);
+}
+
+.mobile-progress-ring {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: min(6px, 1.2vw);
+    margin-bottom: min(12px, 2.2vw);
+}
+
+.mobile-ring-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-progress-circle {
+    transform: rotate(-90deg);
+}
+
+.mobile-ring-text {
+    position: absolute;
+    text-align: center;
+    color: var(--healthcare-neutral-900, #111827);
+}
+
+.mobile-ring-number {
+    font-size: clamp(16px, 3.5vw, 18px);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.mobile-ring-label {
+    font-size: clamp(11px, 2.2vw, 12px);
+    color: var(--healthcare-neutral-600, #4b5563);
+}
+
+.mobile-ring-caption {
+    font-size: clamp(11px, 2.2vw, 12px);
+    color: var(--healthcare-neutral-600, #4b5563);
+    text-align: center;
+}
+
+/* Macro Nutrient Bars */
+.mobile-macro-grid {
+    display: flex;
+    flex-direction: column;
+    gap: min(8px, 1.5vw);
+    margin-bottom: min(12px, 2.2vw);
+}
+
+.mobile-macro-item {
+    display: flex;
+    flex-direction: column;
+    gap: min(3px, 0.6vw);
+    padding: min(6px, 1.2vw);
+    border-radius: min(6px, 1.2vw);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.mobile-macro-item:hover {
+    background: rgba(220, 38, 38, 0.05);
+    transform: translateX(4px);
+}
+
+.mobile-macro-bar {
+    height: min(8px, 1.5vw);
+    background: var(--healthcare-neutral-200, #e5e7eb);
+    border-radius: min(4px, 0.8vw);
+    overflow: hidden;
+}
+
+.mobile-macro-fill {
+    height: 100%;
+    border-radius: min(4px, 0.8vw);
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-macro-label {
+    font-size: clamp(10px, 2vw, 11px);
+    color: var(--healthcare-neutral-600, #4b5563);
+    font-weight: 500;
+}
+
+.mobile-macro-value {
+    font-size: clamp(11px, 2.2vw, 12px);
+    color: var(--healthcare-neutral-800, #1f2937);
+    font-weight: 600;
+}
+
+/* Meal Tracking List */
+.mobile-meal-list {
+    display: flex;
+    flex-direction: column;
+    gap: min(6px, 1.2vw);
+}
+
+.mobile-meal-item {
+    display: flex;
+    align-items: center;
+    gap: min(10px, 1.8vw);
+    padding: min(8px, 1.5vw);
+    background: var(--healthcare-neutral-50, #f9fafb);
+    border-radius: min(6px, 1.2vw);
+    border: 1px solid var(--healthcare-neutral-200, #e5e7eb);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-meal-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--healthcare-primary, #dc2626);
+}
+
+.mobile-meal-emoji {
+    font-size: clamp(20px, 4vw, 24px);
+}
+
+.mobile-meal-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: min(2px, 0.4vw);
+}
+
+.mobile-meal-name {
+    font-size: clamp(11px, 2.2vw, 12px);
+    font-weight: 600;
+    color: var(--healthcare-neutral-900, #111827);
+}
+
+.mobile-meal-calories {
+    font-size: clamp(10px, 2vw, 11px);
+    color: var(--healthcare-neutral-600, #4b5563);
+}
+
+.mobile-meal-status {
+    width: min(20px, 3.8vw);
+    height: min(20px, 3.8vw);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(10px, 2vw, 12px);
+    font-weight: 600;
+}
+
+.mobile-meal-completed {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.mobile-meal-pending {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+/* ========================================
+   ACCESSIBILITY & PERFORMANCE
+   ======================================== */
+
+/* Screen Reader Only Content */
+.mobile-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus States */
+.mobile-card:focus,
+.mobile-list-item:focus,
+.mobile-button:focus,
+.mobile-nav-item:focus {
+    outline: 2px solid var(--healthcare-primary, #dc2626);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .mobile-frame {
+        border: 3px solid var(--healthcare-neutral-900, #111827);
+    }
+
+    .mobile-card,
+    .mobile-list-item {
+        border: 2px solid var(--healthcare-neutral-700, #374151);
+    }
+
+    .mobile-button {
+        border: 2px solid transparent;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    .mobile-frame,
+    .mobile-button,
+    .mobile-card,
+    .mobile-list-item,
+    .mobile-macro-fill,
+    .mobile-progress-circle,
+    .mobile-pulse-ring {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* Performance Optimizations */
+@media (update: slow) {
+
+    .mobile-frame,
+    .mobile-card,
+    .mobile-list-item,
+    .mobile-button {
+        animation: none;
+        transition: none;
+    }
+
+    .mobile-macro-fill,
+    .mobile-progress-circle {
+        animation: none;
+    }
+}
+
+/* Network-aware optimizations */
+@media (prefers-reduced-data: reduce) {
+    .mobile-frame {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .mobile-card::before,
+    .mobile-list-item::before,
+    .mobile-button::after {
+        display: none;
+    }
+}
+
+/* ========================================
+   DARK MODE SUPPORT
+   ======================================== */
+
+[data-bs-theme="dark"] .mobile-screen {
+    background: linear-gradient(145deg, #2c2f36, #252831);
+    box-shadow:
+        inset 0 2px 10px rgba(255, 255, 255, 0.06),
+        inset 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+[data-bs-theme="dark"] .mobile-status-bar,
+[data-bs-theme="dark"] .mobile-app-title {
+    color: var(--healthcare-neutral-100, #f3f4f6);
+}
+
+[data-bs-theme="dark"] .mobile-app-subtitle {
+    color: var(--healthcare-neutral-400, #9ca3af);
+}
+
+[data-bs-theme="dark"] .mobile-status-bar-right {
+    color: var(--healthcare-neutral-300, #d1d5db);
+}
+
+[data-bs-theme="dark"] .mobile-signal-icons {
+    color: var(--healthcare-neutral-400, #9ca3af);
+}
+
+[data-bs-theme="dark"] .mobile-card,
+[data-bs-theme="dark"] .mobile-list-item {
+    background: linear-gradient(145deg, #353942, #2f3239);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] .mobile-card:hover,
+[data-bs-theme="dark"] .mobile-list-item:hover {
+    background: linear-gradient(145deg, #3d424b, #373c44);
+    border-color: rgba(220, 38, 38, 0.3);
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(220, 38, 38, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transform: translateY(-1px);
+}
+
+[data-bs-theme="dark"] .mobile-card-label,
+[data-bs-theme="dark"] .mobile-meal-calories {
+    color: var(--healthcare-neutral-300, #d1d5db);
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] .mobile-card-value,
+[data-bs-theme="dark"] .mobile-meal-name {
+    color: var(--healthcare-neutral-50, #f9fafb);
+    font-weight: 700;
+}
+
+/* Emergency Status Components */
+[data-bs-theme="dark"] .mobile-emergency-status {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+[data-bs-theme="dark"] .mobile-emergency-status-title {
+    color: var(--healthcare-neutral-50, #f9fafb);
+    font-weight: 700;
+}
+
+[data-bs-theme="dark"] .mobile-emergency-status-subtitle {
+    color: var(--healthcare-neutral-300, #d1d5db);
+    font-weight: 600;
+}
+
+/* Consultation Status (SOS-style) */
+[data-bs-theme="dark"] .mobile-consultation-status {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+[data-bs-theme="dark"] .mobile-consultation-status-title {
+    color: var(--healthcare-neutral-50, #f9fafb);
+    font-weight: 700;
+}
+
+[data-bs-theme="dark"] .mobile-consultation-status-subtitle {
+    color: var(--healthcare-neutral-300, #d1d5db);
+    font-weight: 600;
+}
+
+/* Health Monitoring Components */
+[data-bs-theme="dark"] .mobile-health-metric {
+    background: linear-gradient(145deg, #353942, #2f3239);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] .mobile-health-metric:hover {
+    background: linear-gradient(145deg, #3d424b, #373c44);
+    border-color: rgba(220, 38, 38, 0.3);
+    transform: translateY(-2px);
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(220, 38, 38, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-bs-theme="dark"] .mobile-health-metric-label {
+    color: var(--healthcare-neutral-300, #d1d5db);
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] .mobile-health-metric-value {
+    color: var(--healthcare-neutral-50, #f9fafb);
+    font-weight: 800;
+}
+
+[data-bs-theme="dark"] .mobile-health-chart {
+    background: linear-gradient(145deg, #353942, #2f3239);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] .mobile-chart-title {
+    color: var(--healthcare-neutral-50, #f9fafb);
+    font-weight: 700;
+}
+
+[data-bs-theme="dark"] .mobile-chart-period {
+    color: var(--healthcare-neutral-200, #e5e7eb);
+    background: var(--healthcare-neutral-600, #4b5563);
+    border: 1px solid var(--healthcare-neutral-500, #6b7280);
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] .mobile-chart-visual {
+    background: linear-gradient(90deg, var(--healthcare-neutral-600, #4b5563) 0%, var(--healthcare-primary, #dc2626) 100%);
+    border: 1px solid var(--healthcare-neutral-500, #6b7280);
+}
+
+/* Doctor Consultation Components */
+[data-bs-theme="dark"] .mobile-doctor-card {
+    background: var(--healthcare-neutral-750, #2d3748);
+    border-color: var(--healthcare-neutral-700, #374151);
+}
+
+[data-bs-theme="dark"] .mobile-doctor-name {
+    color: var(--healthcare-neutral-50, #f9fafb);
+    font-weight: 700;
+}
+
+[data-bs-theme="dark"] .mobile-doctor-specialty {
+    color: var(--healthcare-neutral-300, #d1d5db);
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] .mobile-doctor-availability {
+    background: rgba(75, 85, 99, 0.2);
+    color: var(--healthcare-neutral-300, #d1d5db);
+    border: 1px solid rgba(75, 85, 99, 0.3);
+    font-weight: 600;
+}
+
+/* Nutrition Interface Components */
+[data-bs-theme="dark"] .mobile-ring-text {
+    color: var(--healthcare-neutral-50, #f9fafb);
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+[data-bs-theme="dark"] .mobile-ring-label,
+[data-bs-theme="dark"] .mobile-ring-caption {
+    color: var(--healthcare-neutral-300, #d1d5db);
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] .mobile-macro-item:hover {
+    background: rgba(220, 38, 38, 0.1);
+}
+
+[data-bs-theme="dark"] .mobile-macro-bar {
+    background: var(--healthcare-neutral-700, #374151);
+}
+
+[data-bs-theme="dark"] .mobile-macro-label {
+    color: var(--healthcare-neutral-400, #9ca3af);
+}
+
+[data-bs-theme="dark"] .mobile-macro-value {
+    color: var(--healthcare-neutral-200, #e5e7eb);
+}
+
+/* Meal Tracking Components */
+[data-bs-theme="dark"] .mobile-meal-item {
+    background: var(--healthcare-neutral-800, #2d3748);
+    border-color: var(--healthcare-neutral-600, #4b5563);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-bs-theme="dark"] .mobile-meal-item:hover {
+    background: var(--healthcare-neutral-750, #374151);
+    border-color: var(--healthcare-primary, #dc2626);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Bottom Navigation */
+[data-bs-theme="dark"] .mobile-bottom-nav {
+    background: rgba(31, 41, 55, 0.98);
+    border: 1px solid var(--healthcare-neutral-600, #4b5563);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+}
+
+[data-bs-theme="dark"] .mobile-nav-item {
+    color: var(--healthcare-neutral-300, #d1d5db);
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] .mobile-nav-item:hover {
+    background: rgba(220, 38, 38, 0.2);
+    color: var(--healthcare-neutral-100, #f3f4f6);
+}
+
+[data-bs-theme="dark"] .mobile-nav-item.active {
+    background: rgba(220, 38, 38, 0.25);
+    color: var(--healthcare-primary-light, #ef4444);
+    font-weight: 700;
+}
+
+/* Trend Indicators */
+[data-bs-theme="dark"] .mobile-trend-up {
+    background: rgba(34, 197, 94, 0.25);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    font-weight: 700;
+}
+
+[data-bs-theme="dark"] .mobile-trend-down {
+    background: rgba(239, 68, 68, 0.25);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    font-weight: 700;
+}
+
+[data-bs-theme="dark"] .mobile-trend-stable {
+    background: rgba(107, 114, 128, 0.25);
+    color: #d1d5db;
+    border: 1px solid rgba(107, 114, 128, 0.4);
+    font-weight: 700;
+}
+
+/* Meal Status Indicators */
+[data-bs-theme="dark"] .mobile-meal-completed {
+    background: rgba(34, 197, 94, 0.25);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    font-weight: 700;
+}
+
+[data-bs-theme="dark"] .mobile-meal-pending {
+    background: rgba(107, 114, 128, 0.25);
+    color: #d1d5db;
+    border: 1px solid rgba(107, 114, 128, 0.4);
+    font-weight: 700;
+}
+
+/* Additional Mobile Dark Mode Enhancements */
+[data-bs-theme="dark"] .mobile-app-header {
+    border-bottom-color: var(--healthcare-neutral-600, #4b5563);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+[data-bs-theme="dark"] .mobile-status-time {
+    color: var(--healthcare-neutral-50, #f9fafb);
+    font-weight: 700;
+}
+
+[data-bs-theme="dark"] .mobile-emergency-interface,
+[data-bs-theme="dark"] .mobile-consultation-interface,
+[data-bs-theme="dark"] .mobile-nutrition-interface,
+[data-bs-theme="dark"] .mobile-health-dashboard {
+    color: var(--healthcare-neutral-50, #f9fafb);
+}
+
+/* Ensure all text elements in mobile interfaces are visible in dark mode */
+[data-bs-theme="dark"] .mobile-frame,
+[data-bs-theme="dark"] .mobile-screen {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+/* Fix any remaining contrast issues */
+[data-bs-theme="dark"] .mobile-card-unit {
+    color: var(--healthcare-neutral-300, #d1d5db);
+}
+
+[data-bs-theme="dark"] .mobile-nav-label {
+    color: var(--healthcare-neutral-400, #9ca3af);
+}
+
+[data-bs-theme="dark"] .mobile-doctor-availability {
+    background: var(--healthcare-neutral-600, #4b5563);
+    color: var(--healthcare-neutral-100, #f3f4f6);
+    border: 1px solid var(--healthcare-neutral-500, #6b7280);
+    font-weight: 700;
+}
+
+/* COMPREHENSIVE DARK MODE TEXT FIXES - All missing overrides */
+
+/* Status Bar Text - Missing overrides */
+[data-bs-theme="dark"] .mobile-status-bar {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+[data-bs-theme="dark"] .mobile-status-time {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+[data-bs-theme="dark"] .mobile-signal-icons {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+/* App Title and Subtitle - Ensure proper override */
+[data-bs-theme="dark"] .mobile-app-title {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+[data-bs-theme="dark"] .mobile-app-subtitle {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+/* All mobile metric text elements */
+[data-bs-theme="dark"] .mobile-health-metric-label {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+[data-bs-theme="dark"] .mobile-health-metric-value {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+/* Chart elements that might be missing */
+[data-bs-theme="dark"] .mobile-chart-title {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+[data-bs-theme="dark"] .mobile-chart-period {
+    color: var(--healthcare-neutral-200, #e5e7eb) !important;
+}
+
+/* Doctor card text */
+[data-bs-theme="dark"] .mobile-doctor-name {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+[data-bs-theme="dark"] .mobile-doctor-specialty {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+/* Nutrition interface text */
+[data-bs-theme="dark"] .mobile-ring-number {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+[data-bs-theme="dark"] .mobile-ring-label,
+[data-bs-theme="dark"] .mobile-ring-caption {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+[data-bs-theme="dark"] .mobile-macro-label {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+[data-bs-theme="dark"] .mobile-macro-value {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+/* Meal tracking text */
+[data-bs-theme="dark"] .mobile-meal-name {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+[data-bs-theme="dark"] .mobile-meal-calories {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+/* Emergency status text */
+[data-bs-theme="dark"] .mobile-emergency-status-title {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+[data-bs-theme="dark"] .mobile-emergency-status-subtitle {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+/* Card labels and values - Global fix */
+[data-bs-theme="dark"] .mobile-card-label {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+[data-bs-theme="dark"] .mobile-card-value {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+[data-bs-theme="dark"] .mobile-card-unit {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+/* Navigation labels */
+[data-bs-theme="dark"] .mobile-nav-label {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+}
+
+/* Any remaining mobile interface text */
+[data-bs-theme="dark"] .mobile-frame *,
+[data-bs-theme="dark"] .mobile-screen *,
+[data-bs-theme="dark"] .mobile-emergency-interface *,
+[data-bs-theme="dark"] .mobile-consultation-interface *,
+[data-bs-theme="dark"] .mobile-nutrition-interface *,
+[data-bs-theme="dark"] .mobile-health-dashboard * {
+    color: inherit;
+}
+
+/* Force override for any stubborn dark text */
+[data-bs-theme="dark"] .mobile-frame,
+[data-bs-theme="dark"] .mobile-screen {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+/* ULTRA-HIGH SPECIFICITY DARK MODE OVERRIDES */
+/* These rules have maximum specificity to override any stubborn light mode colors */
+
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-health-metric-label,
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-card-label {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+    font-weight: 600 !important;
+}
+
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-health-metric-value,
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-card-value {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+    font-weight: 700 !important;
+}
+
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-app-title {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+    font-weight: 800 !important;
+}
+
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-app-subtitle {
+    color: var(--healthcare-neutral-300, #d1d5db) !important;
+    font-weight: 600 !important;
+}
+
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-status-time {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+    font-weight: 700 !important;
+}
+
+/* Ensure Recent Records section text is visible */
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen h2,
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen h3,
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen h4 {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+/* Fix any remaining list item text */
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-list-item * {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+}
+
+/* Ultra-specific chart text fixes */
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-health-chart .mobile-chart-title {
+    color: var(--healthcare-neutral-50, #f9fafb) !important;
+    font-weight: 700 !important;
+}
+
+[data-bs-theme="dark"] .mobile-mockup .mobile-frame .mobile-screen .mobile-health-chart .mobile-chart-period {
+    color: var(--healthcare-neutral-200, #e5e7eb) !important;
+    background: var(--healthcare-neutral-600, #4b5563) !important;
+    font-weight: 600 !important;
+}

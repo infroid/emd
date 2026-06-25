@@ -1,0 +1,19 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Font families" subtitle="Display · Body · Alt · Mono" viewport="700x340" -->
+<html><head><meta charset="utf-8"><title>Font families</title>
+<link rel="stylesheet" href="_preview.css">
+<style>
+  .fam { padding:14px 0; border-bottom:1px dashed var(--border-1); display:grid; grid-template-columns:120px 1fr; align-items:center; gap:18px; }
+  .fam:last-child { border-bottom:0; }
+  .tag { font-family:var(--font-mono); font-size:10px; color:var(--fg-muted); text-transform:uppercase; letter-spacing:.06em; }
+  .tag b { color:var(--fg-1); display:block; font-family:var(--font-display); font-weight:700; font-size:13px; letter-spacing:0; text-transform:none; margin-bottom:2px; }
+  .spec { font-size:30px; line-height:1.1; color:var(--fg-1); letter-spacing:-0.02em; }
+</style></head><body>
+<div class="pv-card">
+  <div class="pv-label">Font families</div>
+  <div class="fam"><div class="tag"><b>Display</b>Plus Jakarta Sans<br>400 · 600 · 700 · 800</div><div class="spec" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700">Headlines & stat numbers.</div></div>
+  <div class="fam"><div class="tag"><b>Body</b>Inter<br>400 · 500 · 600 · 700</div><div class="spec" style="font-family:'Inter',sans-serif;font-weight:500;font-size:24px">The workhorse — every paragraph.</div></div>
+  <div class="fam"><div class="tag"><b>Alt</b>Outfit<br>legacy / marketing only</div><div class="spec" style="font-family:'Outfit',sans-serif;font-weight:500;font-size:22px">Kept for back-compat with main.css.</div></div>
+  <div class="fam"><div class="tag"><b>Mono</b>System mono<br>code, tokens, debug</div><div class="spec" style="font-family:ui-monospace,Menlo,monospace;font-size:18px">--accent · #dc2626</div></div>
+</div>
+</body></html>

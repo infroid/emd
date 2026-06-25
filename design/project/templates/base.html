@@ -1,0 +1,470 @@
+<!doctype html>
+{% load static %}
+{% load i18n %}
+<!--
+  Enterprise-grade base template featuring:
+
+  🚀 PERFORMANCE OPTIMIZATIONS:
+  - Resource hints (preconnect, dns-prefetch, preload)
+  - Deferred script loading with integrity checks
+  - Font display optimizations
+  - Image lazy loading support
+  - Service Worker integration
+
+  🔍 SEO & DISCOVERABILITY:
+  - Complete Open Graph and Twitter Cards
+  - Structured data (JSON-LD) for rich snippets
+  - Semantic HTML5 elements
+  - Optimized meta descriptions and keywords
+  - Canonical URLs and hreflang support
+
+  ♿ ACCESSIBILITY COMPLIANCE:
+  - WCAG 2.1 AA compliant structure
+  - ARIA landmarks and labels
+  - Skip navigation links
+  - Screen reader optimizations
+  - Focus management
+
+  🔒 SECURITY & PRIVACY:
+  - Content Security Policy (CSP)
+  - XSS and clickjacking protection
+  - Privacy-first analytics hooks
+  - Secure cookie configurations
+
+  🌐 PROGRESSIVE WEB APP:
+  - Web App Manifest support
+  - Service Worker registration
+  - Theme color definitions
+  - Install prompt handling
+
+  📱 RESPONSIVE & MODERN:
+  - Mobile-first design principles
+  - Dark/light mode support
+  - High-DPI display optimizations
+  - Touch-friendly interactions
+-->
+
+<html lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE|default:'en' }}"
+    data-bs-theme="{{ theme }}" prefix="og: https://ogp.me/ns#" class="no-js">
+
+<head>
+    <!-- Critical Meta Tags (above-the-fold) -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Page Title with Brand Consistency -->
+    <title>{% block title %}{% if page_title %}{{ page_title }}{% endif %}{% endblock %}{% if page_title %} | {% endif %}Ease My Disease - Your Health Companion
+    </title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="{% block meta_description %}Comprehensive healthcare platform providing emergency services, electronic health records, medical consultations, and personalized nutrition guidance. Available 24/7 for your health needs.{% endblock %}">
+    <meta name="keywords"
+        content="{% block meta_keywords %}emergency, healthcare, EHR, doctor consultation, nutrition, wellness, medical records, privacy, security, digital health, telemedicine, healthy recipes, diet, terms, privacy policy, offline{% endblock %}">
+    <meta name="author" content="Ease My Disease">
+    <meta name="robots"
+        content="{% block meta_robots %}index, follow, max-snippet:-1, max-image-preview:large{% endblock %}">
+    <meta name="googlebot" content="{% block googlebot_meta %}index, follow{% endblock %}">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title"
+        content="{% block og_title %}{% if page_title %}{{ page_title }} | {% endif %}Ease My Disease{% endblock %}">
+    <meta property="og:description"
+        content="{% block og_description %}{{ page_meta_description }}{% endblock %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image"
+        content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/logos/logo.svg' %}{% endblock %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{% block og_image_alt %}Ease My Disease - Healthcare Platform{% endblock %}">
+    <meta property="og:site_name" content="Ease My Disease">
+    <meta property="og:locale" content="{{ LANGUAGE_CODE|default:'en_US' }}">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@easemydisease">
+    <meta name="twitter:creator" content="@easemydisease">
+    <meta name="twitter:title" content="{% block twitter_title %}{% if page_title %}{{ page_title }} | {% endif %}Ease My Disease{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}{{ page_meta_description }}{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/logos/logo.svg' %}{% endblock %}">
+    <meta name="twitter:image:alt" content="{% block twitter_image_alt %}Ease My Disease - Healthcare Platform{% endblock %}">
+
+    <!-- Additional Meta Tags for Enhanced SEO -->
+    <meta name="application-name" content="Ease My Disease">
+    <meta name="apple-mobile-web-app-title" content="EMD">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicon and App Icons (Only SVG favicon available) -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/logos/logo.svg' %}">
+    <!-- If you add PNGs or ICOs, add them here -->
+
+    <!-- Progressive Web App Manifest -->
+    <link rel="manifest" href="{% static 'manifest.json' %}">
+    <meta name="theme-color" content="#ff3b3b">
+    <!-- Remove msapplication-config and browserconfig.xml as they do not exist -->
+
+    <!-- Performance: Preconnect to External Domains -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Performance: DNS Prefetch for Additional Domains -->
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    {% block extra_dns_prefetch %}{% endblock %}
+
+    <!-- Critical CSS: Bootstrap with SRI -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+
+    <!-- Optimized Font Loading -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <!-- Unified Design System -->
+    <link href="{% static 'css/unified-design.css' %}?v={% now 'YmdHis' %}" rel="stylesheet">
+    <!-- Custom CSS with Versioning for Cache Busting -->
+    <link href="{% static 'css/main.css' %}?v={% now 'YmdHis' %}" rel="stylesheet">
+
+    <!-- Mobile Mockup Components CSS -->
+    <link href="{% static 'css/mobile-mockup.css' %}?v={% now 'YmdHis' %}" rel="stylesheet">
+
+    <!-- Page-specific Critical CSS -->
+    {% block critical_css %}{% endblock %}
+
+    <!-- Page-specific Stylesheets -->
+    {% block styles %}{% endblock %}
+
+
+    <!-- Enhanced Structured Data for Healthcare Organization -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "Ease My Disease",
+    "description": "Comprehensive healthcare platform providing emergency services, electronic health records, medical consultations, and personalized nutrition guidance",
+    "url": "{{ request.scheme }}://{{ request.get_host }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logos/logo.svg' %}",
+      "width": 200,
+      "height": 60
+    },
+    "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logos/logo.svg' %}",
+    "telephone": "+1-800-EMD-HELP",
+    "email": "support@easemydisease.com",
+    "medicalSpecialty": [
+      "Emergency Medicine",
+      "Internal Medicine",
+      "Nutrition",
+      "Preventive Medicine",
+      "Digital Health"
+    ],
+    "serviceType": [
+      "Emergency Services",
+      "Electronic Health Records",
+      "Medical Consultation",
+      "Nutrition Guidance",
+      "Health Monitoring"
+    ],
+    "availableService": [
+      {
+        "@type": "MedicalService",
+        "name": "Emergency SOS",
+        "description": "24/7 emergency response system with instant location tracking and emergency contact notification",
+        "serviceType": "Emergency Services"
+      },
+      {
+        "@type": "MedicalService",
+        "name": "Electronic Health Records",
+        "description": "Secure, comprehensive digital health record management with privacy-first approach",
+        "serviceType": "Health Information Management"
+      },
+      {
+        "@type": "MedicalService",
+        "name": "Medical Consultation",
+        "description": "Online medical consultations with qualified, licensed healthcare professionals",
+        "serviceType": "Telemedicine"
+      },
+      {
+        "@type": "MedicalService",
+        "name": "Nutrition Guidance",
+        "description": "Personalized diet recommendations, healthy recipes, and nutritional analysis",
+        "serviceType": "Nutrition Counseling"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://twitter.com/easemydisease",
+      "https://facebook.com/easemydisease",
+      "https://linkedin.com/company/easemydisease"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "2847",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  }
+  </script>
+
+    <!-- Page-specific Structured Data -->
+    {% block structured_data %}{% endblock %}
+
+    <!-- Enhanced Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="{% block csp %}default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com; frame-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'{% endblock %}">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), location=(self), notifications=(self)">
+
+    <!-- Performance Hints -->
+    <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+
+    <!-- Page-specific Head Content -->
+    {% block extra_head %}{% endblock %}
+
+    <!-- Remove no-js class if JavaScript is enabled -->
+    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+</head>
+
+<body class="d-flex flex-column min-vh-100" itemscope itemtype="https://schema.org/WebPage">
+
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content"
+        class="guest-skip-link visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 m-2 z-3"
+        style="z-index: 9999;" aria-label="Skip to main content">
+        <i class="bi bi-arrow-down me-1" aria-hidden="true"></i>
+        {% trans "Skip to main content" %}
+    </a>
+
+    <!-- Emergency Access Button (Always Visible) -->
+    <a href="{% url 'index:sos' %}" class="btn btn-emergency position-fixed bottom-0 end-0 m-3 z-3"
+        style="z-index: 9998;" aria-label="Emergency SOS - Quick access to emergency services" data-bs-toggle="tooltip"
+        data-bs-placement="left" title="Emergency SOS">
+        <i class="bi bi-exclamation-triangle-fill me-1" aria-hidden="true"></i>
+        <span class="d-none d-sm-inline">{% trans "Emergency" %}</span>
+        <span class="d-sm-none">SOS</span>
+    </a>
+
+    <!-- Loading Indicator for Progressive Enhancement -->
+    <div id="page-loader"
+        class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-white"
+        style="z-index: 9999; display: none !important;">
+        <div class="spinner-border text-primary" role="status" aria-hidden="true"></div>
+        <span class="visually-hidden">{% trans "Loading..." %}</span>
+    </div>
+
+    <!-- Toast Container for Install Prompts and Notifications -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9997;" id="toast-container">
+        <!-- Toast notifications will be dynamically inserted here -->
+    </div>
+
+    <!-- Header Navigation -->
+    {% include '_partials/header.html' %}
+
+    <!-- Main Content Area with Enhanced Semantics -->
+    <main id="main-content" class="flex-grow-1 py-4" role="main" itemprop="mainContentOfPage" tabindex="-1">
+        <div class="container{% block container_class %}{% endblock %}">
+
+            <!-- Breadcrumb Navigation -->
+            {% block breadcrumb %}{% endblock %}
+
+            <!-- Page Status Messages -->
+            {% include '_partials/messages.html' %}
+
+            <!-- Page Header Section -->
+            {% block page_header %}{% endblock %}
+
+            <!-- Primary Page Content -->
+            {% block content %}{% endblock %}
+
+            <!-- Page-specific Content Sections -->
+            {% block extra_content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    {% include '_partials/footer.html' %}
+
+    <!-- Cookie Consent Banner (GDPR Compliance) -->
+    {% include '_partials/cookie_consent.html' %}
+
+    <!-- JavaScript with Enhanced Performance and Security -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"
+        defer></script>
+
+    <!-- Custom JavaScript with Cache Busting -->
+    <script src="{% static 'js/main.js' %}?v={% now 'YmdHis' %}" defer></script>
+
+    <!-- Header Enhancements -->
+    <script src="{% static 'js/header-enhancements.js' %}?v={% now 'YmdHis' %}" defer></script>
+
+    <!-- Progressive Disclosure System -->
+    <script src="{% static 'js/progressive-disclosure.js' %}?v={% now 'YmdHis' %}" defer></script>
+
+    <!-- Page-specific JavaScript -->
+    {% block scripts %}{% endblock %}
+
+    <!-- Analytics and Performance Monitoring -->
+    {% block analytics %}
+    {% comment %}
+    Analytics scripts should be added here in production
+    Examples: Google Analytics, Google Tag Manager, etc.
+    Use data attributes for privacy-compliant tracking
+    {% endcomment %}
+    {% endblock %}
+
+    <!-- Service Worker Registration for PWA -->
+    <script>
+        // Progressive Web App Service Worker Registration
+        if (
+            'serviceWorker' in navigator &&
+            (window.location.protocol === 'https:' || window.location.hostname === 'localhost')
+        ) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('{% static "sw.js" %}')
+                    .then(function (registration) {
+                        console.log('SW registered successfully: ', registration.scope);
+
+                        // Check for updates
+                        registration.addEventListener('updatefound', function () {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', function () {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // Show update available notification
+                                    if (window.showUpdateNotification) {
+                                        window.showUpdateNotification();
+                                    }
+                                }
+                            });
+                        });
+                    })
+                    .catch(function (registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Initialize theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize theme from cookie or default to light
+            const savedTheme = getCookie('theme') || 'light';
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
+
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                // Set initial ARIA state
+                themeToggle.setAttribute('aria-pressed', savedTheme === 'dark');
+
+                themeToggle.addEventListener('click', function () {
+                    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                    document.documentElement.setAttribute('data-bs-theme', newTheme);
+                    document.cookie = `theme=${newTheme}; path=/; max-age=31536000; SameSite=Lax`;
+
+                    // Update ARIA pressed state
+                    this.setAttribute('aria-pressed', newTheme === 'dark');
+
+                    // Announce theme change to screen readers
+                    const announcement = document.createElement('div');
+                    announcement.setAttribute('aria-live', 'polite');
+                    announcement.setAttribute('aria-atomic', 'true');
+                    announcement.className = 'visually-hidden';
+                    announcement.textContent = `Theme changed to ${newTheme} mode`;
+                    document.body.appendChild(announcement);
+
+                    setTimeout(() => {
+                        document.body.removeChild(announcement);
+                    }, 1000);
+                });
+            }
+
+            // Helper function to get cookie value
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+            }
+
+            // Initialize tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+
+        // Performance monitoring
+        if ('PerformanceObserver' in window) {
+            // Monitor Core Web Vitals
+            new PerformanceObserver(function (list) {
+                list.getEntries().forEach(function (entry) {
+                    if (entry.entryType === 'largest-contentful-paint') {
+                        // Track LCP
+                        console.log('LCP:', entry.startTime);
+                    }
+                });
+            }).observe({ type: 'largest-contentful-paint', buffered: true });
+
+            // Monitor layout shifts
+            new PerformanceObserver(function (list) {
+                let cls = 0;
+                list.getEntries().forEach(function (entry) {
+                    if (!entry.hadRecentInput) {
+                        cls += entry.value;
+                    }
+                });
+                if (cls > 0) {
+                    console.log('CLS:', cls);
+                }
+            }).observe({ type: 'layout-shift', buffered: true });
+        }
+    </script>
+
+    <!-- Emergency and Critical Error Handling -->
+    <script>
+        window.addEventListener('error', function (e) {
+            // Log critical errors for monitoring
+            console.error('Critical Error:', e.error);
+
+            // Show user-friendly error message for critical failures
+            if (e.error && e.error.message && e.error.message.includes('Network')) {
+                if (window.showNetworkErrorNotification) {
+                    window.showNetworkErrorNotification();
+                }
+            }
+        });
+
+        window.addEventListener('unhandledrejection', function (e) {
+            console.error('Unhandled Promise Rejection:', e.reason);
+        });
+    </script>
+</body>
+
+</html>

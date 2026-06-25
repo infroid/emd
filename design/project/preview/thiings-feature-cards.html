@@ -1,0 +1,98 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Thiings × feature card" subtitle="Applied pattern: 3D illo + editorial copy per surface" viewport="700x320" -->
+<html><head><meta charset="utf-8"><title>Thiings × feature card</title>
+<link rel="stylesheet" href="_preview.css">
+<script src="../assets/image-slot.js"></script>
+<style>
+  body { background: var(--bg-2); }
+  .pv-card { padding: 24px; }
+
+  .head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .head .title { font-family: var(--font-display); font-weight: 800; font-size: 16px; letter-spacing: -0.02em; color: var(--fg-1); }
+  .head .src { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); }
+
+  /* Three "before & after" cards: regular icon vs Thiings-enhanced */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+  .card {
+    background: var(--bg-1);
+    border: 1px solid var(--border-1);
+    border-radius: 24px;
+    padding: 0;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .card .illo {
+    background: linear-gradient(135deg, var(--tint) 0%, var(--tint-deeper) 100%);
+    height: 130px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .card .illo::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(255,255,255,.4) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .card image-slot {
+    width: 96px; height: 96px;
+    --slot-border: 1px dashed rgba(0,0,0,.18);
+    --slot-bg: transparent;
+    --slot-radius: 14px;
+    z-index: 1;
+  }
+  .card .body { padding: 16px 18px 18px; }
+  .card .surface-tag {
+    font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--c); margin-bottom: 6px;
+  }
+  .card h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 16px; line-height: 1.2; margin: 0 0 4px;
+    color: var(--fg-1); letter-spacing: -0.015em;
+  }
+  .card p {
+    font-size: 12px; color: var(--fg-2); line-height: 1.45; margin: 0;
+  }
+</style></head><body>
+<div class="pv-card">
+  <div class="head">
+    <div class="title">Thiings × feature card — applied pattern</div>
+    <div class="src">drop a 3D object into each illo slot</div>
+  </div>
+  <div class="grid">
+
+    <div class="card" style="--c:#dc2626;--tint:rgba(220,38,38,.10);--tint-deeper:rgba(220,38,38,.20)">
+      <div class="illo"><image-slot id="fc-sos" placeholder="heart / alarm"></image-slot></div>
+      <div class="body">
+        <div class="surface-tag">01 · sos</div>
+        <h3>Help arrives in under 10 min</h3>
+        <p>Real-time tracking, certified responders, auto-shared location.</p>
+      </div>
+    </div>
+
+    <div class="card" style="--c:#3b82f6;--tint:rgba(59,130,246,.10);--tint-deeper:rgba(59,130,246,.20)">
+      <div class="illo"><image-slot id="fc-ehr" placeholder="folder / file"></image-slot></div>
+      <div class="body">
+        <div class="surface-tag">02 · records</div>
+        <h3>Every record, one secure vault</h3>
+        <p>HIPAA-compliant, patient-owned, shareable in one tap.</p>
+      </div>
+    </div>
+
+    <div class="card" style="--c:#7c3aed;--tint:rgba(124,58,237,.10);--tint-deeper:rgba(124,58,237,.20)">
+      <div class="illo"><image-slot id="fc-doc" placeholder="stethoscope"></image-slot></div>
+      <div class="body">
+        <div class="surface-tag">03 · consult</div>
+        <h3>Book a doctor in 60 seconds</h3>
+        <p>10,000+ licensed specialists, same-day video slots, notes synced.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body></html>

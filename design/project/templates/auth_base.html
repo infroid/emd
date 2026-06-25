@@ -1,0 +1,309 @@
+<!--
+  Authentication Base Template
+  ==========================
+  Specialized base template for authentication pages with:
+  - Enhanced UX for login/signup flows
+  - Social authentication support
+  - Form validation and accessibility
+  - Progressive enhancement
+  - Security optimizations
+  - Conversion tracking hooks
+-->
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block page_type %}authentication{% endblock %}
+{% block page_category %}auth{% endblock %}
+{% block meta_robots %}noindex, nofollow{% endblock %}
+
+{% block extra_dns_prefetch %}
+<!-- Social authentication providers -->
+<link rel="dns-prefetch" href="//accounts.google.com">
+<link rel="dns-prefetch" href="//www.facebook.com">
+<link rel="dns-prefetch" href="//github.com">
+{% endblock %}
+
+{% block critical_css %}
+<style>
+    /* Critical CSS for authentication pages */
+    .auth-container {
+        min-height: calc(100vh - 200px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0;
+    }
+
+    .auth-card {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border: none;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        background: var(--bs-body-bg);
+    }
+
+    .auth-header {
+        background: linear-gradient(135deg, var(--primary-light, #ff3b3b), var(--primary-dark, #ff6b6b));
+        color: white;
+        padding: 2rem 2rem 1rem;
+        text-align: center;
+        position: relative;
+    }
+
+    .auth-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("{% static 'index/img/pattern.svg' %}") repeat;
+        opacity: 0.1;
+        pointer-events: none;
+    }
+
+    .auth-header h1 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .auth-header p {
+        opacity: 0.9;
+        margin-bottom: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .auth-body {
+        padding: 2rem;
+    }
+
+    .social-login {
+        margin-bottom: 1.5rem;
+    }
+
+    .divider {
+        position: relative;
+        margin: 1.5rem 0;
+        text-align: center;
+    }
+
+    .divider::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: var(--bs-border-color);
+    }
+
+    .divider span {
+        background: var(--bs-body-bg);
+        padding: 0 1rem;
+        color: var(--bs-secondary);
+        font-size: 0.875rem;
+    }
+
+    .form-floating .form-control {
+        border-radius: 0.75rem;
+        border: 2px solid var(--bs-border-color);
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-floating .form-control:focus {
+        border-color: var(--primary-light, #ff3b3b);
+        box-shadow: 0 0 0 0.25rem rgba(255, 59, 59, 0.1);
+    }
+
+    .btn-auth {
+        border-radius: 0.75rem;
+        padding: 0.875rem;
+        font-weight: 500;
+        text-transform: none;
+        border: none;
+        background: linear-gradient(135deg, var(--primary-light, #ff3b3b), var(--primary-dark, #ff6b6b));
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-auth:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(255, 59, 59, 0.3);
+    }
+
+    .auth-footer {
+        text-align: center;
+        padding: 1rem 2rem 2rem;
+        border-top: 1px solid var(--bs-border-color);
+        background: var(--bs-gray-50);
+    }
+
+    .auth-links a {
+        color: var(--primary-light, #ff3b3b);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .auth-links a:hover {
+        color: var(--primary-dark, #ff6b6b);
+        text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+        .auth-container {
+            padding: 1rem;
+        }
+
+        .auth-header,
+        .auth-body,
+        .auth-footer {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+    }
+
+    /* Dark mode adjustments */
+    [data-bs-theme="dark"] .auth-card {
+        background: var(--bs-gray-900);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-bs-theme="dark"] .auth-footer {
+        background: var(--bs-gray-800);
+        border-top-color: var(--bs-gray-700);
+    }
+
+    [data-bs-theme="dark"] .divider span {
+        background: var(--bs-gray-900);
+    }
+
+    /* Loading state */
+    .btn-auth.loading {
+        position: relative;
+        color: transparent;
+    }
+
+    .btn-auth.loading::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -0.5rem 0 0 -0.5rem;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid transparent;
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+{% endblock %}
+
+{% block styles %}
+<link href="{% static 'css/auth.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block container_class %}-fluid{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card card shadow-lg">
+        <div class="card-body p-4 p-sm-5">
+
+            <!-- Authentication Header -->
+            <div class="auth-header">
+                <a href="{% url 'index:sos' %}" class="text-decoration-none" aria-label="{% trans 'Home' %}">
+                    <img src="{% static 'images/logos/logo.svg' %}" alt="{% trans 'Ease My Disease Logo' %}"
+                        class="auth-logo" width="60" height="auto" loading="eager">
+                </a>
+
+                <h1 class="h3 fw-bold text-center mb-2">
+                    {% block auth_title %}{% endblock %}
+                </h1>
+
+                {% block auth_subtitle %}
+                <p class="text-muted text-center mb-0">
+                    {% block auth_description %}{% endblock %}
+                </p>
+                {% endblock %}
+            </div>
+
+            <!-- Authentication Form Content -->
+            {% block auth_content %}{% endblock %}
+
+            <!-- Additional Authentication Links -->
+            <div class="text-center mt-4">
+                {% block auth_footer %}{% endblock %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Security Notice -->
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <small class="text-muted d-flex align-items-center">
+                <i class="bi bi-shield-check me-1" aria-hidden="true"></i>
+                {% trans "Secured with 256-bit SSL encryption" %}
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add loading state to form submissions
+        const authForms = document.querySelectorAll('form');
+        authForms.forEach(function (form) {
+            form.addEventListener('submit', function (e) {
+                const submitBtn = form.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.classList.add('loading');
+                    submitBtn.setAttribute('disabled', 'disabled');
+                }
+            });
+        });
+
+        // Enhanced form validation feedback
+        const inputs = document.querySelectorAll('.form-control');
+        inputs.forEach(function (input) {
+            input.addEventListener('blur', function () {
+                if (this.checkValidity()) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                } else {
+                    this.classList.remove('is-valid');
+                    this.classList.add('is-invalid');
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Enhanced Authentication JavaScript -->
+<script src="{% static 'js/auth.js' %}?v={% now 'YmdHis' %}" defer></script>
+{% endblock %}

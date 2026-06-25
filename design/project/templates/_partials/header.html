@@ -1,0 +1,231 @@
+<!--
+  Header Navigation Component
+  ==========================
+  Reusable header navigation with:
+  - Responsive design with mobile-first approach
+  - Accessibility features (ARIA labels, semantic HTML)
+  - Theme toggle functionality
+  - User authentication state handling
+  - Progressive enhancement
+-->
+{% load static %}
+{% load i18n %}
+
+<header role="banner">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary sticky-top" role="navigation"
+        aria-label="Main navigation">
+        <div class="container">
+
+            <!-- Brand Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'index:sos' %}"
+                aria-label="Ease My Disease - Home">
+                <img src="{% static 'images/logos/logo.svg' %}" alt="Ease My Disease Logo" height="32" width="auto"
+                    class="me-2" loading="eager">
+                <span class="visually-hidden">Ease My Disease</span>
+            </a>
+
+            <!-- Right Controls - Always Visible -->
+            <div class="d-flex align-items-center gap-2 order-lg-3">
+
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark/light theme"
+                    aria-pressed="false" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Toggle theme">
+                    <i class="bi bi-sun-fill light-icon"></i>
+                    <i class="bi bi-moon-stars-fill dark-icon"></i>
+                </button>
+
+                <!-- Language Selector -->
+                <div class="dropdown language-dropdown">
+                    <button class="language-toggle" id="languageDropdown" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" aria-label="{% trans 'Select Language' %}" data-bs-toggle="tooltip"
+                        data-bs-placement="bottom" title="{% trans 'Choose Language' %}">
+                        <i class="bi bi-translate" aria-hidden="true"></i>
+                        <span class="language-code d-none d-sm-inline">{{ LANGUAGE_CODE|upper }}</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end language-menu" aria-labelledby="languageDropdown">
+                        <li class="dropdown-header">
+                            <i class="bi bi-globe me-2" aria-hidden="true"></i>
+                            {% trans "Choose Language" %}
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% for lang_code, lang_name in LANGUAGES %}
+                        <li>
+                            <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                                <input name="language" type="hidden" value="{{ lang_code }}">
+                                <button type="submit"
+                                    class="dropdown-item language-option {% if LANGUAGE_CODE == lang_code %}active{% endif %}"
+                                    {% if LANGUAGE_CODE == lang_code %}aria-current="true" {% endif %}>
+                                    <span class="language-flag me-2">
+                                        {% if lang_code == 'en' %}🇺🇸{% elif lang_code == 'hi' %}🇮🇳{% elif lang_code == 'es' %}🇪🇸{% else %}🌐{% endif %}
+                                    </span>
+                                    <span class="language-name">{{ lang_name }}</span>
+                                    {% if LANGUAGE_CODE == lang_code %}
+                                    <i class="bi bi-check-lg ms-auto text-success" aria-hidden="true"></i>
+                                    {% endif %}
+                                </button>
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- User Profile Button -->
+                {% if user.is_authenticated %}
+                <div class="dropdown profile-dropdown">
+                    <button class="btn profile-btn authenticated" type="button" id="userMenuDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false" aria-label="User menu for {{ user }}">
+                        <div class="profile-avatar">
+                            {% if user.socialaccount_set.all.0.get_avatar_url %}
+                            <img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="{{ user }}"
+                                class="avatar-img">
+                            {% else %}
+                            <i class="bi bi-person-fill" aria-hidden="true"></i>
+                            {% endif %}
+                        </div>
+                        <span class="profile-info d-none d-lg-flex">
+                            <span class="profile-name">{{ user|truncatechars:15 }}</span>
+                            <i class="bi bi-chevron-down profile-arrow" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end profile-menu" aria-labelledby="userMenuDropdown">
+                        <li class="dropdown-header">
+                            <div class="user-info">
+                                <strong>{{ user }}</strong>
+                                {% if user.email %}
+                                <small class="text-muted d-block">{{ user.email }}</small>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" data-feature="profile">
+                                <i class="bi bi-person me-2" aria-hidden="true"></i>
+                                {% trans "My Profile" %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" data-feature="settings">
+                                <i class="bi bi-gear me-2" aria-hidden="true"></i>
+                                {% trans "Settings" %}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" data-feature="preferences">
+                                <i class="bi bi-sliders me-2" aria-hidden="true"></i>
+                                {% trans "Preferences" %}
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" data-feature="help">
+                                <i class="bi bi-question-circle me-2" aria-hidden="true"></i>
+                                {% trans "Help & Support" %}
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-danger logout-item" href="{% url 'account_logout' %}">
+                                <i class="bi bi-box-arrow-right me-2" aria-hidden="true"></i>
+                                {% trans "Sign Out" %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                {% else %}
+                <div class="auth-buttons">
+                    <!-- Login Button -->
+                    <button class="auth-btn login-btn" type="button" data-url="{% url 'account_login' %}"
+                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'Sign In' %}">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        <span class="auth-text d-none d-sm-inline">{% trans "Sign In" %}</span>
+                    </button>
+
+                    <!-- Signup Button -->
+                    <button class="auth-btn signup-btn" type="button" data-url="{% url 'account_signup' %}"
+                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="{% trans 'Sign Up' %}">
+                        <i class="bi bi-person-plus"></i>
+                        <span class="auth-text d-none d-sm-inline">{% trans "Sign Up" %}</span>
+                    </button>
+
+                    <!-- Script to handle auth button clicks -->
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            document.querySelectorAll('.auth-btn[data-url]').forEach(btn => {
+                                btn.addEventListener('click', () => {
+                                    window.location.href = btn.dataset.url;
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+                {% endif %}
+
+                <!-- Mobile Menu Toggle -->
+                <button class="navbar-toggler border-0 shadow-none ms-2" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                    aria-label="Toggle navigation menu">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="visually-hidden">Toggle navigation</span>
+                </button>
+            </div>
+
+            <!-- Main Navigation Menu -->
+            <div class="collapse navbar-collapse order-lg-2" id="navbarContent">
+                <ul class="navbar-nav mx-auto" role="menubar">
+
+                    <!-- SOS Emergency -->
+                    <li class="nav-item" role="none">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'sos' %}active{% endif %}"
+                            href="{% url 'index:sos' %}" role="menuitem" {% if request.resolver_match.url_name == 'sos' %}
+                            aria-current="page" {% endif %}>
+                            <i class="bi bi-heart-pulse-fill d-lg-none me-2" aria-hidden="true"></i>
+                            {% trans "SOS Emergency" %}
+                        </a>
+                    </li>
+
+                    <!-- Electronic Health Records -->
+                    <li class="nav-item" role="none">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'ehr' %}active{% endif %}"
+                            href="{% url 'index:ehr' %}" role="menuitem" {% if request.resolver_match.url_name == 'ehr' %}
+                            aria-current="page" {% endif %}>
+                            <i class="bi bi-file-medical-fill d-lg-none me-2" aria-hidden="true"></i>
+                            {% trans "Health Records" %}
+                        </a>
+                    </li>
+
+                    <!-- Doctor Consultation -->
+                    <li class="nav-item" role="none">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'doctor' %}active{% endif %}"
+                            href="{% url 'index:doctor' %}" role="menuitem"
+                            {% if request.resolver_match.url_name == 'doctor' %} aria-current="page" {% endif %}>
+                            <i class="bi bi-chat-dots-fill d-lg-none me-2" aria-hidden="true"></i>
+                            {% trans "Consult Doctor" %}
+                        </a>
+                    </li>
+
+                    <!-- Diet & Nutrition -->
+                    <li class="nav-item" role="none">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'diet' %}active{% endif %}"
+                            href="{% url 'index:diet' %}" role="menuitem" {% if request.resolver_match.url_name == 'diet' %}
+                            aria-current="page" {% endif %}>
+                            <i class="bi bi-apple d-lg-none me-2" aria-hidden="true"></i>
+                            {% trans "Diet & Nutrition" %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
