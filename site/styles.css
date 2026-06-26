@@ -571,3 +571,70 @@ h3{font-size:var(--t-h3);font-weight:700;}
 /* skip link */
 .skip{position:absolute;left:-999px;top:8px;background:var(--bg-1);color:var(--accent-text);padding:10px 16px;border-radius:10px;font-weight:700;box-shadow:var(--shadow-md);z-index:300;}
 .skip:focus{left:16px;}
+
+/* ============================ 4. ANIMATED DEMOS (micro-interactions) ====== */
+/* A .demo phone plays a looping, tap-driven walkthrough: a simulated finger
+   moves and presses, and full-screen .frames cross-fade to the next state. */
+.demo .frames{position:absolute;inset:0;z-index:1;}
+.demo .frame{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:scale(.985);transition:opacity .45s var(--ease),transform .45s var(--ease);}
+.demo .frame.active{opacity:1;visibility:visible;transform:none;}
+.demo .frame.bleed{background:#0e0d12;}
+/* the frame's own statusbar/scroll/tabbar behave like a normal screen */
+.demo .frame .scroll{padding-top:38px;}
+.demo .frame .scroll.flush{padding-top:0;}
+
+/* simulated finger / tap pointer */
+.tap{position:absolute;z-index:40;left:50%;top:50%;width:30px;height:30px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.85),rgba(220,38,38,.45) 60%,rgba(220,38,38,.25));
+  border:2px solid rgba(255,255,255,.9);box-shadow:0 4px 12px rgba(15,23,42,.4);
+  transform:translate(-50%,-50%) scale(.2);opacity:0;pointer-events:none;
+  transition:left .55s var(--ease),top .55s var(--ease),transform .2s var(--ease),opacity .3s ease;}
+.tap.show{opacity:1;transform:translate(-50%,-50%) scale(1);}
+.tap.down{transform:translate(-50%,-50%) scale(.66);}
+.tap::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(220,38,38,.6);opacity:0;}
+.tap.ping::after{animation:tapPing .6s var(--ease);}
+@keyframes tapPing{0%{opacity:.8;transform:scale(.5);}100%{opacity:0;transform:scale(2.1);}}
+
+/* SOS hold-to-dispatch fill ring (sits over the big button) */
+.hold-ring{position:absolute;inset:-5px;width:calc(100% + 10px);height:calc(100% + 10px);transform:rotate(-90deg);pointer-events:none;}
+.hold-ring circle{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-dasharray:289;stroke-dashoffset:289;opacity:.95;}
+.demo.holding .hold-ring circle{stroke-dashoffset:0;transition:stroke-dashoffset 1.7s linear;}
+.demo.holding .sos-big{transform:scale(1.04);transition:transform .3s var(--ease);}
+.sos-big .sub .b{display:none;}
+.demo.holding .sos-big .sub .a{display:none;}
+.demo.holding .sos-big .sub .b{display:inline;}
+.sos-instruct .b{display:none;}
+.demo.holding .sos-instruct .a{display:none;}
+.demo.holding .sos-instruct .b{display:inline;}
+
+/* upload OCR progress: ring sweeps + bar fills when its frame becomes active */
+.upload-ring{width:120px;height:120px;transform:rotate(-90deg);margin:0 auto;}
+.upload-ring .bg{fill:none;stroke:var(--bg-3);stroke-width:6;}
+.upload-ring .fg{fill:none;stroke:var(--emd-info);stroke-width:6;stroke-linecap:round;stroke-dasharray:289;stroke-dashoffset:289;}
+.demo .frame.active .upload-ring .fg{stroke-dashoffset:40;transition:stroke-dashoffset 1.5s ease .15s;}
+.scan-line{position:absolute;left:8%;right:8%;height:2px;background:linear-gradient(90deg,transparent,var(--emd-info),transparent);box-shadow:0 0 10px var(--emd-info);top:18%;opacity:0;}
+.demo .frame.active .scan-line{animation:scan 1.5s ease-in-out;}
+@keyframes scan{0%{top:18%;opacity:0;}15%{opacity:1;}85%{opacity:1;}100%{top:78%;opacity:0;}}
+
+/* success pop (booked / filed / refill) */
+.pop-in{animation:popIn .5s var(--ease) both;}
+.demo .frame.active .pop-in{animation:popIn .5s var(--ease) both;}
+@keyframes popIn{0%{transform:scale(.4);opacity:0;}60%{transform:scale(1.08);}100%{transform:scale(1);opacity:1;}}
+
+/* hint chip under each demo */
+.demo-hint{margin-top:14px;display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:99px;background:var(--bg-1);border:1px solid var(--border-1);box-shadow:var(--shadow-sm);font-size:.8rem;font-weight:600;color:var(--fg-2);}
+.demo-hint i{color:var(--accent);}
+.demo-hint .live{width:7px;height:7px;border-radius:50%;background:var(--emd-success);box-shadow:0 0 0 0 rgba(22,163,74,.5);animation:livePulse 1.6s infinite;}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(22,163,74,.5);}70%{box-shadow:0 0 0 6px rgba(22,163,74,0);}100%{box-shadow:0 0 0 0 rgba(22,163,74,0);}}
+.feature-media .demo-wrap{display:flex;flex-direction:column;align-items:center;}
+
+/* in-app toast used by demos */
+.m-toast{position:absolute;left:16px;right:16px;bottom:88px;z-index:30;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;background:var(--emd-gray-900);color:#fff;box-shadow:0 12px 28px rgba(15,23,42,.3);font-size:12.5px;font-weight:500;}
+[data-bs-theme="dark"] .m-toast{background:#000;}
+.m-toast i{color:#4ade80;font-size:16px;}
+
+@media (prefers-reduced-motion:reduce){
+  .demo .frame{transition:none;}
+  .tap{display:none;}
+  .demo.holding .hold-ring circle{transition:none;}
+}
